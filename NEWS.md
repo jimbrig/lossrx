@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleases] - lossrx 0.0.0.9000
+## [Unreleased] - lossrx 0.0.0.9000
 
 * Added a `NEWS.md` file to track changes to the package.
 
