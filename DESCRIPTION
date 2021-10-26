@@ -1,0 +1,12 @@
+Package: lossrx
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person("Jimmy", "Briggs", , "jimmy.briggs@jimbrig.com.", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-7489-8787"))
+Description: What the package does (one paragraph).
+License: MIT + file LICENSE
+Encoding: UTF-8
+Language: en-US
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
