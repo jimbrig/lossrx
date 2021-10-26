@@ -3,3 +3,7 @@
 ^data-raw$
 ^README\.Rmd$
 ^cliff.toml$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$
