@@ -9,11 +9,10 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![Project Status:
 WIP](https://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
+[![pkgdown](https://github.com/jimbrig/lossrx/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/jimbrig/lossrx/actions/workflows/pkgdown.yaml)
 <!-- badges: end -->
 
 The goal of lossrx is to …
-
-View the [Package Changelog](inst/CHANGELOG.md) to follow along with latest developments in the codebase.
 
 ## Installation
 
