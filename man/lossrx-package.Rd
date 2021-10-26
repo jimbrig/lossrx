@@ -6,7 +6,16 @@
 \alias{lossrx-package}
 \title{lossrx: Actuarial Loss Development and Reserving with R}
 \description{
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+
 Actuarial Loss Development and Reserving Helper Functions and ShinyApp.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://jimbrig.github.io/lossrx}
+}
+
 }
 \author{
 \strong{Maintainer}: Jimmy Briggs \email{jimmy.briggs@jimbrig.com.} (\href{https://orcid.org/0000-0002-7489-8787}{ORCID})
