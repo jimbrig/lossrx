@@ -1,0 +1,19 @@
+---
+title: "Actuarial Loss Reserving Overview"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Actuarial Loss Reserving Overview}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(lossrx)
+```
