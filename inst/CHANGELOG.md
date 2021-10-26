@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Configuration
+
+- Rbuildignore git-cliff cliff.toml config file
+
 ### Documentation
 
 - Add NEWS.md
@@ -11,8 +15,19 @@ All notable changes to this project will be documented in this file.
 - Create overview of loss reserving initial vignette
 - Add package hex logo to inst/images
 - Knit initial README.md (with logo)
+- Add hex logo to man directory
+- Initialize git-cliff for CHANGELOG.md generation
+- Extra images
+- Add CHANGELOG to README
+- Sync NEWS.md and CHANGELOG.md
+- Run `usethis::use_pkgdown_github_pages()`
+- Update DESCRIPTION and pkgdoc
 
-### Infrstructure
+### Features
+
+- Add license
+
+### Infrastructure
 
 - Initialize R package structure via `usethis`
 - Create data-raw for preparing claims data
@@ -22,6 +37,11 @@ All notable changes to this project will be documented in this file.
 ### Testing
 
 - Initialize tests with testthat
+
+### Bug
+
+- Fix malformed maintainer in DESCRIPTION
+- Tweak cliff.toml typo
 
 ***
 Jimmy Briggs | 2021

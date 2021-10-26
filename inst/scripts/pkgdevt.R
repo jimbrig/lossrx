@@ -84,3 +84,4 @@ knitr::knit("README.Rmd")
 # Misc --------------------------------------------------------------------
 
 usethis::use_news_md()
+usethis::use_pkgdown_github_pages()

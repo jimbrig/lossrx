@@ -36,7 +36,7 @@ Jimmy Briggs | 2021
 conventional_commits = true
 # regex for parsing and grouping commits
 commit_parsers = [
-    { message = "^setup", group = "Infrstructure"},
+    { message = "^setup", group = "Infrastructure"},
     { message = "^config", group = "Configuration"},
     { message = "^feat", group = "Features"},
     { message = "^fix", group = "Bug Fixes"},
