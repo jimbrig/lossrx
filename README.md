@@ -13,6 +13,8 @@ WIP](https://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.or
 
 The goal of lossrx is to …
 
+View the [Package Changelog](inst/CHANGELOG.md) to follow along with latest developments in the codebase.
+
 ## Installation
 
 You can install the development version of lossrx like so:
