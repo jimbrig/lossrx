@@ -2,13 +2,14 @@ Package: lossrx
 Title: Actuarial Loss Development and Reserving with R
 Version: 0.0.0.9000
 Authors@R: 
-    person("Jimmy", "Briggs", email = "jimmy.briggs@jimbrig.com", role = c("aut", "cre"),
+    person("Jimmy", "Briggs", , "jimmy.briggs@jimbrig.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7489-8787"))
 Description: Actuarial Loss Development and Reserving Helper Functions and
     ShinyApp.
 License: MIT + file LICENSE
 URL: https://jimbrig.github.io/lossrx
 Imports: 
+    dplyr,
     magrittr,
     rlang (>= 0.4.11),
     tibble
