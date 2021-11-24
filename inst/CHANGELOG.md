@@ -22,10 +22,18 @@ All notable changes to this project will be documented in this file.
 - Sync NEWS.md and CHANGELOG.md
 - Run `usethis::use_pkgdown_github_pages()`
 - Update DESCRIPTION and pkgdoc
+- Update CHANGELOG.md
+- Update news.md
+- Add favicons
+- Overview vignette
+- Add pkgdown gh action badge to readme
+- Render pkgdown on develop branch too
 
 ### Features
 
 - Add license
+- Add new triangle functions and initialize tests
+- Add git-cliff GH action workflow
 
 ### Infrastructure
 
