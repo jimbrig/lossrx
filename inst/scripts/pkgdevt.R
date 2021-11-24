@@ -85,3 +85,13 @@ knitr::knit("README.Rmd")
 
 usethis::use_news_md()
 usethis::use_pkgdown_github_pages()
+
+
+# Functions ---------------------------------------------------------------
+
+usethis::use_r("triangles")
+
+
+# Tests -------------------------------------------------------------------
+
+usethis::use_test("triangle")
