@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file.
 - Cleanup old files
 - Update NAMESPACE
 - Add separate pkgdown config for chameleon
+- Edit github labels
 
 ### Documentation
 
@@ -37,6 +38,7 @@ All notable changes to this project will be documented in this file.
 - Enhance pkgdown config
 - Document new man pages
 - Update README with new badges
+- Update CHANGELOG
 
 ### Features
 
@@ -63,6 +65,10 @@ All notable changes to this project will be documented in this file.
 - Create data-raw for preparing claims data
 - Backup package commands to `pkgdevt.R`
 - Add some utility imports
+
+### Miscellaneous Tasks
+
+- Autopublish 2021-11-24T02:29:14Z
 
 ### Testing
 
