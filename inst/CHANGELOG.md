@@ -40,6 +40,7 @@ All notable changes to this project will be documented in this file.
 - Update README with new badges
 - Update CHANGELOG
 - Update README
+- Fix README and NEWS
 
 ### Features
 
@@ -71,6 +72,7 @@ All notable changes to this project will be documented in this file.
 
 - Autopublish 2021-11-24T02:29:14Z
 - Autopublish 2021-11-28T05:18:05Z
+- Autopublish 2021-11-28T05:20:09Z
 
 ### Testing
 
@@ -80,6 +82,7 @@ All notable changes to this project will be documented in this file.
 
 - Fix malformed maintainer in DESCRIPTION
 - Tweak cliff.toml typo
+- Fix pkgdown config for unreleased sections
 
 ***
 Jimmy Briggs | 2021
