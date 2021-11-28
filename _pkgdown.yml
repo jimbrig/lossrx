@@ -1,2 +1,14 @@
 url: https://jimbrig.github.io/lossrx
+destination: inst/docs
+site_url: ~
+reference:
+- title: Utilities
+  desc: Utility functions to aid in the typical actuarial workflow.
+  contents:
+  - '`data-utils`'
+  - '`dates`'
+  - '`feedback`'
+news:
+  releases:
+  - text: lossrx 0.0.0.9000
 
