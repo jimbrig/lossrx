@@ -35,7 +35,17 @@ usethis::use_tidy_eval() # move to propalloc-package.R
 devtools::document()
 
 
-usethis::use_news_md()
+# github labels -----------------------------------------------------------
+
+usethis::use_github_labels(
+  # delete_default = TRUE,
+  labels = c("config", "release", "setup"), #,"data", "app", "api", "refactor"),
+  colours = NULL, #c("config" = "#6A6CDE", "release" = "#12E943", "setup" = "#c5def5"), #, "data" = ""),
+  descriptions = c("config" = "Configuration and meta-infrastructural changes",
+                   "release" = "Indicates a new release",
+                   "setup" = "Related to setting up the project/package"),
+  rename = c("enhancement" = "feature")
+)
 
 # create some directories -------------------------------------------------
 
