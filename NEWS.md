@@ -1,9 +1,8 @@
-# News
+# lossrx 0.0.0.9999
+
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
-
-### Configuration
+## Configuration
 
 - Rbuildignore git-cliff cliff.toml config file
 - Update buildignore and gitignore
@@ -14,7 +13,7 @@ All notable changes to this project will be documented in this file.
 - Add separate pkgdown config for chameleon
 - Edit github labels
 
-### Documentation
+## Documentation
 
 - Add NEWS.md
 - R package documentation
@@ -41,7 +40,7 @@ All notable changes to this project will be documented in this file.
 - Update CHANGELOG
 - Update README
 
-### Features
+## Features
 
 - Add license
 - Add new triangle functions and initialize tests
@@ -60,23 +59,23 @@ All notable changes to this project will be documented in this file.
 - Initialize actuarial validation check functions
 - Add initial suite of testthat unit tests
 
-### Infrastructure
+## Infrastructure
 
 - Initialize R package structure via `usethis`
 - Create data-raw for preparing claims data
 - Backup package commands to `pkgdevt.R`
 - Add some utility imports
 
-### Miscellaneous Tasks
+## Miscellaneous Tasks
 
 - Autopublish 2021-11-24T02:29:14Z
 - Autopublish 2021-11-28T05:18:05Z
 
-### Testing
+## Testing
 
 - Initialize tests with testthat
 
-### Bug
+## Bug
 
 - Fix malformed maintainer in DESCRIPTION
 - Tweak cliff.toml typo
