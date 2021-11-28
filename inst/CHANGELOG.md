@@ -39,6 +39,7 @@ All notable changes to this project will be documented in this file.
 - Document new man pages
 - Update README with new badges
 - Update CHANGELOG
+- Update README
 
 ### Features
 
@@ -69,6 +70,7 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous Tasks
 
 - Autopublish 2021-11-24T02:29:14Z
+- Autopublish 2021-11-28T05:18:05Z
 
 ### Testing
 
