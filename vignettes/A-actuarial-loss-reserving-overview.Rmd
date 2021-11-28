@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Actuarial Loss Reserving Overview {#ActuarialLossReservingOverview}
+## Overview {#Overview}
 
 This vignette introduces readers to methods used by actuaries to analyze and model *insurance claims data*, specifically, how to apply **Loss Reserving** techniques.
 
