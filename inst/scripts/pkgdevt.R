@@ -17,25 +17,25 @@ require(testthat)
 require(knitr)
 require(fs)
 require(purrr)
+require(attachment)
+require(chameleon)
+require(golem)
 
 # initialize --------------------------------------------------------------
 
 usethis::create_package("lossrx")
-
-usethis::use_git()
-usethis::use_github()
 usethis::use_namespace()
 usethis::use_roxygen_md()
-
-usethis::use_testthat()
-usethis::use_data_raw("claims")
-usethis::use_vignette("A-actuarial-loss-reserving-overview", "Actuarial Loss Reserving Overview")
-
+usethis::use_git()
+usethis::use_github()
 usethis::use_package_doc()
 usethis::use_tibble() # #' @return a [tibble][tibble::tibble-package]
 usethis::use_pipe() # move to propaloc-package.R
 usethis::use_tidy_eval() # move to propalloc-package.R
 devtools::document()
+
+
+usethis::use_news_md()
 
 # create some directories -------------------------------------------------
 
@@ -47,6 +47,8 @@ c(
   "inst/templates"
 ) %>%
   purrr::walk(fs::dir_create)
+
+fs::file_create("inst/scripts/dev_dependencies.R")
 
 devtools::document()
 
@@ -67,6 +69,10 @@ desc::desc_set("Depends", "R (>= 2.10)")
 # normalize
 desc::desc_normalize() # usethis::use_tidy_description()
 
+# Docs --------------------------------------------------------------------
+
+usethis::use_news_md()
+usethis::use_pkgdown_github_pages()
 
 # README ------------------------------------------------------------------
 
@@ -80,18 +86,60 @@ usethis::use_badge(
 )
 knitr::knit("README.Rmd")
 
+# Package Dependencies ----------------------------------------------------
 
-# Misc --------------------------------------------------------------------
+c(
+  "dplyr",
+  "magrittr",
+  "rlang",
+  "tibble",
+  "lubridate",
+  "purrr",
+  "actuar",
+  "ChainLadder",
+  "stringr"
+) |>
+  purrr::walk(usethis::use_package)
 
-usethis::use_news_md()
-usethis::use_pkgdown_github_pages()
-
+usethis::use_dev_package("flipTime", remote = "Displayr/flipTime")
 
 # Functions ---------------------------------------------------------------
 
-usethis::use_r("triangles")
-
+c(
+  "zzz",
+  "utils-data",
+  "utils-dates",
+  "utils-feedback",
+  "actuary-triangles",
+  "actuary-validation",
+  "actuary-loss_run"
+) |>
+  purrr::walk(usethis::use_r)
 
 # Tests -------------------------------------------------------------------
 
-usethis::use_test("triangle")
+usethis::use_testthat()
+
+c(
+  "date-utils",
+  "data-utils",
+  "actuary-triangle",
+  "actuary-validation",
+  "actuary-loss_run"
+) |>
+  purrr::walk(usethis::use_test)
+
+# Vignettes ---------------------------------------------------------------
+
+usethis::use_vignette("A-actuarial-loss-reserving-overview",
+                      "Actuarial Loss Reserving Overview")
+
+
+
+# Data --------------------------------------------------------------------
+
+usethis::use_data_raw("claims")
+usethis::use_r("data-claims")
+
+
+
