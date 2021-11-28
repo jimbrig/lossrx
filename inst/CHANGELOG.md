@@ -7,6 +7,10 @@ All notable changes to this project will be documented in this file.
 
 - Autopublish 2021-11-28T05:43:05Z
 
+### Release
+
+- For initial release docs
+
 ## [0.0.1] - 2021-11-28
 
 ### Configuration
