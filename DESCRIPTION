@@ -2,22 +2,38 @@ Package: lossrx
 Title: Actuarial Loss Development and Reserving with R
 Version: 0.0.0.9000
 Authors@R: 
-    person("Jimmy", "Briggs", email = "jimmy.briggs@jimbrig.com", role = c("aut", "cre"),
+    person("Jimmy", "Briggs", , "jimmy.briggs@jimbrig.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7489-8787"))
 Description: Actuarial Loss Development and Reserving Helper Functions and
     ShinyApp.
 License: MIT + file LICENSE
 URL: https://jimbrig.github.io/lossrx
 Imports: 
+    cli,
+    crayon,
+    flipTime (>= 2.9.4),
+    fs,
+    glue,
+    here,
+    lubridate,
     magrittr,
     rlang (>= 0.4.11),
+    stringr,
     tibble
 Suggests: 
+    attachment,
+    desc,
+    devtools,
     knitr,
+    pkgdown,
     rmarkdown,
-    testthat (>= 3.0.0)
+    roxygen2,
+    testthat (>= 3.0.0),
+    usethis
 VignetteBuilder: 
     knitr
+Remotes: 
+    Displayr/flipTime
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
