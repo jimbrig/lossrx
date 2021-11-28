@@ -6,6 +6,12 @@ All notable changes to this project will be documented in this file.
 ### Configuration
 
 - Rbuildignore git-cliff cliff.toml config file
+- Update buildignore and gitignore
+- Add new dependencies to DESCRIPTION
+- Update pgkdevt with new enhancements
+- Cleanup old files
+- Update NAMESPACE
+- Add separate pkgdown config for chameleon
 
 ### Documentation
 
@@ -22,10 +28,34 @@ All notable changes to this project will be documented in this file.
 - Sync NEWS.md and CHANGELOG.md
 - Run `usethis::use_pkgdown_github_pages()`
 - Update DESCRIPTION and pkgdoc
+- Update CHANGELOG.md
+- Update news.md
+- Add favicons
+- Overview vignette
+- Add pkgdown gh action badge to readme
+- Render pkgdown on develop branch too
+- Enhance pkgdown config
+- Document new man pages
+- Update README with new badges
 
 ### Features
 
 - Add license
+- Add new triangle functions and initialize tests
+- Add git-cliff GH action workflow
+- Add new github actions (check and coverage)
+- Add a build-prep helper script
+- Add dev_dependencies
+- Add spelling wordlist
+- Add zzz.R for any onload calls
+- Add feedback utility function helpers
+- Add new date utility helpers
+- Add new data utility helpers
+- Add globals.R
+- Add loss_run actuarial function
+- Add triangles structure, generics, and methods
+- Initialize actuarial validation check functions
+- Add initial suite of testthat unit tests
 
 ### Infrastructure
 
