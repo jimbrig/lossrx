@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      CODCOV_TOKEN: ${{ secrets.CODCOV_TOKEN }}
+      CODCOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
     steps:
       - uses: actions/checkout@v2
