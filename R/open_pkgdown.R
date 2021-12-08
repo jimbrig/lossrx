@@ -3,6 +3,9 @@
 #' @importFrom utils browseURL
 #'
 #' @export
+#'
+#' @examples
+#' open_pkgdown()
 open_pkgdown <- function() {
       guide_path <- system.file('docs/index.html', package = 'lossrx')
       if (guide_path == "") {
