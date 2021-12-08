@@ -10,5 +10,5 @@ open_pkgdown()
 Open pkgdown site of the package
 }
 \examples{
-open_pkgdown()
+# open_pkgdown()
 }
