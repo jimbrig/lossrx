@@ -1,2 +1,14 @@
-codecov:
-  token: secret:v1::AKQVf6h9GQZnNvaBmh7cy5CG+KjxqtvlyFTus0uS37FnRYLEzdp7bF1xGpSZjD2Kz23gIZDJ5DJtimS5626IrsATiLMqa79pqmFUHkFUpC8=
+comment: false
+
+coverage:
+  status:
+    project:
+      default:
+        target: auto
+        threshold: 1%
+        informational: true
+    patch:
+      default:
+        target: auto
+        threshold: 1%
+        informational: true

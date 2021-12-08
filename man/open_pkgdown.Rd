@@ -9,3 +9,6 @@ open_pkgdown()
 \description{
 Open pkgdown site of the package
 }
+\examples{
+open_pkgdown()
+}
