@@ -144,6 +144,9 @@ c(
 usethis::use_vignette("A-actuarial-loss-reserving-overview",
                       "Actuarial Loss Reserving Overview")
 
+usethis::use_vignette("A-actuarial-loss-reserving-overview",
+                      "Actuarial Loss Reserving Overview")
+
 
 
 # Data --------------------------------------------------------------------
@@ -151,5 +154,7 @@ usethis::use_vignette("A-actuarial-loss-reserving-overview",
 usethis::use_data_raw("claims")
 usethis::use_r("data-claims")
 
+usethis::use_data_raw("claims_transactional")
 
 
+usethis::use_test("loss_run")
