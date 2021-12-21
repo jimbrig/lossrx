@@ -3,9 +3,22 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Configuration
+
+- Update pkgdevt script
+- Tweak DESCRIPTION
+- Update NAMESPACE imports
+
+### Documentation
+
+- Document datasets and loss_run function
+- Add data documentation data.R file
+- Add overview vignette
+
 ### Features
 
 - Add chamemelon open_pkgdown function
+- Add new loss_run aggregation function
 
 ### Miscellaneous Tasks
 
@@ -15,6 +28,21 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2021-11-28T05:50:35Z
 - Autopublish 2021-11-28T05:52:38Z
 - Autopublish 2021-12-08T00:51:17Z
+- Autopublish 2021-12-08T01:02:01Z
+
+### Testing
+
+- Add testdown report for unit tests
+- Add tests for loss_run
+- Add unit tests for loss_run
+
+### Data
+
+- Add auto liability claims data
+- Add claims data
+- Add transactional claims
+- Bundle .rda data files
+- Incorporate dataprep caching for simulations
 
 ### Release
 
