@@ -14,6 +14,7 @@ All notable changes to this project will be documented in this file.
 - Document datasets and loss_run function
 - Add data documentation data.R file
 - Add overview vignette
+- Update CHANGELOG.md
 
 ### Features
 
