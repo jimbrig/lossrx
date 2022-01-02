@@ -29,4 +29,40 @@ news:
   - text: lossrx 0.0.1
   - text: lossrx 0.0.0.9000
   - text: lossrx [Unreleased]
+navbar:
+  structure:
+    left:
+    - intro
+    - reference
+    - articles
+    - tutorials
+    - tests
+    - news
+    right: github
+  components:
+    reference:
+      text: Reference
+      href: reference/index.html
+    news:
+      text: News
+      menu:
+      - text: Releases
+      - text: lossrx 0.0.2
+      - text: lossrx 0.0.1
+      - text: lossrx 0.0.0.9000
+      - text: lossrx [Unreleased]
+      - text: '---------'
+      - text: Changelog
+        href: news/index.html
+    intro:
+      text: Get started
+      href: articles/lossrx.html
+    articles:
+      text: Articles
+      menu:
+      - text: Actuarial Loss Reserving Overview
+        href: articles/Actuarial-loss-reserving-overview.html
+    tests:
+      text: Tests
+      href: tests/testdown/index.html
 
