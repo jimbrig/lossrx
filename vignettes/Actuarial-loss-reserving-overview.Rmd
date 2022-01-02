@@ -5,7 +5,7 @@ output:
     toc: true
     toc_depth: 5
 vignette: >
-  %\VignetteIndexEntry{a-Actuarial Loss Reserving Overview}
+  %\VignetteIndexEntry{Actuarial Loss Reserving Overview}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: references.bib
