@@ -8,9 +8,12 @@ Description: Actuarial Loss Development and Reserving Helper Functions and
     ShinyApp.
 License: MIT + file LICENSE
 URL: https://jimbrig.github.io/lossrx
+Depends: 
+    R (>= 2.10)
 Imports: 
     cli,
     crayon,
+    dplyr,
     flipTime (>= 2.9.4),
     fs,
     glue,
@@ -19,18 +22,12 @@ Imports:
     magrittr,
     rlang (>= 0.4.11),
     stringr,
-    tibble
+    tibble,
+    utils
 Suggests: 
-    covr,
-    attachment,
-    desc,
-    devtools,
     knitr,
-    pkgdown,
     rmarkdown,
-    roxygen2,
-    testthat (>= 3.0.0),
-    usethis
+    testthat (>= 3.0.0)
 VignetteBuilder: 
     knitr
 Remotes: 
@@ -38,8 +35,6 @@ Remotes:
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
+LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
-Depends: 
-    R (>= 2.10)
-LazyData: true
