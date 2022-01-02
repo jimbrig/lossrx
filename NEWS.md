@@ -1,17 +1,16 @@
-# Changelog
-All notable changes to this project will be documented in this file.
+> All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+# [Unreleased]
 
-### Configuration
+## Configuration
 
 - Re-configure pkgdown
 - Pkgdown
 - Match-up vignette names and indices
 
-## [0.0.2] - 2022-01-02
+# [0.0.2] - 2022-01-02
 
-### Configuration
+## Configuration
 
 - Update pkgdevt script
 - Tweak DESCRIPTION
@@ -22,7 +21,7 @@ All notable changes to this project will be documented in this file.
 - Delete auto_claims
 - Pkgdown bump version
 
-### Documentation
+## Documentation
 
 - Document datasets and loss_run function
 - Add data documentation data.R file
@@ -34,7 +33,7 @@ All notable changes to this project will be documented in this file.
 - Add params for methods of interp generic
 - Add interp to pkgdown config
 
-### Features
+## Features
 
 - Add chamemelon open_pkgdown function
 - Add new loss_run aggregation function
@@ -46,26 +45,14 @@ All notable changes to this project will be documented in this file.
 - Remove auto_data 
 - Bump version
 
-### Miscellaneous Tasks
-
-- Autopublish 2021-11-28T05:43:05Z
-- Autopublish 2021-11-28T05:47:33Z
-- Autopublish 2021-11-28T05:49:10Z
-- Autopublish 2021-11-28T05:50:35Z
-- Autopublish 2021-11-28T05:52:38Z
-- Autopublish 2021-12-08T00:51:17Z
-- Autopublish 2021-12-08T01:02:01Z
-- Autopublish 2021-12-21T05:22:56Z
-- Autopublish 2022-01-02T01:51:06Z
-
-### Testing
+## Testing
 
 - Add testdown report for unit tests
 - Add tests for loss_run
 - Add unit tests for loss_run
 - Add unit tests for interp function
 
-### Data
+## Data
 
 - Add auto liability claims data
 - Add claims data
@@ -73,13 +60,13 @@ All notable changes to this project will be documented in this file.
 - Bundle .rda data files
 - Incorporate dataprep caching for simulations
 
-### Release
+## Release
 
 - For initial release docs
 
-## [0.0.1] - 2021-11-28
+# [0.0.1] - 2021-11-28
 
-### Configuration
+## Configuration
 
 - Rbuildignore git-cliff cliff.toml config file
 - Update buildignore and gitignore
@@ -90,7 +77,7 @@ All notable changes to this project will be documented in this file.
 - Add separate pkgdown config for chameleon
 - Edit github labels
 
-### Documentation
+## Documentation
 
 - Add NEWS.md
 - R package documentation
@@ -118,7 +105,7 @@ All notable changes to this project will be documented in this file.
 - Update README
 - Fix README and NEWS
 
-### Features
+## Features
 
 - Add license
 - Add new triangle functions and initialize tests
@@ -137,24 +124,24 @@ All notable changes to this project will be documented in this file.
 - Initialize actuarial validation check functions
 - Add initial suite of testthat unit tests
 
-### Infrastructure
+## Infrastructure
 
 - Initialize R package structure via `usethis`
 - Create data-raw for preparing claims data
 - Backup package commands to `pkgdevt.R`
 - Add some utility imports
 
-### Miscellaneous Tasks
+## Miscellaneous Tasks
 
 - Autopublish 2021-11-24T02:29:14Z
 - Autopublish 2021-11-28T05:18:05Z
 - Autopublish 2021-11-28T05:20:09Z
 
-### Testing
+## Testing
 
 - Initialize tests with testthat
 
-### Bug
+## Bug
 
 - Fix malformed maintainer in DESCRIPTION
 - Tweak cliff.toml typo
