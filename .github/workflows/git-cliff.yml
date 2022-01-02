@@ -4,7 +4,8 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - develop
+      - main
+      - master
 jobs:
   changelog:
     name: Generate changelog

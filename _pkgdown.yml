@@ -3,15 +3,26 @@ destination: inst/docs
 site_url: ~
 reference:
 - title: Utilities
-  desc: Utility functions to aid in the typical actuarial workflow.
+  desc: Utility functions.
   contents:
-  - '`data-utils`'
-  - '`dates`'
   - '`feedback`'
+  - '`indent`'
+  - '`inform`'
+  - '`open_pkgdown`'
 - title: Interpolation
   desc: Interpolation of Loss Development Factors
   contents:
   - '`interp`'
+- title: Actuarial
+  desc: Actuarial helpers
+  contents:
+  - '`loss_run`'
+  - '`data-utils`'
+  - '`dates`'
+- title: Data
+  desc: Actuarial Data
+  contents:
+  - '`claims_transactional`'
 news:
   releases:
   - text: lossrx 0.0.2
