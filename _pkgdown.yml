@@ -8,6 +8,10 @@ reference:
   - '`data-utils`'
   - '`dates`'
   - '`feedback`'
+- title: Interpolation
+  desc: Interpolation of Loss Development Factors
+  contents:
+  - '`interp`'
 news:
   releases:
   - text: lossrx 0.0.1

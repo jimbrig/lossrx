@@ -10,6 +10,7 @@
 #'
 #' @importFrom dplyr filter group_by top_n ungroup mutate arrange desc select everything
 #' @importFrom lubridate ymd year
+#' @importFrom rlang .env .data
 loss_run <- function(val_date, trans_dat) {
   out <- trans_dat |>
     dplyr::filter(.data$transaction_date <= .env$val_date) |>
