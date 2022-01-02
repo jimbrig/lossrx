@@ -158,3 +158,4 @@ usethis::use_data_raw("claims_transactional")
 
 
 usethis::use_test("loss_run")
+usethis::use_test("interp")
