@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [0.0.2] - 2022-01-02
 
 ### Configuration
 
@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file.
 - Delete validation
 - Comment out old interpolations
 - Delete auto_claims
+- Pkgdown bump version
 
 ### Documentation
 
@@ -47,6 +48,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2021-12-08T00:51:17Z
 - Autopublish 2021-12-08T01:02:01Z
 - Autopublish 2021-12-21T05:22:56Z
+- Autopublish 2022-01-02T01:51:06Z
 
 ### Testing
 
