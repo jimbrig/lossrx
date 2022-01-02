@@ -8,6 +8,10 @@ All notable changes to this project will be documented in this file.
 - Update pkgdevt script
 - Tweak DESCRIPTION
 - Update NAMESPACE imports
+- Update DESCRIPTION imports
+- Delete validation
+- Comment out old interpolations
+- Delete auto_claims
 
 ### Documentation
 
@@ -17,6 +21,9 @@ All notable changes to this project will be documented in this file.
 - Update CHANGELOG.md
 - Document and export interp functions
 - Interpolation formula man images 
+- Update CHANGELOG.md for interp feature branch merge
+- Add params for methods of interp generic
+- Add interp to pkgdown config
 
 ### Features
 
@@ -26,6 +33,9 @@ All notable changes to this project will be documented in this file.
 - Add new interp generic function
 - Update pkgdevt.R script
 - Initialize validation functions
+- Fix documentation related issues
+- Remove auto_data 
+- Bump version
 
 ### Miscellaneous Tasks
 
@@ -36,6 +46,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2021-11-28T05:52:38Z
 - Autopublish 2021-12-08T00:51:17Z
 - Autopublish 2021-12-08T01:02:01Z
+- Autopublish 2021-12-21T05:22:56Z
 
 ### Testing
 
