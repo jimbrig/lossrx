@@ -2,9 +2,18 @@
 % Please edit documentation in R/interp.R
 \name{interp}
 \alias{interp}
+\alias{interp.dblexp}
+\alias{interp.exp}
+\alias{interp.linear}
 \title{\code{interp} - Interpolate}
 \usage{
 interp(new_age, cdf_array, age_array, cutoff = 450, method = 3)
+
+interp.dblexp(new_age, age_high, age_low, cdf_high, cdf_low, ...)
+
+interp.exp(new_age, age_high, age_low, cdf_high, cdf_low, ...)
+
+interp.linear(new_age, age_high, age_low, cdf_high, cdf_low, ...)
 }
 \arguments{
 \item{new_age}{integer - value of the new age whose CDF is to be interpolated}
@@ -16,13 +25,7 @@ interp(new_age, cdf_array, age_array, cutoff = 450, method = 3)
 \item{cutoff}{the largest possible age, after which, no interpolation is performed}
 
 \item{method}{integer - must be 1, 2, or 3 where 1 represents linear, 2 represents exponential,
-and 3 represents double exponential. Defaults to 3, but falls back onto 1 if necessary.
-
-\section{Formulas}{
-For Linear Interpolation the formula is as follows:
-\if{html}{\figure{dblexp.svg}{options: width=100 alt="Double Exponential Interpolation"}}
-\if{latex}{\figure{dblexp.svg}{options: width=0.5in}}
-}}
+and 3 represents double exponential. Defaults to 3, but falls back onto 1 if necessary.}
 }
 \value{
 derived numeric value for the supplied \code{new_age}'s CDF
@@ -41,6 +44,15 @@ This generic function comes with three possible \code{method}s:
 \item Double Exponential Interpolation
 }
 }
+\section{Functions}{
+\itemize{
+\item \code{interp.dblexp}: Double Exponential Interpolation
+
+\item \code{interp.exp}: Exponential Interpolation
+
+\item \code{interp.linear}: Linear Interpolation
+}}
+
 \examples{
 cdfs <- c(3.579, 2.866, 2.489, 2.121, 1.876, 1.543, 1.222, 1.150, 1.109, 1.005, 1.0025)
 ages <- seq(from = 12, to = (length(cdfs) * 12), by = 12)
