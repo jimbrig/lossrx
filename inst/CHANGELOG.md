@@ -19,6 +19,11 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-01-02T02:10:52Z
 - Autopublish 2022-01-02T02:18:30Z
 - Autopublish 2022-01-02T02:23:52Z
+- Autopublish 2022-01-02T02:36:18Z
+
+### Bug
+
+- Fix NEWS.md
 
 ## [0.0.2] - 2022-01-02
 
