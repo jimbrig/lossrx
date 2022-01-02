@@ -14,11 +14,18 @@ All notable changes to this project will be documented in this file.
 - Document datasets and loss_run function
 - Add data documentation data.R file
 - Add overview vignette
+- Update CHANGELOG.md
+- Document and export interp functions
+- Interpolation formula man images 
 
 ### Features
 
 - Add chamemelon open_pkgdown function
 - Add new loss_run aggregation function
+- Begin exploring interpolation methods
+- Add new interp generic function
+- Update pkgdevt.R script
+- Initialize validation functions
 
 ### Miscellaneous Tasks
 
@@ -35,6 +42,7 @@ All notable changes to this project will be documented in this file.
 - Add testdown report for unit tests
 - Add tests for loss_run
 - Add unit tests for loss_run
+- Add unit tests for interp function
 
 ### Data
 
