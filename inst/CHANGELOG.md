@@ -6,12 +6,14 @@ All notable changes to this project will be documented in this file.
 ### Configuration
 
 - Re-configure pkgdown
+- Pkgdown
 
 ### Miscellaneous Tasks
 
 - Autopublish 2022-01-02T01:56:07Z
 - Autopublish 2022-01-02T02:00:09Z
 - Autopublish 2022-01-02T02:01:50Z
+- Autopublish 2022-01-02T02:06:49Z
 
 ## [0.0.2] - 2022-01-02
 
