@@ -4,6 +4,12 @@
     <loc>https://jimbrig.github.io/lossrx/404.html</loc>
   </url>
   <url>
+    <loc>https://jimbrig.github.io/lossrx/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://jimbrig.github.io/lossrx/LICENSE.html</loc>
+  </url>
+  <url>
     <loc>https://jimbrig.github.io/lossrx/articles/Actuarial-loss-reserving-overview.html</loc>
   </url>
   <url>
@@ -14,12 +20,6 @@
   </url>
   <url>
     <loc>https://jimbrig.github.io/lossrx/index.html</loc>
-  </url>
-  <url>
-    <loc>https://jimbrig.github.io/lossrx/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://jimbrig.github.io/lossrx/LICENSE.html</loc>
   </url>
   <url>
     <loc>https://jimbrig.github.io/lossrx/news/index.html</loc>
@@ -49,10 +49,10 @@
     <loc>https://jimbrig.github.io/lossrx/reference/interp.html</loc>
   </url>
   <url>
-    <loc>https://jimbrig.github.io/lossrx/reference/lossrx-package.html</loc>
+    <loc>https://jimbrig.github.io/lossrx/reference/loss_run.html</loc>
   </url>
   <url>
-    <loc>https://jimbrig.github.io/lossrx/reference/loss_run.html</loc>
+    <loc>https://jimbrig.github.io/lossrx/reference/lossrx-package.html</loc>
   </url>
   <url>
     <loc>https://jimbrig.github.io/lossrx/reference/open_pkgdown.html</loc>
