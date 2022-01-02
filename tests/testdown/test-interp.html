@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Test File 5 test-date-utils.R | {testdown} report</title>
-  <meta name="description" content="Test File 5 test-date-utils.R | {testdown} report for package {lossrx}" />
+  <title>Test File 6 test-interp.R | {testdown} report</title>
+  <meta name="description" content="Test File 6 test-interp.R | {testdown} report for package {lossrx}" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Test File 5 test-date-utils.R | {testdown} report" />
+  <meta property="og:title" content="Test File 6 test-interp.R | {testdown} report" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Test File 5 test-date-utils.R | {testdown} report for package {lossrx}" />
+  <meta property="og:description" content="Test File 6 test-interp.R | {testdown} report for package {lossrx}" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Test File 5 test-date-utils.R | {testdown} report" />
+  <meta name="twitter:title" content="Test File 6 test-interp.R | {testdown} report" />
   
-  <meta name="twitter:description" content="Test File 5 test-date-utils.R | {testdown} report for package {lossrx}" />
+  <meta name="twitter:description" content="Test File 6 test-interp.R | {testdown} report for package {lossrx}" />
   
 
 
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="test-data-utils.html"/>
-<link rel="next" href="test-interp.html"/>
+<link rel="prev" href="test-date-utils.html"/>
+<link rel="next" href="aggregated-failures-and-errors.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -105,14 +105,14 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="test-date-utils.r" class="section level1" number="5">
-<h1><span class="header-section-number">Test File 5</span> test-date-utils.R</h1>
-<div id="summary-4" class="section level2 unnumbered">
+<div id="test-interp.r" class="section level1" number="6">
+<h1><span class="header-section-number">Test File 6</span> test-interp.R</h1>
+<div id="summary-5" class="section level2 unnumbered">
 <h2>Summary</h2>
 <ul>
-<li><p><strong>Number of test(s)</strong> : 3</p></li>
-<li><p><strong>Number of expectation(s)</strong> : 8</p></li>
-<li><p><strong>Number of successful expectation(s)</strong> : 8</p></li>
+<li><p><strong>Number of test(s)</strong> : 2</p></li>
+<li><p><strong>Number of expectation(s)</strong> : 3</p></li>
+<li><p><strong>Number of successful expectation(s)</strong> : 3</p></li>
 <li><p><strong>Number of failed expectation(s)</strong> : 0</p></li>
 <li><p><strong>Number of errored expectation(s)</strong> : 0</p></li>
 <li><p><strong>Number of expectations with warning(s)</strong> : 0</p></li>
@@ -120,16 +120,16 @@
 <li><p><strong>Number of skipped expectation(s)</strong> : 0</p></li>
 </ul>
 </div>
-<div id="details-4" class="section level2 unnumbered">
+<div id="details-5" class="section level2 unnumbered">
 <h2>Details</h2>
 <table style="width:100%;">
 <colgroup>
-<col width="22%" />
+<col width="19%" />
 <col width="4%" />
-<col width="26%" />
-<col width="33%" />
+<col width="19%" />
+<col width="39%" />
 <col width="7%" />
-<col width="6%" />
+<col width="8%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -143,67 +143,27 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">end of month is correct (i.e. 30 versus 31 and 28 for February)</td>
+<td align="left">interpolation function returns correct values</td>
 <td align="left"></td>
-<td align="left">expect_equal(end_of_month(as.Date(“2019-02-05”)), as.Date(“2019-02-28”))</td>
+<td align="left">expect_equal(interp(12, cdfs, ages), cdfs[[1]])</td>
 <td align="left"><span title="This expectation is successful.">✅ <font color='green'>Success</font></span></td>
-<td align="left">test-date-utils.R#2</td>
+<td align="left">test-interp.R#5</td>
 <td align="left">2022-01-01 21:23:43</td>
 </tr>
 <tr class="even">
-<td align="left">start of month is correct</td>
+<td align="left">interpolation function returns correct values</td>
 <td align="left"></td>
-<td align="left">expect_equal(start_of_month(as.Date(“2015-07-04”)), as.Date(“2015-07-01”))</td>
+<td align="left">expect_equal(interp(24, cdfs, ages), cdfs[[2]])</td>
 <td align="left"><span title="This expectation is successful.">✅ <font color='green'>Success</font></span></td>
-<td align="left">test-date-utils.R#6</td>
+<td align="left">test-interp.R#6</td>
 <td align="left">2022-01-01 21:23:43</td>
 </tr>
 <tr class="odd">
-<td align="left">converts strings to dates properly</td>
+<td align="left">interpolation function throws error if negative</td>
 <td align="left"></td>
-<td align="left">expect_equal(end_of_month(“2019-02-05”), as.Date(“2019-02-28”))</td>
+<td align="left">expect_error(interp(14, cdfs_wrong, ages))</td>
 <td align="left"><span title="This expectation is successful.">✅ <font color='green'>Success</font></span></td>
-<td align="left">test-date-utils.R#10</td>
-<td align="left">2022-01-01 21:23:43</td>
-</tr>
-<tr class="even">
-<td align="left">converts strings to dates properly</td>
-<td align="left"></td>
-<td align="left">expect_equal(start_of_month(“2015-07-04”), as.Date(“2015-07-01”))</td>
-<td align="left"><span title="This expectation is successful.">✅ <font color='green'>Success</font></span></td>
-<td align="left">test-date-utils.R#11</td>
-<td align="left">2022-01-01 21:23:43</td>
-</tr>
-<tr class="odd">
-<td align="left">converts strings to dates properly</td>
-<td align="left"></td>
-<td align="left">expect_equal(end_of_month(“2019/02/05”), as.Date(“2019-02-28”))</td>
-<td align="left"><span title="This expectation is successful.">✅ <font color='green'>Success</font></span></td>
-<td align="left">test-date-utils.R#13</td>
-<td align="left">2022-01-01 21:23:43</td>
-</tr>
-<tr class="even">
-<td align="left">converts strings to dates properly</td>
-<td align="left"></td>
-<td align="left">expect_equal(start_of_month(“2015/07/04”), as.Date(“2015-07-01”))</td>
-<td align="left"><span title="This expectation is successful.">✅ <font color='green'>Success</font></span></td>
-<td align="left">test-date-utils.R#14</td>
-<td align="left">2022-01-01 21:23:43</td>
-</tr>
-<tr class="odd">
-<td align="left">converts strings to dates properly</td>
-<td align="left"></td>
-<td align="left">expect_equal(end_of_month(“February 5, 2019”), as.Date(“2019-02-28”))</td>
-<td align="left"><span title="This expectation is successful.">✅ <font color='green'>Success</font></span></td>
-<td align="left">test-date-utils.R#16</td>
-<td align="left">2022-01-01 21:23:43</td>
-</tr>
-<tr class="even">
-<td align="left">converts strings to dates properly</td>
-<td align="left"></td>
-<td align="left">expect_equal(start_of_month(“July 4 2015”), as.Date(“2015-07-01”))</td>
-<td align="left"><span title="This expectation is successful.">✅ <font color='green'>Success</font></span></td>
-<td align="left">test-date-utils.R#17</td>
+<td align="left">test-interp.R#12</td>
 <td align="left">2022-01-01 21:23:43</td>
 </tr>
 </tbody>
@@ -215,8 +175,8 @@
           </div>
         </div>
       </div>
-<a href="test-data-utils.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="test-interp.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="test-date-utils.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="aggregated-failures-and-errors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
