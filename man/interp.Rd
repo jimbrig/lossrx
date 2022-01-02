@@ -9,11 +9,11 @@
 \usage{
 interp(new_age, cdf_array, age_array, cutoff = 450, method = 3)
 
-interp.dblexp(new_age, age_high, age_low, cdf_high, cdf_low, ...)
+interp.dblexp(new_age, age_high, age_low, cdf_high, cdf_low)
 
-interp.exp(new_age, age_high, age_low, cdf_high, cdf_low, ...)
+interp.exp(new_age, age_high, age_low, cdf_high, cdf_low)
 
-interp.linear(new_age, age_high, age_low, cdf_high, cdf_low, ...)
+interp.linear(new_age, age_high, age_low, cdf_high, cdf_low)
 }
 \arguments{
 \item{new_age}{integer - value of the new age whose CDF is to be interpolated}
