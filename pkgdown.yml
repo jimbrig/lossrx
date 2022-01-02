@@ -3,7 +3,8 @@ pkgdown: 2.0.1
 pkgdown_sha: ~
 articles:
   Actuarial-loss-reserving-overview: Actuarial-loss-reserving-overview.html
-last_built: 2022-01-02T02:26Z
+  lossrx: lossrx.html
+last_built: 2022-01-02T02:38Z
 urls:
   reference: https://jimbrig.github.io/lossrx/reference
   article: https://jimbrig.github.io/lossrx/articles
