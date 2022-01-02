@@ -26,6 +26,10 @@ interp.linear(new_age, age_high, age_low, cdf_high, cdf_low, ...)
 
 \item{method}{integer - must be 1, 2, or 3 where 1 represents linear, 2 represents exponential,
 and 3 represents double exponential. Defaults to 3, but falls back onto 1 if necessary.}
+
+\item{age_low, age_high}{Low and High ages}
+
+\item{cdf_low, cdf_high}{Low and High CDFs}
 }
 \value{
 derived numeric value for the supplied \code{new_age}'s CDF
