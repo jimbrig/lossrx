@@ -14,6 +14,7 @@ reference:
   - '`interp`'
 news:
   releases:
+  - text: lossrx 0.0.2
   - text: lossrx 0.0.1
   - text: lossrx 0.0.0.9000
   - text: lossrx [Unreleased]
