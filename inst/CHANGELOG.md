@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 
 - Re-configure pkgdown
 - Pkgdown
+- Match-up vignette names and indices
 
 ### Miscellaneous Tasks
 
@@ -14,6 +15,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-01-02T02:00:09Z
 - Autopublish 2022-01-02T02:01:50Z
 - Autopublish 2022-01-02T02:06:49Z
+- Autopublish 2022-01-02T02:08:20Z
 
 ## [0.0.2] - 2022-01-02
 
