@@ -14,7 +14,7 @@ WIP](https://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.or
 [![codecov](https://codecov.io/gh/jimbrig/lossrx/branch/main/graph/badge.svg?token=14426d5e-bed0-4cea-b8ff-ff4561ccda4f)](https://codecov.io/gh/jimbrig/lossrx?branch=main)
 <!-- badges: end -->
 
-The goal of lossrx is to …
+View the [Changelog](inst/CHANGELOG.md) for detailed progression on development of the package.
 
 ## Installation
 
