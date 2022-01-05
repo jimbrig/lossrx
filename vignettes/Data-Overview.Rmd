@@ -26,6 +26,8 @@ knitr::opts_chunk$set(
 library(summarytools)
 library(kableExtra)
 library(actuar)
+library(fplot)
+
 st_options(plain.ascii = FALSE, style = "rmarkdown")
 ```
 
