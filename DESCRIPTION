@@ -13,6 +13,7 @@ Depends:
 Imports: 
     cli,
     crayon,
+    dbx,
     dplyr,
     flipTime (>= 2.9.4),
     fs,
@@ -21,14 +22,20 @@ Imports:
     lubridate,
     magrittr,
     purrr,
+    readr,
     rlang (>= 0.4.11),
     stringr,
     tibble,
     usethis,
     utils
 Suggests: 
+    actuar,
+    devtools,
+    fplot,
+    kableExtra,
     knitr,
     rmarkdown,
+    summarytools,
     testthat (>= 3.0.0)
 VignetteBuilder: 
     knitr
