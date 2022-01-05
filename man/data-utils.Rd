@@ -3,25 +3,44 @@
 \name{data-utils}
 \alias{data-utils}
 \alias{pull_unique}
+\alias{get_common_columns}
+\alias{get_common_nr_rows}
+\alias{get_common_types}
 \title{Data Manipulation Utilities}
 \usage{
 pull_unique(df, var)
+
+get_common_columns(tables)
+
+get_common_nr_rows(tables)
+
+get_common_types(tables)
 }
 \arguments{
 \item{df}{a provided \code{\link[=data.frame]{data.frame()}}}
 
 \item{var}{character/numeric - quoted named of a variable from \code{df} or its
 numerical index.}
+
+\item{tables}{a list with two elements: x and y}
 }
 \value{
 \itemize{
 \item \code{pull_unique} returns a character vector of unique, sorted values from specified column
 }
+
+a list with two elements: x and y
+
+a list with two elements: x and y
+
+a list with two elements: x and y
 }
 \description{
-Data Manipulation Utilities
+Get common columns across two tables
 
-Pull Unique Values from a dataframe
+Get common number of rows across two tables
+
+Get common types of columns across two tables
 }
 \examples{
 df <- data.frame(let = rep(letters, 2), num = rep(c(1:26), 2))
@@ -31,5 +50,6 @@ pull_unique(df, "num")
 \concept{Data Utilities}
 \keyword{cleanse}
 \keyword{data,}
+\keyword{internal}
 \keyword{munge,}
 \keyword{utility,}
