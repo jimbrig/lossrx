@@ -9,6 +9,8 @@ reference:
   - '`indent`'
   - '`inform`'
   - '`open_pkgdown`'
+  - '`toproper`'
+  - '`extract_num`'
 - title: Interpolation
   desc: Interpolation of Loss Development Factors
   contents:
@@ -17,12 +19,21 @@ reference:
   desc: Actuarial helpers
   contents:
   - '`loss_run`'
-  - '`data-utils`'
   - '`dates`'
+- title: Data Utilities and Database
+  desc: Database and data related helper functions.
+  contents:
+  - '`doc_data`'
+  - '`create_tbl`'
+  - '`data-utils`'
+  - '`coalesce_join`'
+
 - title: Data
   desc: Actuarial Data
   contents:
   - '`claims_transactional`'
+  - '`exposures`'
+  - '`losses`'
 news:
   releases:
   - text: lossrx 0.0.2
