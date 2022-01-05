@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 - Cleanup old data-raw doc_data function
 - Cleanup old unused files
 - New dependency packages
+- Build ignore codemeta.json
 
 ### Documentation
 
@@ -51,6 +52,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-01-02T02:36:18Z
 - Autopublish 2022-01-02T02:37:56Z
 - Autopublish 2022-01-02T02:41:36Z
+- Autopublish 2022-01-05T02:26:14Z
 
 ### Bug
 
