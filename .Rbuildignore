@@ -11,3 +11,4 @@
 ^pkgdown/_pkgdown\.yml$
 ^inst/docs$
 ^codecov\.yml$
+^codemeta\.json$
