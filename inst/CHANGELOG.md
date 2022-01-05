@@ -8,6 +8,35 @@ All notable changes to this project will be documented in this file.
 - Re-configure pkgdown
 - Pkgdown
 - Match-up vignette names and indices
+- Cleanup old data-raw doc_data function
+- Cleanup old unused files
+- New dependency packages
+
+### Documentation
+
+- Re-document package
+- Re-document package pre-build
+- Various tweaks to vignettes
+
+### Features
+
+- Add string utility functions
+- Add date utility functions
+- Add data utility functions
+- Initialize statistical functions
+- Re-configure R directory with function groupings
+- Add database create_tbl function
+- Add suite of interpolation functions
+- Add database schema YAML configuration files
+- Create database connection configuration file
+- Initialize vignettes for statistical distributions
+- Add customized vignette CSS styles
+- Initialize data overview vignette
+- SQL files for vehicles, coverages, and claimants
+- Database initialization script
+- Restructure and enhance data-raw folder
+- Add dependencies
+- Add bugReports URL
 
 ### Miscellaneous Tasks
 
@@ -21,10 +50,20 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-01-02T02:23:52Z
 - Autopublish 2022-01-02T02:36:18Z
 - Autopublish 2022-01-02T02:37:56Z
+- Autopublish 2022-01-02T02:41:36Z
 
 ### Bug
 
 - Fix NEWS.md
+
+### Data
+
+- Updated .rda data files
+- Database CSV seeding files
+
+### Meta
+
+- Create codemetar config file
 
 ## [0.0.2] - 2022-01-02
 
