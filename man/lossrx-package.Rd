@@ -14,6 +14,7 @@ Actuarial Loss Development and Reserving Helper Functions and ShinyApp.
 Useful links:
 \itemize{
   \item \url{https://jimbrig.github.io/lossrx}
+  \item Report bugs at \url{https://jimbrig.github.io/lossrx/issues}
 }
 
 }

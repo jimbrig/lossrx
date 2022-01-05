@@ -8,6 +8,7 @@ Description: Actuarial Loss Development and Reserving Helper Functions and
     ShinyApp.
 License: MIT + file LICENSE
 URL: https://jimbrig.github.io/lossrx
+BugReports: https://jimbrig.github.io/lossrx/issues
 Depends: 
     R (>= 2.10)
 Imports: 
