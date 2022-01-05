@@ -28,6 +28,8 @@ equals \code{TRUE}, will replace all "_"'s with specified string.}
 \item{"lowercase"}: Applied \code{tolower}.
 \item{"asis"}: No manipulation. Returns as is.
 }}
+
+\item{uppers}{Abbreviations to keep upper-case.}
 }
 \value{
 "Proper" string

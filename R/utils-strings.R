@@ -24,6 +24,8 @@ extract_num <- function(string){
 #'   \item{"asis"}: No manipulation. Returns as is.
 #'   }
 #'
+#' @param uppers Abbreviations to keep upper-case.
+
 #' @seealso \code{\link[stringr]{str_replace}}.
 #'
 #' @return "Proper" string
