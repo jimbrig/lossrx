@@ -18,6 +18,7 @@ All notable changes to this project will be documented in this file.
 - Re-document package
 - Re-document package pre-build
 - Various tweaks to vignettes
+- Pkgdown configs
 
 ### Features
 
@@ -56,6 +57,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-01-05T02:28:46Z
 - Autopublish 2022-01-05T02:29:40Z
 - Autopublish 2022-01-05T02:31:21Z
+- Autopublish 2022-01-05T02:37:55Z
 
 ### Bug
 
