@@ -5,6 +5,7 @@
 \alias{end_of_month}
 \alias{start_of_month}
 \alias{extract_date}
+\alias{elapsed_months}
 \title{Date Utility Functions}
 \usage{
 end_of_month(date)
@@ -12,11 +13,17 @@ end_of_month(date)
 start_of_month(date)
 
 extract_date(string)
+
+elapsed_months(end_date, start_date)
 }
 \arguments{
 \item{date}{character or date representation of a date.}
 
 \item{string}{string to extract a date from}
+
+\item{end_date}{end date}
+
+\item{start_date}{start date}
 }
 \value{
 \itemize{
@@ -24,10 +31,14 @@ extract_date(string)
 \item \code{start_of_month} returns the first day of the month given.
 \item \code{extract_date} returns a date object extracted from the provided string.
 }
+
+numeric
 }
 \description{
 A set of helper functions for dealing with dates in a typical actuarial
 analysis context.
+
+Derive the number of months elapsed between two dates.
 }
 \examples{
 # character input

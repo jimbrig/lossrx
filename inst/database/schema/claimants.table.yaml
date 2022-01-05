@@ -1,0 +1,25 @@
+name: claimants
+columns:
+  - name: claimant_id
+    type: uuid
+    notNull: true
+  - name: claimant_first_name
+    type: varchar
+  - name: claimant_last_name
+    type: varchar
+  - name: claimant_birth_date
+    type: date
+  - name: claimant_hire_date
+    type: date
+  - name: claimant_age
+    type: integer
+  - name: claimant_sex
+    type: varchar
+  - name: created_on
+    type: datetime
+    default: now
+  - name: modified_on
+    type: datetime
+    default: now
+primaryKey:
+  - claimant_id

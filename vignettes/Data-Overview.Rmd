@@ -1,0 +1,101 @@
+---
+title: "Data-Overview"
+output: 
+  rmarkdown::html_document:
+      fig_caption: false
+      toc: true
+      toc_depth: 1
+      css: assets/vignette.css
+vignette: >
+  %\VignetteIndexEntry{Data Overview}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{magrittr}
+  %\VignetteDepends{kableExtra}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  results = "asis",
+  message = FALSE,
+  warning = FALSE
+)
+
+library(summarytools)
+library(kableExtra)
+library(actuar)
+library(fplot)
+
+st_options(plain.ascii = FALSE, style = "rmarkdown")
+```
+
+```{r setup}
+devtools::load_all()
+# library(lossrx)
+
+data("claims_transactional")
+data("losses")
+data("exposures")
+
+latest_eval <- losses |> dplyr::filter(eval_date == max(.data$eval_date))
+wc_dat <- latest_eval |> dplyr::filter(coverage == "WC")
+al_dat <- latest_eval |> dplyr::filter(coverage == "AL")
+```
+
+## `lossrx` Datasets
+
+`lossrx` comes with some built in data for example usage, including:
+
+- a simulated *transactional* claims data.frame
+- a suite of example WC and AL lossruns combined into a single data.frame
+- sample exposure data for WC ($ payroll) and AL (vehicles or miles driven)
+
+
+## Loss Data
+
+```{r}
+plot_distr(
+  ~ total_incurred | coverage,
+  latest_eval,
+  mod.method = "split"
+)
+```
+
+**Top 10 Rows**:
+
+```{r top_ten_loss_data}
+head(losses) |>
+  kable(format = "html", digits = 2) |>
+  kable_styling()
+```
+
+**Summary**:
+
+```{r loss_data}
+print(dfSummary(losses, 
+                varnumbers   = FALSE, 
+                valid.col    = FALSE, 
+                graph.magnif = 0.76),
+      method = 'render')
+```
+
+### Worker's Compensation
+
+**Distribution of Claims**
+
+```{r dists}
+library(fplot)
+fplot::plot_distr(wc_dat$total_incurred)
+plot_distr(~ total_incurred | cause, wc_dat, cumul = TRUE)
+
+```
+
+
+```{r}
+plot_lines(
+  total_incurred ~ program_year,
+  losses
+)
+```

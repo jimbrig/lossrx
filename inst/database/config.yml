@@ -1,0 +1,8 @@
+default:
+  local_container:
+    dbname: postgres
+    server: localhost
+    port: 5432
+    username: postgres
+    password: admin
+    conn_string: postgres://postgres:admin@localhost/postgres

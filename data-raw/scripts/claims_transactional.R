@@ -121,40 +121,4 @@ qs::qsave(trans, file = paste0("data-raw/cache/", Sys.Date(), "-transactional-cl
 claims_transactional <- trans
 usethis::use_data(claims_transactional, overwrite = TRUE)
 
-doc_data <- function(obj,
-                     title = deparse(substitute(obj)),
-                     description = "DATASET_DESCRIPTION",
-                     write_to_file = TRUE,
-                     ...) {
 
-  vartype <- vapply(obj, typeof, FUN.VALUE = character(1))
-
-  items <- paste0("#'   \\item{\\code{",
-                  names(vartype),
-                  "}}{",
-                  vartype,
-                  ". DESCRIPTION.}", collapse = "\n")
-
-  out <- paste0(
-    "\n#' ",
-    title,
-    "\n#'\n#' ",
-    description,
-    "\n#'\n#' @format A `data.frame` with ",
-    nrow(obj),
-    " rows and ",
-    length(vartype),
-    " variables:\n#' \\describe{\n",
-    items,
-    "\n#' }\n\"",
-    title,
-    "\""
-  )
-
-  if (!write_to_file) return(out)
-  write(out, file = "R/data.R", append = TRUE, sep = "\n")
-  usethis::use_r("data.R")
-
-}
-
-docstring <- doc_data(claims_transactional)

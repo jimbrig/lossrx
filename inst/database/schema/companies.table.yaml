@@ -1,0 +1,11 @@
+name: companies
+columns:
+  - name: company_id
+    type: uuid
+    notNull: true
+  - name: company_name
+    type: varchar
+  - name: company_abbr
+    type: varchar
+primaryKey:
+  - company_id

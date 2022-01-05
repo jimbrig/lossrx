@@ -74,3 +74,20 @@ extract_date <- function(string) {
     collapse = ""
   ) |> lubridate::mdy() |> as.character()
 }
+
+#' Elapsed Months
+#'
+#' Derive the number of months elapsed between two dates.
+#'
+#' @param end_date end date
+#' @param start_date start date
+#'
+#' @rdname dates
+#'
+#' @return numeric
+#' @export
+elapsed_months <- function(end_date, start_date) {
+  ed <- as.POSIXlt(end_date)
+  sd <- as.POSIXlt(start_date)
+  12 * (ed$year - sd$year) + (ed$mon - sd$mon)
+}
