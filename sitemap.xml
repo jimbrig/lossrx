@@ -13,10 +13,16 @@
     <loc>https://jimbrig.github.io/lossrx/articles/Actuarial-loss-reserving-overview.html</loc>
   </url>
   <url>
+    <loc>https://jimbrig.github.io/lossrx/articles/Data-Overview.html</loc>
+  </url>
+  <url>
     <loc>https://jimbrig.github.io/lossrx/articles/index.html</loc>
   </url>
   <url>
     <loc>https://jimbrig.github.io/lossrx/articles/lossrx.html</loc>
+  </url>
+  <url>
+    <loc>https://jimbrig.github.io/lossrx/articles/parametric-severity-models.html</loc>
   </url>
   <url>
     <loc>https://jimbrig.github.io/lossrx/authors.html</loc>
@@ -31,10 +37,25 @@
     <loc>https://jimbrig.github.io/lossrx/reference/claims_transactional.html</loc>
   </url>
   <url>
+    <loc>https://jimbrig.github.io/lossrx/reference/coalesce_join.html</loc>
+  </url>
+  <url>
+    <loc>https://jimbrig.github.io/lossrx/reference/create_tbl.html</loc>
+  </url>
+  <url>
     <loc>https://jimbrig.github.io/lossrx/reference/data-utils.html</loc>
   </url>
   <url>
     <loc>https://jimbrig.github.io/lossrx/reference/dates.html</loc>
+  </url>
+  <url>
+    <loc>https://jimbrig.github.io/lossrx/reference/doc_data.html</loc>
+  </url>
+  <url>
+    <loc>https://jimbrig.github.io/lossrx/reference/exposures.html</loc>
+  </url>
+  <url>
+    <loc>https://jimbrig.github.io/lossrx/reference/extract_num.html</loc>
   </url>
   <url>
     <loc>https://jimbrig.github.io/lossrx/reference/feedback.html</loc>
@@ -55,6 +76,9 @@
     <loc>https://jimbrig.github.io/lossrx/reference/loss_run.html</loc>
   </url>
   <url>
+    <loc>https://jimbrig.github.io/lossrx/reference/losses.html</loc>
+  </url>
+  <url>
     <loc>https://jimbrig.github.io/lossrx/reference/lossrx-package.html</loc>
   </url>
   <url>
@@ -65,5 +89,8 @@
   </url>
   <url>
     <loc>https://jimbrig.github.io/lossrx/reference/tidyeval.html</loc>
+  </url>
+  <url>
+    <loc>https://jimbrig.github.io/lossrx/reference/toproper.html</loc>
   </url>
 </urlset>
