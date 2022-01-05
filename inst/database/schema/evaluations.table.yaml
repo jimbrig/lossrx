@@ -1,0 +1,10 @@
+name: evaluations
+columns:
+  - name: evaluation_id
+    type: uuid
+    notNull: true
+  - name: evaluation_date
+    type: date
+    notNull: true
+primaryKey:
+  - evaluation_id

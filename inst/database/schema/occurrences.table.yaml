@@ -1,0 +1,15 @@
+name: occurrences
+columns:
+  - name: occurrence_id
+    type: uuid
+    notNull: true
+  - name: occurrence_number
+    type: integer
+    autoIncrement: true
+    notNull: true
+  - name: number_of_claims
+    type: integer
+  - name: default_claim_used
+    type: uuid
+primaryKey:
+  - occurrence_id

@@ -1,0 +1,13 @@
+name: tpas
+columns:
+  - name: tpa_id
+    type: uuid
+    notNull: true
+  - name: tpa
+    type: varchar
+    notNull: true
+  - name: coverage
+    type: varchar
+    references: coverages
+primaryKey:
+  - tpa_id

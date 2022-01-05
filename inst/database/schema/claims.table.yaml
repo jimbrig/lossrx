@@ -1,0 +1,49 @@
+name: claims
+columns:
+  - name: claim_id
+    type: uuid
+    notNull: true
+  - name: claim_number
+    type: integer
+    autoIncrement: true
+    notNull: true
+  - name: claimant_id
+    type: uuid
+    references: claimants
+  - name: occurrence_id
+    type: uuid
+    references: occurrences
+  - name: coverage_id
+    type: uuid
+    references: coverages
+  - name: tpa_id
+    type: uuid
+    references: tpas
+  - name: company_id
+    type: uuid
+    references: companies
+  - name: evaluation_date
+    type: date
+    references: evaluations
+  - name: loss_date
+    type: date
+    notNull: true
+  - name: report_date
+    type: date
+    notNull: true
+  - name: close_date
+    type: date
+  - name: reopen_date
+    type: date
+  - name: reclose_date
+    type: date
+  - name: status
+    type: USER-DEFINED
+  - name: total_paid
+    type: numeric
+    notNull: true
+  - name: total_reported
+    type: numeric
+    notNull: true
+primaryKey:
+  - claim_id

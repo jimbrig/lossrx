@@ -1,0 +1,25 @@
+name: policies
+columns:
+  - name: policy_id
+    type: uuid
+    notNull: true
+  - name: policy_type
+    type: varchar
+  - name: coverage
+    type: varchar
+    references: coverages
+  - name: start_date
+    type: date
+    notNull: true
+  - name: end_date
+    type: date
+    notNull: true
+  - name: policy_year
+    type: integer
+  - name: start_end_text
+    type: varchar
+  - name: premium
+    type: numeric
+    notNull: true
+primaryKey:
+  - policy_id

@@ -1,0 +1,11 @@
+name: segments
+columns:
+  - name: segment_id
+    type: uuid
+    notNull: true
+  - name: segment_name
+    type: varchar
+  - name: segment_abbr
+    type: varchar
+primaryKey:
+  - segment_id

@@ -1,0 +1,16 @@
+name: coverages
+columns:
+  - name: coverage_id
+    type: uuid
+    notNull: true
+  - name: coverage
+    type: varchar
+    notNull: true
+  - name: coverage_abbr
+    type: varchar
+    notNull: true
+  - name: coverage_exposure_base
+    type: varchar
+    notNull: true
+primaryKey:
+  - coverage_id
