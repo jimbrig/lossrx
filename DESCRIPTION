@@ -20,9 +20,11 @@ Imports:
     here,
     lubridate,
     magrittr,
+    purrr,
     rlang (>= 0.4.11),
     stringr,
     tibble,
+    usethis,
     utils
 Suggests: 
     knitr,
