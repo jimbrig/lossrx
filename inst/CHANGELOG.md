@@ -8,15 +8,19 @@ All notable changes to this project will be documented in this file.
 - Buildignore postgresdata
 - Re-do deps
 - Buildignore .vscode
+- Remove .vscode for R CMD CHECK
 
 ### Documentation
 
 - Update pkgdown yml
 - Update pkgdown yml pt 2
+- Enhance pkgdown NEWS menu
+- Update lossrx vignette
 
 ### Features
 
 - Add some suggested package deps
+- Update WORDLIST for spelling
 
 ### Miscellaneous Tasks
 
@@ -26,6 +30,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-01-06T01:47:20Z
 - Autopublish 2022-01-06T01:52:42Z
 - Autopublish 2022-01-06T01:53:27Z
+- Autopublish 2022-01-06T02:07:50Z
 
 ### Release
 
