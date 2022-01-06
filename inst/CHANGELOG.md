@@ -6,11 +6,13 @@ All notable changes to this project will be documented in this file.
 ### Documentation
 
 - Update pkgdown yml
+- Update pkgdown yml pt 2
 
 ### Miscellaneous Tasks
 
 - Autopublish 2022-01-06T01:38:39Z
 - Autopublish 2022-01-06T01:44:38Z
+- Autopublish 2022-01-06T01:46:43Z
 
 ### Release
 
