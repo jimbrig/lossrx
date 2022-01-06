@@ -13,3 +13,5 @@
 ^codecov\.yml$
 ^codemeta\.json$
 ^.gitattributes$
+^inst/database/postgres-data$
+^database/postgres-data$
