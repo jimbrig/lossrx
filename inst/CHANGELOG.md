@@ -3,9 +3,14 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Documentation
+
+- Update pkgdown yml
+
 ### Miscellaneous Tasks
 
 - Autopublish 2022-01-06T01:38:39Z
+- Autopublish 2022-01-06T01:44:38Z
 
 ### Release
 
