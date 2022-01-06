@@ -19,6 +19,7 @@ All notable changes to this project will be documented in this file.
 - Re-document package pre-build
 - Various tweaks to vignettes
 - Pkgdown configs
+- Add footnote to readme for database docker image
 
 ### Features
 
@@ -59,6 +60,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-01-05T02:31:21Z
 - Autopublish 2022-01-05T02:37:55Z
 - Autopublish 2022-01-05T02:42:44Z
+- Autopublish 2022-01-05T02:47:14Z
 
 ### Bug
 
