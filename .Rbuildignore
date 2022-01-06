@@ -12,3 +12,4 @@
 ^inst/docs$
 ^codecov\.yml$
 ^codemeta\.json$
+^.gitattributes$
