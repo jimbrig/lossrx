@@ -27,6 +27,7 @@ All notable changes to this project will be documented in this file.
 - Add comprehensive data-raw README
 - Enhance README
 - Enhance database docs
+- Fix NEWS.md
 
 ### Features
 
@@ -75,6 +76,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-01-06T00:13:53Z
 - Autopublish 2022-01-06T00:15:04Z
 - Autopublish 2022-01-06T01:27:51Z
+- Autopublish 2022-01-06T01:30:33Z
 
 ### Bug
 
