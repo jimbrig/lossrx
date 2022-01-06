@@ -1,6 +1,30 @@
 # Database for `lossrx` Package: `actuarialdb`
 
-## Contents
+## TLDR
+
+Get up-and-running by simply entering this folder and running `docker-compose up --build` to build and run a container instance of the [actuarialdb]() locally on port 5432.
+
+For reference here is the docker-compose.yml file:
+
+```dockerfile
+services:
+    postgres:
+        image: postgres:latest
+        restart: always
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: admin
+            POSTGRES_DB: postgres
+        logging:
+            options:
+                max-size: 10m
+                max-file: "3"
+        ports:
+            - '5432:5432'
+        volumes:
+            - ./postgres-data:/var/lib/postgresql/data
+            - ./SQL:/docker-entrypoint-initdb.d
+```
 
 ## Structure
 
