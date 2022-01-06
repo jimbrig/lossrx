@@ -1,0 +1,7 @@
+*
+!.gitignore
+!pg_hba.conf
+!pg_ident.conf
+!PG_VERSION
+!postgresql.auto.conf
+!postgresql.conf
