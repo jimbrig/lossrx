@@ -7,6 +7,60 @@
 - Re-configure pkgdown
 - Pkgdown
 - Match-up vignette names and indices
+- Cleanup old data-raw doc_data function
+- Cleanup old unused files
+- New dependency packages
+- Build ignore codemeta.json
+- Configure gh-linguist to ignore HTML and CSS
+- Buildignore gitattributes
+- Ignore javascript also with linguist
+- Re-structure data-raw folders
+
+## Documentation
+
+- Re-document package
+- Re-document package pre-build
+- Various tweaks to vignettes
+- Pkgdown configs
+- Add footnote to readme for database docker image
+- Add comprehensive data-raw README
+- Enhance README
+- Enhance database docs
+
+## Features
+
+- Add string utility functions
+- Add date utility functions
+- Add data utility functions
+- Initialize statistical functions
+- Re-configure R directory with function groupings
+- Add database create_tbl function
+- Add suite of interpolation functions
+- Add database schema YAML configuration files
+- Create database connection configuration file
+- Initialize vignettes for statistical distributions
+- Add customized vignette CSS styles
+- Initialize data overview vignette
+- SQL files for vehicles, coverages, and claimants
+- Database initialization script
+- Restructure and enhance data-raw folder
+- Add dependencies
+- Add bugReports URL
+- Add db.sql copied from docker container
+- Complete the inst/database folder
+
+## Bug
+
+- Fix NEWS.md
+
+## Data
+
+- Updated .rda data files
+- Database CSV seeding files
+
+## Meta
+
+- Create codemetar config file
 
 # lossrx 0.0.2
 
@@ -66,7 +120,7 @@
 
 - For initial release docs
 
-# lossrx 0.0.1 
+# lossrx 0.0.1
 
 > Date: 2021-11-28
 
@@ -146,5 +200,4 @@
 - Fix pkgdown config for unreleased sections
 
 ***
-Jimmy Briggs | 2021
-
+Jimmy Briggs | 2022
