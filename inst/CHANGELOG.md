@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file.
 - Configure gh-linguist to ignore HTML and CSS
 - Buildignore gitattributes
 - Ignore javascript also with linguist
+- Re-structure data-raw folders
 
 ### Documentation
 
@@ -23,6 +24,8 @@ All notable changes to this project will be documented in this file.
 - Various tweaks to vignettes
 - Pkgdown configs
 - Add footnote to readme for database docker image
+- Add comprehensive data-raw README
+- Enhance README
 
 ### Features
 
@@ -44,6 +47,7 @@ All notable changes to this project will be documented in this file.
 - Add dependencies
 - Add bugReports URL
 - Add db.sql copied from docker container
+- Complete the inst/database folder
 
 ### Miscellaneous Tasks
 
@@ -68,6 +72,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-01-06T00:08:43Z
 - Autopublish 2022-01-06T00:12:26Z
 - Autopublish 2022-01-06T00:13:53Z
+- Autopublish 2022-01-06T00:15:04Z
 
 ### Bug
 
