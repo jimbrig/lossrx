@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Miscellaneous Tasks
+
+- Autopublish 2022-01-06T01:38:39Z
+
+### Release
+
+- Update NEWS.md for release
+
+## [0.0.3] - 2022-01-06
+
 ### Configuration
 
 - Re-configure pkgdown
