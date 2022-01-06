@@ -2,6 +2,10 @@
 
 > All notable changes to this project will be documented in this file.
 
+# lossrx 0.0.3
+
+> Date 2022-01-05
+
 ## Configuration
 
 - Re-configure pkgdown
