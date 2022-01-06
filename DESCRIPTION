@@ -31,11 +31,15 @@ Imports:
     utils
 Suggests: 
     actuar,
+    attachment,
+    desc,
     devtools,
     fplot,
     kableExtra,
     knitr,
+    pkgdown,
     rmarkdown,
+    roxygen2,
     summarytools,
     testthat (>= 3.0.0)
 VignetteBuilder: 
