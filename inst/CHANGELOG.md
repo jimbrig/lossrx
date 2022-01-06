@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 - New dependency packages
 - Build ignore codemeta.json
 - Configure gh-linguist to ignore HTML and CSS
+- Buildignore gitattributes
 
 ### Documentation
 
@@ -64,6 +65,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-01-05T02:42:44Z
 - Autopublish 2022-01-05T02:47:14Z
 - Autopublish 2022-01-06T00:08:43Z
+- Autopublish 2022-01-06T00:12:26Z
 
 ### Bug
 
