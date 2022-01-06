@@ -24,9 +24,11 @@ Specifically, the package will contain:
 
 - A suite of utility and workflow oriented functions bundled as an R package
 - A plumber API that serves various endpoints related to a backend database and models
-- A cross-platform, migration-friendly relational database representing the various entities, attributes, and their relationships involved in a typical actuarial reserving workflow.
+- A comprehensive, yet simple migration-friendly relational database representing the various entities, attributes, and relationships involved with actuarial reserving.[^1]
 - A demo Shiny App for Actuarial Loss Development and Reserving including triangles, loss development factor selection, preliminary ultimates, etc. and a backend database/API to store results and selections.
 - Comprehensive documentation and tests
+
+[^1]: See the [database container package](https://github.com/jimbrig/lossrx/pkgs/container/actuarialdb) for details on how to run the database as a container image.
 
 ## Installation
 
