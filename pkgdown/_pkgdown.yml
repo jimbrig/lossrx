@@ -36,10 +36,10 @@ reference:
   - '`losses`'
 news:
   releases:
+  - text: lossrx [Unreleased]
+  - text: lossrx 0.0.3
   - text: lossrx 0.0.2
   - text: lossrx 0.0.1
-  - text: lossrx 0.0.0.9000
-  - text: lossrx [Unreleased]
 navbar:
   structure:
     left:
