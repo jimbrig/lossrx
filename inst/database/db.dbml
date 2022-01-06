@@ -1,0 +1,115 @@
+//// -- Project
+
+Project "Actuarial-Database" {
+  database_type: 'PostgreSQL'
+  Note: 'This is the database used by the actuarial R package and serves as a demonstation of a
+  production-like actuarial claims data warehousing environment'
+}
+
+
+//// -- Tables and References
+
+// Create Custom ENUM Types
+ENUM claim_status {
+  O [note: 'Open']
+  C [note: 'Closed']
+  R [note: 'ReOpened']
+}
+
+ENUM coverage_codes {
+  WC [note: 'Workers Compensation']
+  AL [note: 'Automobile Liability']
+  PROP [note: 'Property (Damage) Insurance']
+  GL [note: 'General Liability']
+  MPL [note: 'Medical Professional Liability (Malpractice)']
+  OTHER [note: 'Any other coverage types']
+}
+
+Table claims {
+  claim_id uuid [pk, not null, note: "Unique indentifier for the individual claim. Primary Key of this table." ]
+  claim_number int [increment, note: "Another form of claim identification but using an auto-incrememnting integer based off creation date."]
+  claimant_id uuid [ref: > claimants.claimant_id, note: "Identifier for the claim's claimant. References the claimants table > claimant_id field."]
+  occurrence_id uuid [ref: > occurrences.occurrence_id, note: "Identifier for the claim's occurrence, if applicable. Occurrences group claims by accident or occurrence and depending on the policy, occurrence or claims based reserving should be used."]
+  policy_id uuid [ref: > policies.policy_id, note: 'Identifer for the claims policy.']
+  coverage_id uuid [ref: > coverages.coverage_id, note: "Identifier for the claim's coverage (i.e. WC, AL, GL, MPL, PROP, etc.)"]
+  tpa_id uuid [ref: > tpas.tpa_id, note: "Identifier for the claim's TPA (third party administer) that provieded claim details."]
+  company_id uuid [ref: > companies.company_id, note: "Identifier for the claim's company or division, if applicable."]
+  loss_date date [not null]
+  report_date date [not null]
+  close_date date [default: NULL]
+  reopen_date date [default: NULL]
+  reclose_date date [default: NULL]
+  Note: 'Primary claims table listing idividual claims and their relationships, dates, and attributes.'
+}
+
+Table claim_evaluations {
+  claim_id uuid [not null, ref: > claims.claim_id, note: "Claim Identifier", pk]
+  evaluation_date date [not null, ref: > evaluations.evaluation_date, note: "Evaluation date values are evaluated as of.", pk]
+  status claim_status [note: 'O, C, or R for Open, Closed, or Re-Opened; Status can change between evals determining prior-to-current status levels (i.e. O->C is a closure, C->R is a re-opening, etc.)']
+  total_paid numeric [not null, default: 0, note: 'Total cumulative paid as of the specified evaluation date. Should be less than reported and flagged if closed and $0 paid.']
+  total_case numeric [not null, default: 0, note: 'Total cumulative case reserves as of the evaluation date. Case plus paid determines reported amounts.']
+  Note: 'This table combines individual claims and their corresponding evaluation dates values. containing all combinations of claims and evaluation dates. This table represents a merged table containing all evaluation date lossuns for a given client or project.'
+}
+
+Table claimants {
+  claimant_id uuid [pk, not null]
+  claimant_first_name varchar
+  claimant_last_name varchar
+  claimant_full_name varchar
+  claimant_age integer
+  claimant_details varchar
+  Note: 'The Claimants table represents all claimants that have appeared in the system over its lifetime. Claimants represent individuals that have filed claims in accordance with their policies and coverages.'
+}
+
+Table occurrences {
+  occurrence_id uuid [pk, not null]
+  occurrence_number int [not null, increment]
+  number_of_claims int
+  default_claim_used uuid
+  Note: 'Occurrences represent groups of individual claims and group together all parties involved with a single occurrence or accident. Depending on the policy type, treatment of losses will either depend on occurrence based or claims based losses.'
+}
+
+Table coverages {
+  coverage_id uuid [pk, not null]
+  coverage varchar [not null, unique]
+  coverage_abbr varchar [not null, unique]
+  coverage_exposure_base varchar [not null, unique]
+  Note: 'The coverages table lists all potential coverages and their abbrevations/codes in the given actuarial projects environment'
+}
+
+Table policies {
+  policy_id uuid [pk, not null]
+  policy_type varchar
+  coverage varchar [ref: > coverages.coverage_abbr]
+  start_date date [not null]
+  end_date date [not null]
+  policy_year int
+  start_end_text varchar
+  premium numeric [not null]
+  alae_treatment varchar
+  occ_claims_based varchar
+  Note: 'Policy details'
+}
+
+Table tpas {
+  tpa_id uuid [pk, not null]
+  tpa varchar [not null, unique]
+  coverage varchar [ref: > coverages.coverage_abbr]
+}
+
+Table companies {
+  company_id uuid [pk, not null]
+  company_name varchar
+  company_abbr varchar
+}
+
+Table segments {
+  segment_id uuid [pk, not null]
+  segment_name varchar
+  segment_abbr varchar
+}
+
+Table evaluations {
+  evaluation_id uuid [pk, not null]
+  evaluation_date date [not null, unique]
+}
