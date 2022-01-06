@@ -51,3 +51,16 @@ pak::pak("jimbrig/lossrx")
 ***
 
 Jimmy Briggs | 2022
+
+***
+
+Latest `R CMD CHECK`:
+
+```R
+-- R CMD check results -------------------------------------- lossrx 0.0.2 ----
+Duration: 1m 19.3s
+
+0 errors v | 0 warnings v | 0 notes v
+
+R CMD check succeeded
+```
