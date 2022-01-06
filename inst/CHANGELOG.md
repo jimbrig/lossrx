@@ -26,6 +26,7 @@ All notable changes to this project will be documented in this file.
 - Add footnote to readme for database docker image
 - Add comprehensive data-raw README
 - Enhance README
+- Enhance database docs
 
 ### Features
 
@@ -73,6 +74,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-01-06T00:12:26Z
 - Autopublish 2022-01-06T00:13:53Z
 - Autopublish 2022-01-06T00:15:04Z
+- Autopublish 2022-01-06T01:27:51Z
 
 ### Bug
 
