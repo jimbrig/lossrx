@@ -57,14 +57,21 @@ navbar:
     news:
       text: News
       menu:
-      - text: Releases
-      - text: lossrx 0.0.2
-      - text: lossrx 0.0.1
-      - text: lossrx 0.0.0.9000
       - text: lossrx [Unreleased]
+        href: https://github.com/jimbrig/lossrx
+      - text: Releases
+        href: https://github.com/jimbrig/lossrx/releases
+      - text: lossrx 0.0.3
+        href: https://github.com/jimbrig/lossrx/releases/tag/v0.0.3
+      - text: lossrx 0.0.2
+        href: https://github.com/jimbrig/lossrx/releases/tag/v0.0.2
+      - text: lossrx 0.0.1
+        href: https://github.com/jimbrig/lossrx/releases/tag/v0.0.1
       - text: '---------'
-      - text: Changelog
+      - text: News
         href: news/index.html
+      - text: Changelog
+        href: https://github.com/jimbrig/lossrx/blob/main/inst/CHANGELOG.md
     intro:
       text: Get started
       href: articles/lossrx.html
