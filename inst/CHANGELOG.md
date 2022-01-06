@@ -14,6 +14,7 @@ All notable changes to this project will be documented in this file.
 - Build ignore codemeta.json
 - Configure gh-linguist to ignore HTML and CSS
 - Buildignore gitattributes
+- Ignore javascript also with linguist
 
 ### Documentation
 
@@ -66,6 +67,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-01-05T02:47:14Z
 - Autopublish 2022-01-06T00:08:43Z
 - Autopublish 2022-01-06T00:12:26Z
+- Autopublish 2022-01-06T00:13:53Z
 
 ### Bug
 
