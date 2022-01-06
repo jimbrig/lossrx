@@ -1,6 +1,6 @@
-> All notable changes to this project will be documented in this file.
+# lossrx [Unreleased]
 
-# [Unreleased]
+> All notable changes to this project will be documented in this file.
 
 ## Configuration
 
@@ -8,7 +8,9 @@
 - Pkgdown
 - Match-up vignette names and indices
 
-# [0.0.2] - 2022-01-02
+# lossrx 0.0.2
+
+> Date: 2022-01-02
 
 ## Configuration
 
@@ -64,7 +66,9 @@
 
 - For initial release docs
 
-# [0.0.1] - 2021-11-28
+# lossrx 0.0.1 
+
+> Date: 2021-11-28
 
 ## Configuration
 
@@ -131,12 +135,6 @@
 - Backup package commands to `pkgdevt.R`
 - Add some utility imports
 
-## Miscellaneous Tasks
-
-- Autopublish 2021-11-24T02:29:14Z
-- Autopublish 2021-11-28T05:18:05Z
-- Autopublish 2021-11-28T05:20:09Z
-
 ## Testing
 
 - Initialize tests with testthat
@@ -149,4 +147,4 @@
 
 ***
 Jimmy Briggs | 2021
-*Changelog generated via `git-cliff`*
+
