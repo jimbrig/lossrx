@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file.
 - Cleanup old unused files
 - New dependency packages
 - Build ignore codemeta.json
+- Configure gh-linguist to ignore HTML and CSS
 
 ### Documentation
 
@@ -40,6 +41,7 @@ All notable changes to this project will be documented in this file.
 - Restructure and enhance data-raw folder
 - Add dependencies
 - Add bugReports URL
+- Add db.sql copied from docker container
 
 ### Miscellaneous Tasks
 
@@ -61,6 +63,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-01-05T02:37:55Z
 - Autopublish 2022-01-05T02:42:44Z
 - Autopublish 2022-01-05T02:47:14Z
+- Autopublish 2022-01-06T00:08:43Z
 
 ### Bug
 
