@@ -10,6 +10,7 @@
 │   └───SQL
 ├───original
 │   └───downloaded
+│   └───mockaroo
 ├───scripts
 └───working
     ├───exposures
@@ -50,6 +51,9 @@ Currently the following scripts are used:
 ## Original
 
 The [original](original) directory houses raw, original data downloaded or brought in from an external source. This data is assumed to be as raw as possible.
+
+- [downloaded](original/downloaded) - houses data downloaded via ropensci's [piggyback package](https://github.com/ropensci/piggyback). 
+- [mockaroo](original/mockaroo) - Mocked data frames created using the [Mockaroo API](https://www.mockaroo.com/).
 
 ## Working
 
