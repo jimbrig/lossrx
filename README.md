@@ -58,12 +58,6 @@ The core database files are housed in the [inst/database](inst/database) directo
 
 [^2]: Similarly, you can install the package using the more common `devtools::install_github()` and `remotes::install_github()`
 
-***
-
-Jimmy Briggs | 2022
-
-***
-
 Latest `R CMD CHECK`:
 
 ```R
@@ -74,3 +68,5 @@ Duration: 1m 19.3s
 
 R CMD check succeeded
 ```
+
+> Jimmy Briggs | 2022
