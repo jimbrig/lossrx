@@ -19,6 +19,7 @@ All notable changes to this project will be documented in this file.
 - Add documentation for original raw data
 - Enhance README data preparation and database sections
 - Enhance structure of README
+- Enhance README
 
 ### Features
 
@@ -39,6 +40,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-01-07T05:09:12Z
 - Autopublish 2022-01-07T05:13:40Z
 - Autopublish 2022-01-07T05:23:51Z
+- Autopublish 2022-01-07T05:25:50Z
 
 ### Release
 
