@@ -28,6 +28,14 @@ Specifically, the package will contain:
 - A demo Shiny App for Actuarial Loss Development and Reserving including triangles, loss development factor selection, preliminary ultimates, etc. and a backend database/API to store results and selections.
 - Comprehensive documentation and tests
 
+## Installation
+
+You can install the development version of `lossrx` with `pak`: [^2]
+
+```r
+pak::pak("jimbrig/lossrx")
+```
+
 ## Data
 
 ### Data Preparation
@@ -45,14 +53,6 @@ Data is prepared in the following ways:
 ### Database
 
 The core database files are housed in the [inst/database](inst/database) directory and are included on package installation.
-
-## Installation
-
-You can install the development version of `lossrx` with `pak`: [^2]
-
-```r
-pak::pak("jimbrig/lossrx")
-```
 
 [^1]: See the [database container package](https://github.com/jimbrig/lossrx/pkgs/container/actuarialdb) for details on how to run the database as a container image.
 
