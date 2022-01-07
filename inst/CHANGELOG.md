@@ -17,6 +17,7 @@ All notable changes to this project will be documented in this file.
 - Enhance pkgdown NEWS menu
 - Update lossrx vignette
 - Add documentation for original raw data
+- Enhance README data preparation and database sections
 
 ### Features
 
@@ -35,6 +36,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-01-06T02:07:50Z
 - Autopublish 2022-01-06T02:10:30Z
 - Autopublish 2022-01-07T05:09:12Z
+- Autopublish 2022-01-07T05:13:40Z
 
 ### Release
 
