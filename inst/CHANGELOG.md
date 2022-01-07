@@ -21,6 +21,7 @@ All notable changes to this project will be documented in this file.
 
 - Add some suggested package deps
 - Update WORDLIST for spelling
+- Add mockaroo mock datasets to data-raw
 
 ### Miscellaneous Tasks
 
@@ -31,6 +32,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-01-06T01:52:42Z
 - Autopublish 2022-01-06T01:53:27Z
 - Autopublish 2022-01-06T02:07:50Z
+- Autopublish 2022-01-06T02:10:30Z
 
 ### Release
 
