@@ -141,9 +141,22 @@
 </ul>
 </div>
 <div class="section level2">
-<h2 id="data-prep">Data Prep<a class="anchor" aria-label="anchor" href="#data-prep"></a>
+<h2 id="data">Data<a class="anchor" aria-label="anchor" href="#data"></a>
 </h2>
+<div class="section level3">
+<h3 id="data-preparation">Data Preparation<a class="anchor" aria-label="anchor" href="#data-preparation"></a>
+</h3>
 <p>This package utilizes a lot of data and in turn has a lot of code inside the <a href="data-raw">data-raw</a> folder. I recommend taking a look at its <a href="data-raw/README.html">README</a> to gain an understanding of how the data was prepared for both use in the package as well as included and uploaded to the database.</p>
+<p>Data is prepared in the following ways:</p>
+<ul>
+<li>Simulated transactional claims data using the <a href="https://github.com/jimbrig/lossrx/blob/main/data-raw/scripts/claims_transactional.R" class="external-link">claims_transactional.R Simulation R Script</a>
+</li>
+<li>Downloaded and extracted using ropensci’s <a href="https://github.com/ropensci/piggyback" class="external-link">piggyback package</a> - see the <a href="https://github.com/jimbrig/lossrx/blob/main/data-raw/scripts/dataprep.R" class="external-link">dataprep.R Script</a>.</li>
+<li>Supplemental <em>mocked data</em> generated using the <a href="https://www.mockaroo.com/" class="external-link">Mockaroo API</a> for randomizing certain data attribute’s.</li>
+<li>Uploaded and merged into the relational database using <code>SQL</code>, <code>R</code>, <code>CSVs</code>, and <code>YAML</code> files (see below about database details).</li>
+<li>Certain datasets are budled and included with the package as native <code>.rda</code> packaged data files.</li>
+</ul>
+</div>
 <div class="section level3">
 <h3 id="database">Database<a class="anchor" aria-label="anchor" href="#database"></a>
 </h3>
