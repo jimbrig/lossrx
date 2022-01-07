@@ -28,9 +28,19 @@ Specifically, the package will contain:
 - A demo Shiny App for Actuarial Loss Development and Reserving including triangles, loss development factor selection, preliminary ultimates, etc. and a backend database/API to store results and selections.
 - Comprehensive documentation and tests
 
-## Data Prep
+## Data
+
+### Data Preparation
 
 This package utilizes a lot of data and in turn has a lot of code inside the [data-raw](data-raw) folder. I recommend taking a look at its [README](data-raw/README.md) to gain an understanding of how the data was prepared for both use in the package as well as included and uploaded to the database.
+
+Data is prepared in the following ways:
+
+- Simulated transactional claims data using the [claims_transactional.R Simulation R Script](https://github.com/jimbrig/lossrx/blob/main/data-raw/scripts/claims_transactional.R)
+- Downloaded and extracted using ropensci's [piggyback package](https://github.com/ropensci/piggyback) - see the [dataprep.R Script](https://github.com/jimbrig/lossrx/blob/main/data-raw/scripts/dataprep.R).
+- Supplemental *mocked data* generated using the [Mockaroo API](https://www.mockaroo.com/) for randomizing certain data attribute's.
+- Uploaded and merged into the relational database using `SQL`, `R`, `CSVs`, and `YAML` files (see below about database details).
+- Certain datasets are budled and included with the package as native `.rda` packaged data files.
 
 ### Database
 
