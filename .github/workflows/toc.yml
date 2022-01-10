@@ -1,7 +1,8 @@
 name: Run DocToc
-on: 
-  - push:
-  - workflow_dispatch:
+on:
+  push:
+    branches: [main, develop]
+  workflow_dispatch:
 jobs:
   generateTOC:
     name: TOC Generator
