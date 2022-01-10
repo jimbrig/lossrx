@@ -1,0 +1,40 @@
+- color: 1d76db
+  description: Issues related to API
+  name: API
+- color: d73a4a
+  description: Something isn't working
+  name: bug
+- color: 8ed92e
+  description: Configuration and meta-infrastructural changes
+  name: config
+- color: FAA631
+  description: Issues related to the database.
+  name: database
+- color: 8E4F70
+  description: Issues related to preparing raw data
+  name: dataprep
+- color: 0075ca
+  description: Improvements or additions to documentation
+  name: documentation
+- color: cfd3d7
+  description: This issue or pull request already exists
+  name: duplicate
+- color: 1B6659
+  description: New enhancements and features
+  name: feature
+- color: "008672"
+  description: Extra attention is needed
+  name: help wanted
+- color: e4e669
+  description: This doesn't seem right
+  name: invalid
+- color: d876e3
+  description: Further information is requested
+  name: question
+- color: 108a51
+  description: Indicates a new release
+  name: release
+- color: D0EFCD
+  description: Related to setting up the project/package
+  name: setup
+
