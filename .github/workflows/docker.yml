@@ -3,7 +3,7 @@ on:
   - [push]
   - workflow_dispatch
 jobs:
-  build:
+  docker:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
