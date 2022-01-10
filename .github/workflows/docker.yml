@@ -21,6 +21,5 @@ jobs:
         registry: ghcr.io
         default_branch: main
         workdir: inst/database
-        dockerfile: inst/database/Dockerfile
         tags: "latest"
         tag_semver: true
