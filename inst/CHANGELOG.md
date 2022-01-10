@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 - Re-do deps
 - Buildignore .vscode
 - Remove .vscode for R CMD CHECK
+- Ignore opened xl files (i.e. "~$")
 
 ### Documentation
 
@@ -58,6 +59,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-01-10T23:41:20Z
 - Update TOC
 - Autopublish 2022-01-10T23:43:06Z
+- Autopublish 2022-01-10T23:45:43Z
 
 ### Release
 
