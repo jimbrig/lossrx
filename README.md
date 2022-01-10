@@ -18,8 +18,17 @@ WIP](https://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.or
 
 ## Contents
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [Overview](#overview)
+- [Installation](#installation)
+- [Data](#data)
+  - [Data Preparation](#data-preparation)
+  - [Database](#database)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Overview
 
