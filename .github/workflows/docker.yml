@@ -1,7 +1,12 @@
 name: Publish Docker
 on: 
-  - [push]
-  - workflow_dispatch
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - develop
+    paths:
+      - inst/database
 jobs:
   docker:
     runs-on: ubuntu-latest
