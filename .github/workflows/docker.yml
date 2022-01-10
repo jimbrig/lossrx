@@ -1,0 +1,21 @@
+name: Publish Docker
+on: 
+  - [push]
+  - workflow_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: jimbrig/lossrx/actuarialdb
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+        registry: ghcr.io
+        default_branch: main
+        workdir: inst/database
+        dockerfile: inst/database/Dockerfile
+        tags: "latest"
+        tag_semver: true
