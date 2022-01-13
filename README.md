@@ -9,7 +9,7 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![Project Status:
 WIP](https://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
-[![pkgdown](https://github.com/jimbrig/lossrx/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/jimbrig/lossrx/actions/workflows/pkgdown.yaml)
+[![pkgdown](https://github.com/jimbrig/lossrx/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/jimbrig/lossrx/actions/workflows/pkgdown.yml)
 [![R-CMD-check](https://github.com/jimbrig/lossrx/workflows/R-CMD-check/badge.svg)](https://github.com/jimbrig/lossrx/actions)
 [![codecov](https://codecov.io/gh/jimbrig/lossrx/branch/main/graph/badge.svg?token=14426d5e-bed0-4cea-b8ff-ff4561ccda4f)](https://codecov.io/gh/jimbrig/lossrx?branch=main)
 <!-- badges: end -->
