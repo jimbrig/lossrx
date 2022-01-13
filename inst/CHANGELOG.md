@@ -75,6 +75,11 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-01-11T05:08:50Z
 - Autopublish 2022-01-13T01:30:46Z
 - Autopublish 2022-01-13T01:31:49Z
+- Autopublish 2022-01-13T01:32:37Z
+
+### Bugfix
+
+- Rstudio/connections dependency
 
 ### Release
 
