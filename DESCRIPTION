@@ -23,23 +23,21 @@ Imports:
     lubridate,
     magrittr,
     purrr,
+    randomNames,
     readr,
     rlang (>= 0.4.11),
+    stats,
     stringr,
     tibble,
     usethis,
     utils
 Suggests: 
     actuar,
-    attachment,
-    desc,
     devtools,
     fplot,
     kableExtra,
     knitr,
-    pkgdown,
     rmarkdown,
-    roxygen2,
     summarytools,
     testthat (>= 3.0.0)
 VignetteBuilder: 
