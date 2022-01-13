@@ -1,0 +1,32 @@
+CREATE TABLE public.claims (
+    claim_id UUID UNIQUE PRIMARY KEY DEFAULT uuid_generate_v4(),
+    claim_number INTEGER ASC,
+    occurrence_id UUID,
+    claimant_id UUID,
+    coverage_id UUID,
+    segment_id UUID,
+    department_id UUID,
+    policy_id UUID,
+    loss_date DATE,
+    report_date DATE,
+    close_date DATE,
+    reopen_date DATE,
+    claim_type VARCHAR,
+    state VARCHAR,
+    litigation VARCHAR,
+    status CLAIM_STATUS,
+    total_paid NUMERIC,
+    total_reported NUMERIC,
+    indemnity_bi_paid NUMERIC,
+    indemnity_bi_reported NUMERIC,
+    medical_prop_paid NUMERIC,
+    medical_prop_reported NUMERIC,
+    expense_paid NUMERIC,
+    expense_reported NUMERIC,
+    recovery NUMERIC
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    created_by VARCHAR DEFAULT NULL,
+    modified_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    modified_by VARCHAR DEFAULT NULL
+)
+

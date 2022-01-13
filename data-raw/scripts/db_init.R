@@ -7,7 +7,9 @@ library(config)
 library(dplyr)
 library(dbplyr)
 
-db_config <- config::get(file = "inst/database/config.yml")$local_container
+# db_config <- config::get(file = "inst/database/config.yml")$local_container
+db_config <- config::get(file = "inst/database/config.yml")$spawn
+
 
 conn <- dbx::dbxConnect(db_config$conn_string)
 connections::connection_view(conn)
@@ -24,4 +26,5 @@ dbx::dbxExecute(conn, "CREATE TYPE CLAIM_STATUS AS ENUM ('Open', 'Closed', 'Re-O
 dbx::dbxExecute(conn, "CREATE TYPE ALAE_TREATMENT AS ENUM ('Loss', 'LossALAE', 'ProRata');")
 
 tbls <- fs::dir_ls("data-raw/database/SQL") |> basename() |> fs::path_ext_remove()
-db_data <- purrr::map(tbls, create_tbl)
+db_data <- purrrgress::pro_walk(tbls, create_tbl, conn = conn)
+create_tbl(conn, tbl_name = "claims")

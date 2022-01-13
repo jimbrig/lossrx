@@ -126,6 +126,8 @@ c(
 ) |>
   purrr::walk(usethis::use_r)
 
+usethis::use_r("simulate_claims")
+
 # Tests -------------------------------------------------------------------
 
 usethis::use_testthat()

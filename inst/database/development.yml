@@ -1,0 +1,6 @@
+name: lossrxDB
+engine: postgresql
+version: 13.2
+sourceType: scripts
+scriptsFolders:
+  - ./SQL

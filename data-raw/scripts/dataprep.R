@@ -10,28 +10,36 @@
 library(dplyr)
 require(piggyback)
 
+fs::dir_create("data-raw/original/downloaded")
+fs::dir_create("data-raw/original/extracted")
+
 piggyback::pb_download(
-  "loss_and_exposure_data.zip",
+  file = "loss_and_exposure_data.zip",
+  dest = "data-raw/original/downloaded",
   repo = "jimbrig/lossrx",
-  dest = "data-raw",
+  tag = "v0.0.2",
   overwrite = TRUE
 )
 
-fs::dir_create("data-raw/downloaded")
-fs::dir_create("data-raw/extracted")
-
 unzip(
-  file.path("data-raw", "loss_and_exposure_data.zip"),
-  exdir = file.path("data-raw", "extracted")
+  file.path("data-raw", "original", "downloaded", "loss_and_exposure_data.zip"),
+  exdir = file.path("data-raw", "original", "extracted")
 )
 
-exposures <- qs::qread("data-raw/extracted/exposures_scrubbed")
-losses <- qs::qread("data-raw/extracted/loss_data_scrubbed")
+exposures <- qs::qread("data-raw/original/extracted/exposures_scrubbed")
+losses <- qs::qread("data-raw/original/extracted/loss_data_scrubbed")
 
 losses <- losses |>
   mutate(
     occurrence_number = extract_num(occurrence_number)
   )
+
+losses_by_eval <- split(losses, losses$eval_date)
+csv_dir <- fs::path("data-raw", "working", "lossruns", "CSV")
+fs::dir_create(csv_dir)
+csv_files <- paste0(csv_dir, "/", names(losses_by_eval), ".csv")
+purrr::walk2(losses_by_eval, csv_files, vroom::vroom_write)
+
 
 usethis::use_data(exposures)
 usethis::use_data(losses, overwrite = TRUE)
@@ -39,36 +47,4 @@ usethis::use_data(losses, overwrite = TRUE)
 doc_data(losses)
 doc_data(exposures)
 
-library(mockaRoo)
-library(uuid)
 
-basicSchema <- data.frame(
-  claimant_id = uuid::UUIDgenerate(n = 1),
-  claimant_first_name = "John",
-  claimant_last_name = "Doe"
-  )
-
-response <- mockaRoo::mockaroo("csv", list(key = "de7c9b30", count = 10), schema = jsonlite::toJSON(basicSchema))
-
-jsonlite::prettify(response)
-
-
-mockaRoo::mockaroo()
-
-claimants <-
-
-  search_ghr("mockaroo")
-
-basicSchema<-list(
-  name = "blah"
-  , percentBlank = 0
-  , type = "Color"
-)
-
-library(mockaRoo)
-
-mockaRoo::mockaroo("json"
-         , list( key = "de7c9b30"
-                 , count = 10)
-         , schema = jsonlite::toJSON(basicSchema)
-)
