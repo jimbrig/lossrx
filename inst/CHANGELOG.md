@@ -23,6 +23,7 @@ All notable changes to this project will be documented in this file.
 - Enhance structure of README
 - Enhance README
 - Run devtools::document for new functions
+- Re-configure pkgdown
 
 ### Features
 
@@ -76,6 +77,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-01-13T01:30:46Z
 - Autopublish 2022-01-13T01:31:49Z
 - Autopublish 2022-01-13T01:32:37Z
+- Autopublish 2022-01-13T01:36:57Z
 
 ### Bugfix
 
