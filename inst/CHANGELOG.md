@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - Buildignore .vscode
 - Remove .vscode for R CMD CHECK
 - Ignore opened xl files (i.e. "~$")
+- Update imports/exports
 
 ### Documentation
 
@@ -21,13 +22,23 @@ All notable changes to this project will be documented in this file.
 - Enhance README data preparation and database sections
 - Enhance structure of README
 - Enhance README
+- Run devtools::document for new functions
 
 ### Features
 
 - Add some suggested package deps
 - Update WORDLIST for spelling
 - Add mockaroo mock datasets to data-raw
+- Simulate_function
 - Add gh-labels support
+- Re-structure and enhance data-raw prep files
+- Add spawn database
+- Add database connection function
+- Add actuarial claims history function
+- Add working xl data files
+- Add workflow diagram
+- Add new vignette for getting started
+- Add new simulation function
 
 ### Miscellaneous Tasks
 
@@ -61,6 +72,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-01-10T23:43:06Z
 - Autopublish 2022-01-10T23:45:43Z
 - Autopublish 2022-01-10T23:55:32Z
+- Autopublish 2022-01-11T05:08:50Z
 
 ### Release
 
