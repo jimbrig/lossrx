@@ -16,6 +16,20 @@ WIP](https://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.or
 
 *View the [Changelog](inst/CHANGELOG.md) for detailed progression on development of the package.*
 
+## Contents
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [Overview](#overview)
+- [Installation](#installation)
+- [Data](#data)
+  - [Data Preparation](#data-preparation)
+  - [Database](#database)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Overview
 
 The desired outcome of the `lossrx` R package is to provide actuaries and data scientists valuable tools and frameworks for performing Property Casualty related workflows.

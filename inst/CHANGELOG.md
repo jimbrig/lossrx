@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 - Re-do deps
 - Buildignore .vscode
 - Remove .vscode for R CMD CHECK
+- Ignore opened xl files (i.e. "~$")
 
 ### Documentation
 
@@ -26,6 +27,7 @@ All notable changes to this project will be documented in this file.
 - Add some suggested package deps
 - Update WORDLIST for spelling
 - Add mockaroo mock datasets to data-raw
+- Add gh-labels support
 
 ### Miscellaneous Tasks
 
@@ -44,6 +46,21 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-01-07T05:27:03Z
 - Autopublish 2022-01-08T20:44:50Z
 - Autopublish 2022-01-10T17:08:15Z
+- Autopublish 2022-01-10T17:09:58Z
+- Autopublish 2022-01-10T23:19:07Z
+- Autopublish 2022-01-10T23:20:05Z
+- Autopublish 2022-01-10T23:21:00Z
+- Autopublish 2022-01-10T23:24:04Z
+- Autopublish 2022-01-10T23:31:40Z
+- Autopublish 2022-01-10T23:33:35Z
+- Autopublish 2022-01-10T23:36:07Z
+- Autopublish 2022-01-10T23:37:37Z
+- Autopublish 2022-01-10T23:39:34Z
+- Autopublish 2022-01-10T23:41:20Z
+- Update TOC
+- Autopublish 2022-01-10T23:43:06Z
+- Autopublish 2022-01-10T23:45:43Z
+- Autopublish 2022-01-10T23:55:32Z
 
 ### Release
 

@@ -1,4 +1,11 @@
 default:
+  spawn:
+    dbname: postgres
+    server: r5gp9xzp.instances.spawn.cc
+    port: 30364
+    user: spawn_admin_NMAF
+    password: yo3LHJ2PsjeipQyt
+    conn_string: postgres://spawn_admin_NMAF:yo3LHJ2PsjeipQyt@r5gp9xzp.instances.spawn.cc:30364/postgres
   local_container:
     dbname: postgres
     server: localhost

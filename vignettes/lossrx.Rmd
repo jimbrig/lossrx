@@ -12,132 +12,174 @@ bibliography: references.bib
 link-citations: true
 ---
 
-```{r, include = FALSE}
+```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  echo = TRUE,
-  eval = FALSE,
+  echo = FALSE,
+  eval = TRUE,
   messages = FALSE,
   warnings = FALSE,
-  error = FALSE
+  error = FALSE,
+  output = "asis"
 )
+
+library(knitr)
+library(kableExtra)
+library(tibble)
+library(dplyr)
+library(tidyr)
+library(purrr)
+library(lubridate)
+library(timevis)
 ```
 
 ## Getting Started with `lossrx`
 
 ```{r}
-library(lossrx)
+# library(lossrx)
+devtools::load_all()
 ```
 
 ## Overview {#Overview}
 
-This vignette introduces readers to methods used by actuaries to analyze and model *insurance claims data*, specifically, how to apply **Loss Reserving** techniques.
+This vignette introduces readers to methods used by actuaries to analyze
+and model *insurance claims data*, specifically, how to apply **Loss
+Reserving** techniques.
 
-**NOTE:** 
+**NOTE:**
 
--   This vignette is specific to Loss Reserving (also known as claims reserving) for **Property and Casualty** (P&C, or general, non-life) insurance products.
--   In particular, this vignette walks through some of the basic, yet essential, analytic tools actuaries use to assess the reserves on a portfolio of P&C insurance products.
+-   This vignette is specific to Loss Reserving (also known as claims
+    reserving) for **Property and Casualty** (P&C, or general, non-life)
+    insurance products.
+-   In particular, this vignette walks through some of the basic, yet
+    essential, analytic tools actuaries use to assess the reserves on a
+    portfolio of P&C insurance products.
 
-## Introduction {#Intro}
-
-An important feature that distinguishes insurance from other sectors of the economy is the timing of the exchange of considerations. In manufacturing, payments for goods are typically made at the time of a transaction. In contrast, for insurance, money received from a customer occurs in advance of benefits or services; these are rendered at a later date if the insured event occurs. This leads to the need to hold a *reservoir of wealth to meet future obligations in respect to obligations made, and to gain the trust of the insureds that the company will be able to fulfill its commitments*. The size of this reservoir of wealth, and the importance of ensuring its adequacy, is a major concern for the insurance industry. [@community]
-
-The money that gets set aside to pay off future unpaid claims is what actuaries refer to as the *Loss Reserve*. When companies summarize their financial position and well-being they must utilize these estimated values to determine their total liabilities on their companies balance sheet. Loss reserves occur on timely intervals known as *valuation or evaluation dates* which simply mean *as of this date in time*.
-
-Claims that arise (are opened/reported to the insurance provider) before valuation dates can fall under one of the following scenarios:
-
-1.  Claim has been paid in full
-2.  Claim is in the process of being paid
-3.  Claim is about to be paid
-
-However, claims that occur *after* the evaluation date (i.e. in the future) are unknown but still need to be accounted for.
-
-### The Role of The Actuary {#RoleofActuary}
-
-Actuaries are concerned with forecasting future payments due to claims. Accurately estimating these payments is important from the perspectives of various stakeholders in the insurance industry. For the management of the insurer, the estimates of unpaid claims inform decisions in underwriting, pricing, and strategy. For the investors, loss reserves, and transactions related to them, are essential components in the balance sheet and income statement of the insurer. In addition, for the regulators, accurate loss reserves are needed to appropriately understand the financial soundness of the insurer. [@kuo_deeptriangle_2019]
-
-### The Need for Loss Reserving {#TheNeedForLossReserving}
-
-The inverted production cycle of the insurance market and the claim dynamics motivate the need for reserving and the design of predictive modeling tools to estimate reserves. In insurance, the premium income precedes the costs. An insurer will charge a client a premium, before actually knowing how costly the insurance policy or contract will become. In typical manufacturing industry this is not the case and the manufacturer knows - before selling a product - what the cost of producing this product was. At a specified evaluation moment τ the insurer will predict outstanding liabilities with respect to contracts sold in the past. This is the claims reserve or loss reserve; it is the capital necessary to settle open claims from past exposures. It is a very important element on the balance sheet of the insurer, more specifically on the liabilities side of the balance sheet.
-
-Accuracy in Loss Reserving is vital to insurers for many reasons, including but not limited to:
-
-1.  Loss reserves represent an anticipated claim that the insurer owes its customers. Under-reserving may result in a failure to meet claim liabilities. Conversely, an insurer with excessive reserves may present a conservative estimate of surplus and thus portray a weaker financial position than it truly has.
-2.  Reserves provide an estimate for the unpaid cost of insurance that can be used for pricing contracts.
-3.  Loss reserving is required by laws and regulations. The public has a strong interest in the financial strength and solvency of insurers.
-4.  In addition to regulators, other stakeholders such as insurance company management, investors, and customers make decisions that depend on company loss reserves. Whereas regulators and customers appreciate conservative estimates of unpaid claims, managers and investors seek more unbiased estimates to represent the true financial health of the company.
-
-### Life vs Property Casualty {#LifevsNonLife}
-
-Loss reserving is a topic where there are substantive differences between life and general, also known as property and casualty (P&C), or non-life insurance.
-
-In life insurance, the severity (amount of loss) is often not a source of uncertainty as payouts are specified in the contract. The frequency, driven by mortality of the insured, is a concern. However, because of the lengthy time for settlement of life insurance contracts, the time value of money uncertainty as measured from issue to date of payment can dominate frequency concerns.
-
-In contrast, for most lines of non-life business, severity is a major source of uncertainty and contract's duration tend to be shorter.
-
-### Life Cycle of a Claim
+## Life Cycle of a Claim
 
 Our starting point is the Lifetime of a P&C Insurance Claim.
 
-The figure below pictures the development of such a claim over time and identifies the events of interest:
+The figure below pictures the development of such a claim over time and
+identifies the events of interest:
 
 ![](https://openacttexts.github.io/Loss-Data-Analytics/LossDataAnalytics_files/figure-html/tikz-run-off-1.png){width="60%"}
 
-The insured event or accident occurs at time $t_{occ}$. This incident is reported to the insurance company at time $t_{rep}$, after some delay. If the filed claim is accepted by the insurance company, payments will follow to reimburse the financial loss of the policyholder. In this example the insurance company compensates the incurred loss with loss payments at times $t_1$, $t_2$ and $t_3$. Eventually, the claim settles or closes at time $t_{set}$.
+The insured event or accident occurs at time $t_{occ}$. This incident is
+reported to the insurance company at time $t_{rep}$, after some delay.
+If the filed claim is accepted by the insurance company, payments will
+follow to reimburse the financial loss of the policyholder. In this
+example the insurance company compensates the incurred loss with loss
+payments at times $t_1$, $t_2$ and $t_3$. Eventually, the claim settles
+or closes at time $t_{set}$.
 
-### Closed, IBNR, and RBNS Claims {#ClosedIBNRandRBNSClaims}
+### Various Events throughout Life of a Claim
 
-*Claim Status* is an important field in the claims dataset. It represents what section of the Life Cycle represented above a claim is currently undergoing. There are three possible situations for a claim's status:
+The different types of claim transactions over the life of an individual
+insurance claim could include:
 
-1.  Closed
-2.  Reported but Note Full Settled (RBNS)
-3.  Incurred but not Reported (IBNR)
+-   Establishment of the initial case outstanding estimate
+-   Notification to the reinsurer if the claim is expected to exceed the
+    insurer's retention
+-   A partial claim payment to injured party
+-   Expense payment for independent adjuster
+-   Change in case outstanding estimate
+-   Claim payment (assumed to be final payment)
+-   Takedown of case outstanding and closure of claim
+-   Reopening of the claim and establishment of a new case outstanding
+    estimate
+-   Partial payment for defense litigation
+-   Final claim payment
+-   Final payment for defense litigation
+-   Closure of claim
 
-*Note: for convenience and simplicity, we are assuming that a closed claim cannot re-open*.
+These events can be summarized in a unified **Claim Fact Summary
+Document**:
 
-#### Closed Claims {#ClosedClaims}
-
-For claims that are closed, the complete development has already been observed. With the red line in the figure below indicating the present moment, all events from the claim's development take place before the present moment. Hence, these events are observed at the present moment.
-
-[![](https://openacttexts.github.io/Loss-Data-Analytics/LossDataAnalytics_files/figure-html/tikz-closed-1.png "Lifetime of a Closed Claim"){width="60%"}](%7B#ClosedClaims%7D)
-
-#### RBNS Claims {#RBNSClaims}
-
-An [*RBNS*](https://openacttexts.github.io/Loss-Data-Analytics/C-LossReserves.html#) claim is one that has been **R**eported, **B**ut is **N**ot fully **S**ettled at the present moment or the moment of evaluation (the valuation date), that is, the moment when the reserves should be calculated and booked by the insurer.
-
-Occurrence, reporting and possibly some loss payments take place before the present moment, but the closing of the claim happens in the future, beyond the present moment.
-
-[![](https://openacttexts.github.io/Loss-Data-Analytics/LossDataAnalytics_files/figure-html/tikz-RBNS-1.png "Lifetime of an RBNS Claim"){#lifetime-of-claim-rbns-example width="60%"}](%7B#RBNS%20Claims%7D)
-
-#### IBNR Claims {#IBNRClaims}
-
-An [*IBNR*](https://openacttexts.github.io/Loss-Data-Analytics/C-LossReserves.html#) claim is one that has **I**ncurred in the past **B**ut is **N**ot yet **R**eported. For such a claim the insured event took place, but the insurance company is not yet aware of the associated claim. This claim will be reported in the future and its complete development (from reporting to settlement) takes place in the future.
-
-[![](https://openacttexts.github.io/Loss-Data-Analytics/LossDataAnalytics_files/figure-html/tikz-IBNR-1.png "Lifetime of an IBNR Claim"){width="60%"}](%7B#IBNRClaims%7D)
-
-## Loss Reserve Data {#LossReserveData}
-
-### Micro to Macro {#MicrotoMacro}
-
-We now shed light on the data available to estimate the outstanding reserve for a portfolio of P&C contracts. Insurance companies typically register data on the development of an individual claim on a micro, claim-specific level. We refer to data registered at this level as granular or micro-level data.
-
-Typically, an actuary aggregates the information registered on the individual development of claims across all claims in a portfolio. This aggregation leads to data structured in a *triangular format*.
-
-Such data are called *aggregate* or *macro-level* data because each cell in the triangle displays information obtained by aggregating the development of multiple claims.
-
-The triangular display used in loss reserving is called a run-off or development triangle. On the vertical axis the triangle lists the accident or occurrence years during which a portfolio is followed. The loss payments booked for a specific claim are connected to the year during the which the insured event occurred. The horizontal axis indicates the payment delay since occurrence of the insured event.
-
-### Data Ingestion
-
-```{r data_ingestion}
+```{r claim_fact_summary_tbl_1}
+tibble::tribble(
+  ~ "", ~"  ",
+  "Policy Period", "January 1, 2020 to December 31, 2020",
+  "Date of Accident", "February 18, 2020",
+  "Date of Claim Report", "March 3, 2020",
+) |>
+  knitr::kable(caption = "Table 1: Claim Fact Summary") |>
+  kableExtra::kable_styling()
 ```
 
--   Build a Probability Modelto describe the aggregate claims by an insurance system occurring in a fixed time period.
+```{r claim_fact_summary_tbl_2}
+tibble::tribble(
+  ~ "Date", ~"Transaction", ~"Reported Value of Claim to Date", ~"Cumulative Paid to Date",
+  "March 3, 2020", "Case Outstanding Reserve of $15,000 Established for claim.", formattable::currency(15000), formattable::currency(0),
+  "April 1, 2020", "Claim Payment of $1,500 - Case reduced to $13,500 (-$1,500)", formattable::currency(15000), formattable::currency(1500),
+  "May 12, 2020", "Expense Payment to IA of $500 - no change in case.", formattable::currency(15500), formattable::currency(2000),
+  "September 1, 2020", "Case increased to $30,000 (+$16,500)", formattable::currency(32000), formattable::currency(2000),
+  "October 3, 2020", "Claim thought to be settled with additional payment of $24,000 - case reduced to $0 (-$30,000) and claim marked as Closed.", formattable::currency(26000), formattable::currency(26000),
+  "January 15, 2021", "Claim Re-Opened with case outstanding set at $10,000 for claim and $10,000 for defense costs.", formattable::currency(46000), formattable::currency(26000),
+  "February 19, 2021", "Final defense cost payment for an additional $6,000 - case for defense costs zeroed out and claim set to Closed.", formattable::currency(52000), formattable::currency(52000)
+) |>
+  knitr::kable() |>
+  kableExtra::kable_styling()
+```
 
--   The insurance system could be a single policy, a group insurance contract, a business line, or an entire book of an insurer's business.
+As you can see there is quite a lot of detail that a single insurance
+claim can contain over the course of its lifetime.
 
--   Aggregate claims refer to either the number or the amount of claims from a portfolio of insurance contracts.
+It is important to note all the various important *Dates* associated with each claim:
 
-First, Section \@ref(S:motivation) motivates the need for loss reserving, then Section \@ref(S:Data) studies the available data sources and introduces some formal notation to tackle loss reserving as a prediction challenge. Next, Section \@ref(S:Chain-ladder) covers the chain-ladder method and Mack's distribution-free chain-ladder model. Section \@ref(S:GLMs) then develops a fully stochastic approach to determine the outstanding reserve with generalized linear models (GLMs), including the technique of bootstrapping to obtain a predictive distribution of the outstanding reserve via simulation.
+- Policy effective date is the date the insurer issues the insurance policy (January 1, 2020) 
+- Accident date, or date of loss, is the date the covered injury occurs (February 18, 2020) 
+- Report date is the date the insurer receives notice of the claim (March 3, 2020) 
+- Transaction date is the date on which either a case outstanding transaction takes place or a payment is made (see all the dates in the preceding table) 
+- Closing dates are the dates on which the claim is initially closed (October 3, 2020) and finally closed (February 19, 2021) 
+- Reopening date is the date the insurer reopens the claim (January 15, 2021) 
 
+## Viewing Claim Historical Transactions with `lossrx`
+
+`lossrx` provides some convenient helper functions for viewing the timeline and informative details over 
+the course of an individual claim's lifetime by pulling the specified claim's transaction data directly from 
+the Actuarial Database:
+
+```{r example_claim_lifetime, echo=TRUE}
+claims <- claims_transactional
+
+# get a random claim
+claim <- claims[round(runif(1, 1, nrow(claims)),0), "claim_id"][[1]]
+
+# gather claim history
+claim_history <- view_claim_history(claim, claims)
+```
+
+### Claim Historical Timeline
+
+*Note: Click on a Date to view information about the transaction that occurred.*
+
+```{r claim_timeline, out.width='100%', out.height='300px'}
+# view claim's timeline
+claim_history$Timeline
+```
+
+### Claim History Details
+
+```{r claim_history_details}
+# view claim's details
+knitr::kable(claim_history$Details, caption = "Claim Details") |> kableExtra::kable_styling()
+```
+
+### Claim Transactional History
+
+```{r claim_transactions}
+# view claim's transactions
+claim_history$Transactions |>
+  dplyr::mutate_if(is.numeric, ~ as.character(formattable::currency(.x, digits = 0))) |>
+  knitr::kable(caption = "Claim Transactional History") |>
+  kableExtra::kable_styling(font_size = 8)
+```
+
+## Workflow
+
+<center>
+
+<img src="assets/img/data-flow.jpg"/>
+
+</center>

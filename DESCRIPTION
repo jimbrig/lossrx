@@ -13,22 +13,29 @@ Depends:
     R (>= 2.10)
 Imports: 
     cli,
+    config,
+    connections,
     crayon,
     dbx,
     dplyr,
     flipTime (>= 2.9.4),
+    formattable,
     fs,
     glue,
     here,
     lubridate,
     magrittr,
+    pool,
     purrr,
     randomNames,
     readr,
     rlang (>= 0.4.11),
     stats,
+    RPostgres,
+    shiny,
     stringr,
     tibble,
+    timevis,
     usethis,
     utils
 Suggests: 
@@ -39,7 +46,8 @@ Suggests:
     knitr,
     rmarkdown,
     summarytools,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    tidyr
 VignetteBuilder: 
     knitr
 Remotes: 
