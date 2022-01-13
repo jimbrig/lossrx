@@ -18,11 +18,14 @@ reference:
 - title: Actuarial
   desc: Actuarial helpers
   contents:
+  - '`view_claim_history`'
+  - '`simulate_claims`'
   - '`loss_run`'
   - '`dates`'
 - title: Data Utilities and Database
   desc: Database and data related helper functions.
   contents:
+  - '`connect_db`'
   - '`doc_data`'
   - '`create_tbl`'
   - '`data-utils`'
