@@ -4,19 +4,13 @@
     <loc>https://jimbrig.github.io/lossrx/404.html</loc>
   </url>
   <url>
-    <loc>https://jimbrig.github.io/lossrx/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://jimbrig.github.io/lossrx/LICENSE.html</loc>
-  </url>
-  <url>
     <loc>https://jimbrig.github.io/lossrx/articles/Actuarial-loss-reserving-overview.html</loc>
   </url>
   <url>
-    <loc>https://jimbrig.github.io/lossrx/articles/Data-Overview.html</loc>
+    <loc>https://jimbrig.github.io/lossrx/articles/actuarial-statistical-distributions.html</loc>
   </url>
   <url>
-    <loc>https://jimbrig.github.io/lossrx/articles/actuarial-statistical-distributions.html</loc>
+    <loc>https://jimbrig.github.io/lossrx/articles/Data-Overview.html</loc>
   </url>
   <url>
     <loc>https://jimbrig.github.io/lossrx/articles/index.html</loc>
@@ -31,6 +25,12 @@
     <loc>https://jimbrig.github.io/lossrx/index.html</loc>
   </url>
   <url>
+    <loc>https://jimbrig.github.io/lossrx/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://jimbrig.github.io/lossrx/LICENSE.html</loc>
+  </url>
+  <url>
     <loc>https://jimbrig.github.io/lossrx/news/index.html</loc>
   </url>
   <url>
@@ -38,6 +38,9 @@
   </url>
   <url>
     <loc>https://jimbrig.github.io/lossrx/reference/coalesce_join.html</loc>
+  </url>
+  <url>
+    <loc>https://jimbrig.github.io/lossrx/reference/connect_db.html</loc>
   </url>
   <url>
     <loc>https://jimbrig.github.io/lossrx/reference/create_tbl.html</loc>
@@ -73,13 +76,13 @@
     <loc>https://jimbrig.github.io/lossrx/reference/interp.html</loc>
   </url>
   <url>
-    <loc>https://jimbrig.github.io/lossrx/reference/loss_run.html</loc>
-  </url>
-  <url>
     <loc>https://jimbrig.github.io/lossrx/reference/losses.html</loc>
   </url>
   <url>
     <loc>https://jimbrig.github.io/lossrx/reference/lossrx-package.html</loc>
+  </url>
+  <url>
+    <loc>https://jimbrig.github.io/lossrx/reference/loss_run.html</loc>
   </url>
   <url>
     <loc>https://jimbrig.github.io/lossrx/reference/open_pkgdown.html</loc>
@@ -88,9 +91,15 @@
     <loc>https://jimbrig.github.io/lossrx/reference/pipe.html</loc>
   </url>
   <url>
+    <loc>https://jimbrig.github.io/lossrx/reference/simulate_claims.html</loc>
+  </url>
+  <url>
     <loc>https://jimbrig.github.io/lossrx/reference/tidyeval.html</loc>
   </url>
   <url>
     <loc>https://jimbrig.github.io/lossrx/reference/toproper.html</loc>
+  </url>
+  <url>
+    <loc>https://jimbrig.github.io/lossrx/reference/view_claim_history.html</loc>
   </url>
 </urlset>

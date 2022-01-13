@@ -116,7 +116,21 @@
 
       
 
-      </header><script src="lossrx_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="lossrx_files/kePrint-0.0.1/kePrint.js"></script><link href="lossrx_files/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="lossrx_files/htmlwidgets-1.5.4/htmlwidgets.js"></script><link href="lossrx_files/visjs-7.4.9/vis-timeline-graph2d.min.css" rel="stylesheet">
+<script src="lossrx_files/visjs-7.4.9/vis-timeline-graph2d.min.js"></script><link href="lossrx_files/timeline-0.4/timevis.css" rel="stylesheet">
+<script src="lossrx_files/timevis-binding-2.0.0/timevis.js"></script><script src="lossrx_files/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="lossrx_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="lossrx_files/bootstrap-3.3.5/js/bootstrap.min.js"></script><script src="lossrx_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script><script src="lossrx_files/bootstrap-3.3.5/shim/respond.min.js"></script><style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>lossrx</h1>
@@ -132,8 +146,7 @@
 <div class="section level2">
 <h2 id="getting-started-with-lossrx">Getting Started with <code>lossrx</code><a class="anchor" aria-label="anchor" href="#getting-started-with-lossrx"></a>
 </h2>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jimbrig.github.io/lossrx">lossrx</a></span><span class="op">)</span></code></pre></div>
+<pre><code><span class="co">#&gt; <span style="color: #00BBBB;">i</span> Loading <span style="color: #0000BB;">lossrx</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="Overview">Overview<a class="anchor" aria-label="anchor" href="#Overview"></a>
@@ -146,109 +159,599 @@
 </ul>
 </div>
 <div class="section level2">
-<h2 id="Intro">Introduction<a class="anchor" aria-label="anchor" href="#Intro"></a>
+<h2 id="life-cycle-of-a-claim">Life Cycle of a Claim<a class="anchor" aria-label="anchor" href="#life-cycle-of-a-claim"></a>
 </h2>
-<p>An important feature that distinguishes insurance from other sectors of the economy is the timing of the exchange of considerations. In manufacturing, payments for goods are typically made at the time of a transaction. In contrast, for insurance, money received from a customer occurs in advance of benefits or services; these are rendered at a later date if the insured event occurs. This leads to the need to hold a <em>reservoir of wealth to meet future obligations in respect to obligations made, and to gain the trust of the insureds that the company will be able to fulfill its commitments</em>. The size of this reservoir of wealth, and the importance of ensuring its adequacy, is a major concern for the insurance industry. <span class="citation">(Community, <a href="#ref-community" role="doc-biblioref">n.d.</a>)</span></p>
-<p>The money that gets set aside to pay off future unpaid claims is what actuaries refer to as the <em>Loss Reserve</em>. When companies summarize their financial position and well-being they must utilize these estimated values to determine their total liabilities on their companies balance sheet. Loss reserves occur on timely intervals known as <em>valuation or evaluation dates</em> which simply mean <em>as of this date in time</em>.</p>
-<p>Claims that arise (are opened/reported to the insurance provider) before valuation dates can fall under one of the following scenarios:</p>
-<ol style="list-style-type: decimal">
-<li>Claim has been paid in full</li>
-<li>Claim is in the process of being paid</li>
-<li>Claim is about to be paid</li>
-</ol>
-<p>However, claims that occur <em>after</em> the evaluation date (i.e. in the future) are unknown but still need to be accounted for.</p>
-<div class="section level3">
-<h3 id="RoleofActuary">The Role of The Actuary<a class="anchor" aria-label="anchor" href="#RoleofActuary"></a>
-</h3>
-<p>Actuaries are concerned with forecasting future payments due to claims. Accurately estimating these payments is important from the perspectives of various stakeholders in the insurance industry. For the management of the insurer, the estimates of unpaid claims inform decisions in underwriting, pricing, and strategy. For the investors, loss reserves, and transactions related to them, are essential components in the balance sheet and income statement of the insurer. In addition, for the regulators, accurate loss reserves are needed to appropriately understand the financial soundness of the insurer. <span class="citation">(Kuo <a href="#ref-kuo_deeptriangle_2019" role="doc-biblioref">2019</a>)</span></p>
-</div>
-<div class="section level3">
-<h3 id="TheNeedForLossReserving">The Need for Loss Reserving<a class="anchor" aria-label="anchor" href="#TheNeedForLossReserving"></a>
-</h3>
-<p>The inverted production cycle of the insurance market and the claim dynamics motivate the need for reserving and the design of predictive modeling tools to estimate reserves. In insurance, the premium income precedes the costs. An insurer will charge a client a premium, before actually knowing how costly the insurance policy or contract will become. In typical manufacturing industry this is not the case and the manufacturer knows - before selling a product - what the cost of producing this product was. At a specified evaluation moment τ the insurer will predict outstanding liabilities with respect to contracts sold in the past. This is the claims reserve or loss reserve; it is the capital necessary to settle open claims from past exposures. It is a very important element on the balance sheet of the insurer, more specifically on the liabilities side of the balance sheet.</p>
-<p>Accuracy in Loss Reserving is vital to insurers for many reasons, including but not limited to:</p>
-<ol style="list-style-type: decimal">
-<li>Loss reserves represent an anticipated claim that the insurer owes its customers. Under-reserving may result in a failure to meet claim liabilities. Conversely, an insurer with excessive reserves may present a conservative estimate of surplus and thus portray a weaker financial position than it truly has.</li>
-<li>Reserves provide an estimate for the unpaid cost of insurance that can be used for pricing contracts.</li>
-<li>Loss reserving is required by laws and regulations. The public has a strong interest in the financial strength and solvency of insurers.</li>
-<li>In addition to regulators, other stakeholders such as insurance company management, investors, and customers make decisions that depend on company loss reserves. Whereas regulators and customers appreciate conservative estimates of unpaid claims, managers and investors seek more unbiased estimates to represent the true financial health of the company.</li>
-</ol>
-</div>
-<div class="section level3">
-<h3 id="LifevsNonLife">Life vs Property Casualty<a class="anchor" aria-label="anchor" href="#LifevsNonLife"></a>
-</h3>
-<p>Loss reserving is a topic where there are substantive differences between life and general, also known as property and casualty (P&amp;C), or non-life insurance.</p>
-<p>In life insurance, the severity (amount of loss) is often not a source of uncertainty as payouts are specified in the contract. The frequency, driven by mortality of the insured, is a concern. However, because of the lengthy time for settlement of life insurance contracts, the time value of money uncertainty as measured from issue to date of payment can dominate frequency concerns.</p>
-<p>In contrast, for most lines of non-life business, severity is a major source of uncertainty and contract’s duration tend to be shorter.</p>
-</div>
-<div class="section level3">
-<h3 id="life-cycle-of-a-claim">Life Cycle of a Claim<a class="anchor" aria-label="anchor" href="#life-cycle-of-a-claim"></a>
-</h3>
 <p>Our starting point is the Lifetime of a P&amp;C Insurance Claim.</p>
 <p>The figure below pictures the development of such a claim over time and identifies the events of interest:</p>
 <p><img src="https://openacttexts.github.io/Loss-Data-Analytics/LossDataAnalytics_files/figure-html/tikz-run-off-1.png" style="width:60.0%"></p>
 <p>The insured event or accident occurs at time <span class="math inline">\(t_{occ}\)</span>. This incident is reported to the insurance company at time <span class="math inline">\(t_{rep}\)</span>, after some delay. If the filed claim is accepted by the insurance company, payments will follow to reimburse the financial loss of the policyholder. In this example the insurance company compensates the incurred loss with loss payments at times <span class="math inline">\(t_1\)</span>, <span class="math inline">\(t_2\)</span> and <span class="math inline">\(t_3\)</span>. Eventually, the claim settles or closes at time <span class="math inline">\(t_{set}\)</span>.</p>
-</div>
 <div class="section level3">
-<h3 id="ClosedIBNRandRBNSClaims">Closed, IBNR, and RBNS Claims<a class="anchor" aria-label="anchor" href="#ClosedIBNRandRBNSClaims"></a>
+<h3 id="various-events-throughout-life-of-a-claim">Various Events throughout Life of a Claim<a class="anchor" aria-label="anchor" href="#various-events-throughout-life-of-a-claim"></a>
 </h3>
-<p><em>Claim Status</em> is an important field in the claims dataset. It represents what section of the Life Cycle represented above a claim is currently undergoing. There are three possible situations for a claim’s status:</p>
-<ol style="list-style-type: decimal">
-<li>Closed</li>
-<li>Reported but Note Full Settled (RBNS)</li>
-<li>Incurred but not Reported (IBNR)</li>
-</ol>
-<p><em>Note: for convenience and simplicity, we are assuming that a closed claim cannot re-open</em>.</p>
-<div class="section level4">
-<h4 id="ClosedClaims">Closed Claims<a class="anchor" aria-label="anchor" href="#ClosedClaims"></a>
-</h4>
-<p>For claims that are closed, the complete development has already been observed. With the red line in the figure below indicating the present moment, all events from the claim’s development take place before the present moment. Hence, these events are observed at the present moment.</p>
-<p><a href="%7B#ClosedClaims%7D"><img src="https://openacttexts.github.io/Loss-Data-Analytics/LossDataAnalytics_files/figure-html/tikz-closed-1.png" title="Lifetime of a Closed Claim" style="width:60.0%"></a></p>
-</div>
-<div class="section level4">
-<h4 id="RBNSClaims">RBNS Claims<a class="anchor" aria-label="anchor" href="#RBNSClaims"></a>
-</h4>
-<p>An <a href="https://openacttexts.github.io/Loss-Data-Analytics/C-LossReserves.html#" class="external-link"><em>RBNS</em></a> claim is one that has been <strong>R</strong>eported, <strong>B</strong>ut is <strong>N</strong>ot fully <strong>S</strong>ettled at the present moment or the moment of evaluation (the valuation date), that is, the moment when the reserves should be calculated and booked by the insurer.</p>
-<p>Occurrence, reporting and possibly some loss payments take place before the present moment, but the closing of the claim happens in the future, beyond the present moment.</p>
-<p><a href="%7B#RBNS%20Claims%7D"><img src="https://openacttexts.github.io/Loss-Data-Analytics/LossDataAnalytics_files/figure-html/tikz-RBNS-1.png" title="Lifetime of an RBNS Claim" id="lifetime-of-claim-rbns-example" style="width:60.0%"></a></p>
-</div>
-<div class="section level4">
-<h4 id="IBNRClaims">IBNR Claims<a class="anchor" aria-label="anchor" href="#IBNRClaims"></a>
-</h4>
-<p>An <a href="https://openacttexts.github.io/Loss-Data-Analytics/C-LossReserves.html#" class="external-link"><em>IBNR</em></a> claim is one that has <strong>I</strong>ncurred in the past <strong>B</strong>ut is <strong>N</strong>ot yet <strong>R</strong>eported. For such a claim the insured event took place, but the insurance company is not yet aware of the associated claim. This claim will be reported in the future and its complete development (from reporting to settlement) takes place in the future.</p>
-<p><a href="%7B#IBNRClaims%7D"><img src="https://openacttexts.github.io/Loss-Data-Analytics/LossDataAnalytics_files/figure-html/tikz-IBNR-1.png" title="Lifetime of an IBNR Claim" style="width:60.0%"></a></p>
-</div>
+<p>The different types of claim transactions over the life of an individual insurance claim could include:</p>
+<ul>
+<li>Establishment of the initial case outstanding estimate</li>
+<li>Notification to the reinsurer if the claim is expected to exceed the insurer’s retention</li>
+<li>A partial claim payment to injured party</li>
+<li>Expense payment for independent adjuster</li>
+<li>Change in case outstanding estimate</li>
+<li>Claim payment (assumed to be final payment)</li>
+<li>Takedown of case outstanding and closure of claim</li>
+<li>Reopening of the claim and establishment of a new case outstanding estimate</li>
+<li>Partial payment for defense litigation</li>
+<li>Final claim payment</li>
+<li>Final payment for defense litigation</li>
+<li>Closure of claim</li>
+</ul>
+<p>These events can be summarized in a unified <strong>Claim Fact Summary Document</strong>:</p>
+<table class="table table" style="margin-left: auto; margin-right: auto;">
+<caption>
+Table 1: Claim Fact Summary
+</caption>
+<thead><tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Policy Period
+</td>
+<td style="text-align:left;">
+January 1, 2020 to December 31, 2020
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Date of Accident
+</td>
+<td style="text-align:left;">
+February 18, 2020
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Date of Claim Report
+</td>
+<td style="text-align:left;">
+March 3, 2020
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:left;">
+Date
+</th>
+<th style="text-align:left;">
+Transaction
+</th>
+<th style="text-align:right;">
+Reported Value of Claim to Date
+</th>
+<th style="text-align:right;">
+Cumulative Paid to Date
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+March 3, 2020
+</td>
+<td style="text-align:left;">
+Case Outstanding Reserve of $15,000 Established for claim.
+</td>
+<td style="text-align:right;">
+$15,000.00
+</td>
+<td style="text-align:right;">
+$0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+April 1, 2020
+</td>
+<td style="text-align:left;">
+Claim Payment of $1,500 - Case reduced to $13,500 (-$1,500)
+</td>
+<td style="text-align:right;">
+$15,000.00
+</td>
+<td style="text-align:right;">
+$1,500.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+May 12, 2020
+</td>
+<td style="text-align:left;">
+Expense Payment to IA of $500 - no change in case.
+</td>
+<td style="text-align:right;">
+$15,500.00
+</td>
+<td style="text-align:right;">
+$2,000.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+September 1, 2020
+</td>
+<td style="text-align:left;">
+Case increased to $30,000 (+$16,500)
+</td>
+<td style="text-align:right;">
+$32,000.00
+</td>
+<td style="text-align:right;">
+$2,000.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+October 3, 2020
+</td>
+<td style="text-align:left;">
+Claim thought to be settled with additional payment of $24,000 - case reduced to $0 (-$30,000) and claim marked as Closed.
+</td>
+<td style="text-align:right;">
+$26,000.00
+</td>
+<td style="text-align:right;">
+$26,000.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+January 15, 2021
+</td>
+<td style="text-align:left;">
+Claim Re-Opened with case outstanding set at $10,000 for claim and $10,000 for defense costs.
+</td>
+<td style="text-align:right;">
+$46,000.00
+</td>
+<td style="text-align:right;">
+$26,000.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+February 19, 2021
+</td>
+<td style="text-align:left;">
+Final defense cost payment for an additional $6,000 - case for defense costs zeroed out and claim set to Closed.
+</td>
+<td style="text-align:right;">
+$52,000.00
+</td>
+<td style="text-align:right;">
+$52,000.00
+</td>
+</tr>
+</tbody>
+</table>
+<p>As you can see there is quite a lot of detail that a single insurance claim can contain over the course of its lifetime.</p>
+<p>It is important to note all the various important <em>Dates</em> associated with each claim:</p>
+<ul>
+<li>Policy effective date is the date the insurer issues the insurance policy (January 1, 2020)</li>
+<li>Accident date, or date of loss, is the date the covered injury occurs (February 18, 2020)</li>
+<li>Report date is the date the insurer receives notice of the claim (March 3, 2020)</li>
+<li>Transaction date is the date on which either a case outstanding transaction takes place or a payment is made (see all the dates in the preceding table)</li>
+<li>Closing dates are the dates on which the claim is initially closed (October 3, 2020) and finally closed (February 19, 2021)</li>
+<li>Reopening date is the date the insurer reopens the claim (January 15, 2021)</li>
+</ul>
 </div>
 </div>
 <div class="section level2">
-<h2 id="LossReserveData">Loss Reserve Data<a class="anchor" aria-label="anchor" href="#LossReserveData"></a>
+<h2 id="viewing-claim-historical-transactions-with-lossrx">Viewing Claim Historical Transactions with <code>lossrx</code><a class="anchor" aria-label="anchor" href="#viewing-claim-historical-transactions-with-lossrx"></a>
 </h2>
+<p><code>lossrx</code> provides some convenient helper functions for viewing the timeline and informative details over the course of an individual claim’s lifetime by pulling the specified claim’s transaction data directly from the Actuarial Database:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">claims</span> <span class="op">&lt;-</span> <span class="va">claims_transactional</span>
+
+<span class="co"># get a random claim</span>
+<span class="va">claim</span> <span class="op">&lt;-</span> <span class="va">claims</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">claims</span><span class="op">)</span><span class="op">)</span>,<span class="fl">0</span><span class="op">)</span>, <span class="st">"claim_id"</span><span class="op">]</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>
+
+<span class="co"># gather claim history</span>
+<span class="va">claim_history</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/view_claim_history.html">view_claim_history</a></span><span class="op">(</span><span class="va">claim</span>, <span class="va">claims</span><span class="op">)</span></code></pre></div>
 <div class="section level3">
-<h3 id="MicrotoMacro">Micro to Macro<a class="anchor" aria-label="anchor" href="#MicrotoMacro"></a>
+<h3 id="claim-historical-timeline">Claim Historical Timeline<a class="anchor" aria-label="anchor" href="#claim-historical-timeline"></a>
 </h3>
-<p>We now shed light on the data available to estimate the outstanding reserve for a portfolio of P&amp;C contracts. Insurance companies typically register data on the development of an individual claim on a micro, claim-specific level. We refer to data registered at this level as granular or micro-level data.</p>
-<p>Typically, an actuary aggregates the information registered on the individual development of claims across all claims in a portfolio. This aggregation leads to data structured in a <em>triangular format</em>.</p>
-<p>Such data are called <em>aggregate</em> or <em>macro-level</em> data because each cell in the triangle displays information obtained by aggregating the development of multiple claims.</p>
-<p>The triangular display used in loss reserving is called a run-off or development triangle. On the vertical axis the triangle lists the accident or occurrence years during which a portfolio is followed. The loss payments booked for a specific claim are connected to the year during the which the insured event occurred. The horizontal axis indicates the payment delay since occurrence of the insured event.</p>
+<p><em>Note: Click on a Date to view information about the transaction that occurred.</em></p>
+<div id="htmlwidget-60360e6da391db34fa9e" class="timevis html-widget" style="width:100%;height:300px;">
+<div class="btn-group zoom-menu">
+<button type="button" class="btn btn-default btn-lg zoom-in" title="Zoom in">+</button>
+<button type="button" class="btn btn-default btn-lg zoom-out" title="Zoom out">-</button>
+</div>
+</div>
+<script type="application/json" data-for="htmlwidget-60360e6da391db34fa9e">{"x":{"items":[{"id":"24746","content":"2017-10-30","start":"2017-10-30","title":"Paid: Increased by $151.00;<br>Case Reserve: Increased by $510.00;<br>Reported: Increased by $661.00;<br>Status: Claim Opened"},{"id":"26888","content":"2017-12-29","start":"2017-12-29","title":"Paid: Increased by $5,450.00;<br>Case Reserve: Decreased by $-10.00;<br>Reported: Increased by $5,440.00;<br>Status: No Change"},{"id":"28297","content":"2018-02-06","start":"2018-02-06","title":"Paid: Increased by $2,695.00;<br>Case Reserve: No Change;<br>Reported: Increased by $2,696.00;<br>Status: No Change"},{"id":"31253","content":"2018-04-28","start":"2018-04-28","title":"Paid: Increased by $3,491.00;<br>Case Reserve: No Change;<br>Reported: Increased by $3,491.00;<br>Status: No Change"},{"id":"33922","content":"2018-07-10","start":"2018-07-10","title":"Paid: Increased by $9,804.00;<br>Case Reserve: No Change;<br>Reported: Increased by $9,804.00;<br>Status: No Change"},{"id":"35638","content":"2018-08-27","start":"2018-08-27","title":"Paid: Increased by $4,316.00;<br>Case Reserve: No Change;<br>Reported: Increased by $4,316.00;<br>Status: No Change"},{"id":"38966","content":"2018-11-25","start":"2018-11-25","title":"Paid: Increased by $22,893.00;<br>Case Reserve: No Change;<br>Reported: Increased by $22,893.00;<br>Status: No Change"},{"id":"41372","content":"2019-01-28","start":"2019-01-28","title":"Paid: Increased by $1,288.00;<br>Case Reserve: No Change;<br>Reported: Increased by $1,288.00;<br>Status: No Change"},{"id":"43603","content":"2019-03-28","start":"2019-03-28","title":"Paid: Increased by $1,072.00;<br>Case Reserve: No Change;<br>Reported: Increased by $1,072.00;<br>Status: No Change"},{"id":"44614","content":"2019-04-25","start":"2019-04-25","title":"Paid: Increased by $482.00;<br>Case Reserve: No Change;<br>Reported: Increased by $482.00;<br>Status: No Change"},{"id":"46252","content":"2019-06-06","start":"2019-06-06","title":"Paid: Increased by $136.00;<br>Case Reserve: Decreased by $-500.00;<br>Reported: Decreased by $-364.00;<br>Status: Claim Closed"}],"groups":null,"showZoom":true,"zoomFactor":0.5,"fit":true,"options":{"tooltip.overflowMethod":"none"},"height":null,"timezone":null,"api":[]},"evals":[],"jsHooks":[]}</script>
 </div>
 <div class="section level3">
-<h3 id="data-ingestion">Data Ingestion<a class="anchor" aria-label="anchor" href="#data-ingestion"></a>
+<h3 id="claim-history-details">Claim History Details<a class="anchor" aria-label="anchor" href="#claim-history-details"></a>
 </h3>
-<ul>
-<li><p>Build a Probability Modelto describe the aggregate claims by an insurance system occurring in a fixed time period.</p></li>
-<li><p>The insurance system could be a single policy, a group insurance contract, a business line, or an entire book of an insurer’s business.</p></li>
-<li><p>Aggregate claims refer to either the number or the amount of claims from a portfolio of insurance contracts.</p></li>
-</ul>
-<p>First, Section @ref(S:motivation) motivates the need for loss reserving, then Section @ref(S:Data) studies the available data sources and introduces some formal notation to tackle loss reserving as a prediction challenge. Next, Section @ref(S:Chain-ladder) covers the chain-ladder method and Mack’s distribution-free chain-ladder model. Section @ref(S:GLMs) then develops a fully stochastic approach to determine the outstanding reserve with generalized linear models (GLMs), including the technique of bootstrapping to obtain a predictive distribution of the outstanding reserve via simulation.</p>
-<div id="refs" class="references">
-<div id="ref-community">
-<p>Community, An open text authored by the Actuarial. n.d. <em>Loss Data Analytics</em>. <a href="https://openacttexts.github.io/Loss-Data-Analytics/" class="external-link">https://openacttexts.github.io/Loss-Data-Analytics/</a>.</p>
+<table class="table table" style="margin-left: auto; margin-right: auto;">
+<caption>
+Claim Details
+</caption>
+<thead><tr>
+<th style="text-align:left;">
+Claim ID
+</th>
+<th style="text-align:left;">
+Claimant
+</th>
+<th style="text-align:left;">
+State
+</th>
+<th style="text-align:left;">
+Accident Date
+</th>
+<th style="text-align:left;">
+Report Date
+</th>
+<th style="text-align:left;">
+Close Date
+</th>
+</tr></thead>
+<tbody><tr>
+<td style="text-align:left;">
+claim-3062
+</td>
+<td style="text-align:left;">
+Hill, Ajunae
+</td>
+<td style="text-align:left;">
+GA
+</td>
+<td style="text-align:left;">
+2017-10-17
+</td>
+<td style="text-align:left;">
+2017-10-30
+</td>
+<td style="text-align:left;">
+2019-06-06
+</td>
+</tr></tbody>
+</table>
 </div>
-<div id="ref-kuo_deeptriangle_2019">
-<p>Kuo, Kevin. 2019. “DeepTriangle: A Deep Learning Approach to Loss Reserving.” <em>Risks</em> 7 (3): 97. <a href="https://doi.org/10.3390/risks7030097" class="external-link">https://doi.org/10.3390/risks7030097</a>.</p>
+<div class="section level3">
+<h3 id="claim-transactional-history">Claim Transactional History<a class="anchor" aria-label="anchor" href="#claim-transactional-history"></a>
+</h3>
+<table class="table table" style="font-size: 8px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+Claim Transactional History
+</caption>
+<thead><tr>
+<th style="text-align:left;">
+Transaction Date
+</th>
+<th style="text-align:left;">
+Paid Details
+</th>
+<th style="text-align:left;">
+Case Reserve Details
+</th>
+<th style="text-align:left;">
+Reported Details
+</th>
+<th style="text-align:left;">
+Status Change
+</th>
+<th style="text-align:left;">
+Cumulative Paid
+</th>
+<th style="text-align:left;">
+Cumulative Case Reserve
+</th>
+<th style="text-align:left;">
+Cumulative Reported
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2017-10-30
+</td>
+<td style="text-align:left;">
+Paid: Increased by $151.00
+</td>
+<td style="text-align:left;">
+Case Reserve: Increased by $510.00
+</td>
+<td style="text-align:left;">
+Reported: Increased by $661.00
+</td>
+<td style="text-align:left;">
+NEW -&gt; Open
+</td>
+<td style="text-align:left;">
+$151
+</td>
+<td style="text-align:left;">
+$510
+</td>
+<td style="text-align:left;">
+$661
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2017-12-29
+</td>
+<td style="text-align:left;">
+Paid: Increased by $5,450.00
+</td>
+<td style="text-align:left;">
+Case Reserve: Decreased by $-10.00
+</td>
+<td style="text-align:left;">
+Reported: Increased by $5,440.00
+</td>
+<td style="text-align:left;">
+Open -&gt; Open
+</td>
+<td style="text-align:left;">
+$5,601
+</td>
+<td style="text-align:left;">
+$500
+</td>
+<td style="text-align:left;">
+$6,101
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2018-02-06
+</td>
+<td style="text-align:left;">
+Paid: Increased by $2,695.00
+</td>
+<td style="text-align:left;">
+Case Reserve: No Change
+</td>
+<td style="text-align:left;">
+Reported: Increased by $2,696.00
+</td>
+<td style="text-align:left;">
+Open -&gt; Open
+</td>
+<td style="text-align:left;">
+$8,297
+</td>
+<td style="text-align:left;">
+$500
+</td>
+<td style="text-align:left;">
+$8,797
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2018-04-28
+</td>
+<td style="text-align:left;">
+Paid: Increased by $3,491.00
+</td>
+<td style="text-align:left;">
+Case Reserve: No Change
+</td>
+<td style="text-align:left;">
+Reported: Increased by $3,491.00
+</td>
+<td style="text-align:left;">
+Open -&gt; Open
+</td>
+<td style="text-align:left;">
+$11,788
+</td>
+<td style="text-align:left;">
+$500
+</td>
+<td style="text-align:left;">
+$12,288
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2018-07-10
+</td>
+<td style="text-align:left;">
+Paid: Increased by $9,804.00
+</td>
+<td style="text-align:left;">
+Case Reserve: No Change
+</td>
+<td style="text-align:left;">
+Reported: Increased by $9,804.00
+</td>
+<td style="text-align:left;">
+Open -&gt; Open
+</td>
+<td style="text-align:left;">
+$21,592
+</td>
+<td style="text-align:left;">
+$500
+</td>
+<td style="text-align:left;">
+$22,092
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2018-08-27
+</td>
+<td style="text-align:left;">
+Paid: Increased by $4,316.00
+</td>
+<td style="text-align:left;">
+Case Reserve: No Change
+</td>
+<td style="text-align:left;">
+Reported: Increased by $4,316.00
+</td>
+<td style="text-align:left;">
+Open -&gt; Open
+</td>
+<td style="text-align:left;">
+$25,908
+</td>
+<td style="text-align:left;">
+$500
+</td>
+<td style="text-align:left;">
+$26,408
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2018-11-25
+</td>
+<td style="text-align:left;">
+Paid: Increased by $22,893.00
+</td>
+<td style="text-align:left;">
+Case Reserve: No Change
+</td>
+<td style="text-align:left;">
+Reported: Increased by $22,893.00
+</td>
+<td style="text-align:left;">
+Open -&gt; Open
+</td>
+<td style="text-align:left;">
+$48,801
+</td>
+<td style="text-align:left;">
+$500
+</td>
+<td style="text-align:left;">
+$49,301
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2019-01-28
+</td>
+<td style="text-align:left;">
+Paid: Increased by $1,288.00
+</td>
+<td style="text-align:left;">
+Case Reserve: No Change
+</td>
+<td style="text-align:left;">
+Reported: Increased by $1,288.00
+</td>
+<td style="text-align:left;">
+Open -&gt; Open
+</td>
+<td style="text-align:left;">
+$50,089
+</td>
+<td style="text-align:left;">
+$500
+</td>
+<td style="text-align:left;">
+$50,589
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2019-03-28
+</td>
+<td style="text-align:left;">
+Paid: Increased by $1,072.00
+</td>
+<td style="text-align:left;">
+Case Reserve: No Change
+</td>
+<td style="text-align:left;">
+Reported: Increased by $1,072.00
+</td>
+<td style="text-align:left;">
+Open -&gt; Open
+</td>
+<td style="text-align:left;">
+$51,161
+</td>
+<td style="text-align:left;">
+$500
+</td>
+<td style="text-align:left;">
+$51,661
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2019-04-25
+</td>
+<td style="text-align:left;">
+Paid: Increased by $482.00
+</td>
+<td style="text-align:left;">
+Case Reserve: No Change
+</td>
+<td style="text-align:left;">
+Reported: Increased by $482.00
+</td>
+<td style="text-align:left;">
+Open -&gt; Open
+</td>
+<td style="text-align:left;">
+$51,643
+</td>
+<td style="text-align:left;">
+$500
+</td>
+<td style="text-align:left;">
+$52,143
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2019-06-06
+</td>
+<td style="text-align:left;">
+Paid: Increased by $136.00
+</td>
+<td style="text-align:left;">
+Case Reserve: Decreased by $-500.00
+</td>
+<td style="text-align:left;">
+Reported: Decreased by $-364.00
+</td>
+<td style="text-align:left;">
+Open -&gt; Closed
+</td>
+<td style="text-align:left;">
+$51,779
+</td>
+<td style="text-align:left;">
+$0
+</td>
+<td style="text-align:left;">
+$51,779
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
-</div>
+<div class="section level2">
+<h2 id="workflow">Workflow<a class="anchor" aria-label="anchor" href="#workflow"></a>
+</h2>
+<center>
+<p><img src="assets/img/data-flow.jpg"></p>
+</center>
 </div>
   </div>
 
