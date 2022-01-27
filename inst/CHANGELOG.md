@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 - Remove .vscode for R CMD CHECK
 - Ignore opened xl files (i.e. "~$")
 - Update imports/exports
+- Stop tracking docker volumes
 
 ### Documentation
 
@@ -40,6 +41,10 @@ All notable changes to this project will be documented in this file.
 - Add workflow diagram
 - Add new vignette for getting started
 - Add new simulation function
+- Update database inst dir
+- Add SQL scripts for new db tables
+- Add Merged lossruns CSV for dataprep
+- Update Dockerfiles and docker-compose for DB
 
 ### Miscellaneous Tasks
 
@@ -79,6 +84,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-01-13T01:32:37Z
 - Autopublish 2022-01-13T01:36:57Z
 - Autopublish 2022-01-13T01:42:16Z
+- Autopublish 2022-01-27T06:00:11Z
 
 ### Bugfix
 
