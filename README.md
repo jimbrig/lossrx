@@ -15,6 +15,7 @@ WIP](https://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.or
 <!-- badges: end -->
 
 *View the [Changelog](inst/CHANGELOG.md) for detailed progression on development of the package.*
+*View the [LAtest Database Documentation](https://dbdocs.io/jimbrigf0cdc6204e/Actuarial-Database) for a detailed look into its structure.*
 
 ## Contents
 
@@ -65,6 +66,8 @@ Data is prepared in the following ways:
 - Certain datasets are budled and included with the package as native `.rda` packaged data files.
 
 ### Database
+
+*View Detailed [Database Documentation](https://dbdocs.io/jimbrigf0cdc6204e/Actuarial-Database) created via `dbdocs`* 
 
 The core database files are housed in the [inst/database](inst/database) directory and are included on package installation.
 
