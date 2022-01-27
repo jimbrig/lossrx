@@ -28,18 +28,19 @@ ENUM coverage_codes {
 Table claims {
   claim_id uuid [pk, not null, note: "Unique indentifier for the individual claim. Primary Key of this table." ]
   claim_number int [increment, note: "Another form of claim identification but using an auto-incrememnting integer based off creation date."]
-  claimant_id uuid [ref: > claimants.claimant_id, note: "Identifier for the claim's claimant. References the claimants table > claimant_id field."]
-  occurrence_id uuid [ref: > occurrences.occurrence_id, note: "Identifier for the claim's occurrence, if applicable. Occurrences group claims by accident or occurrence and depending on the policy, occurrence or claims based reserving should be used."]
-  policy_id uuid [ref: > policies.policy_id, note: 'Identifer for the claims policy.']
-  coverage_id uuid [ref: > coverages.coverage_id, note: "Identifier for the claim's coverage (i.e. WC, AL, GL, MPL, PROP, etc.)"]
-  tpa_id uuid [ref: > tpas.tpa_id, note: "Identifier for the claim's TPA (third party administer) that provieded claim details."]
-  company_id uuid [ref: > companies.company_id, note: "Identifier for the claim's company or division, if applicable."]
-  loss_date date [not null]
-  report_date date [not null]
-  close_date date [default: NULL]
-  reopen_date date [default: NULL]
-  reclose_date date [default: NULL]
-  Note: 'Primary claims table listing idividual claims and their relationships, dates, and attributes.'
+  claimant_id uuid [ref: < claimants.claimant_id, note: "Identifier for the claim's claimant. References the claimants table > claimant_id field."]
+  occurrence_id uuid [ref: < occurrences.occurrence_id, note: "Identifier for the claim's occurrence, if applicable. Occurrences group claims by accident or occurrence and depending on the policy, occurrence or claims based reserving should be used."]
+  policy_id uuid [ref: < policies.policy_id, note: 'Identifer for the claims policy.']
+  coverage_id uuid [ref: < coverages.coverage_id, note: "Identifier for the claim's coverage (i.e. WC, AL, GL, MPL, PROP, etc.)"]
+  tpa_id uuid [ref: < tpas.tpa_id, note: "Identifier for the claim's TPA (third party administer) that provieded claim details."]
+  company_id uuid [ref: < companies.company_id, note: "Identifier for the claim's company or division, if applicable."]
+  segment_id uuid [ref: < segments.segment_id, note: "Identifier for the claim's segment, if applicable."]
+  loss_date date [not null, note: "The claim's loss date, i.e. the date which the accident or insured event took place."]
+  report_date date [not null, note: "The claim's report date, i.e. the date which the claimant reported the claim to the insurer/TPA."]
+  close_date date [default: NULL, note: "The claim's closure date, i.e. the date the claim's Status changes to Closed and case reserves are zeroed out."]
+  reopen_date date [default: NULL, note: "The claim's re-open date, i.e. the date a previosly closed claim is re-opened."]
+  reclose_date date [default: NULL, note: "The claim's last closure date given it has been re-opened at least once."]
+  Note: 'Primary claims fact table listing idividual claim\'s measures such as amounts paid, reported, and reserved as well as the dimensional relationships to various claim attributes.'
 }
 
 Table claim_evaluations {
@@ -112,4 +113,16 @@ Table segments {
 Table evaluations {
   evaluation_id uuid [pk, not null]
   evaluation_date date [not null, unique]
+}
+
+Table vehicles {
+  vehicle_id uuid [pk, not null, note: "The vehicle's unique identifer and primary key."]
+  vehicle_vin_number varchar [note: "VIN number for the vehicle."]
+  driver_id uuid [ref: > claimants.claimant_id, note: "Foreign key identity to the claimant whom acted as the driver (owner) of the vehicle."]
+  vehicle_make varchar [note: "The make of the vehicle."]
+  vehicle_model varchar [note: "The vehicle's model."]
+  vehicle_year int [note: "Year the vehicle was made/purchased."]
+  vehicle_color varchar [note: "Color of the vehicle."]
+  vehicle_exposure_level int [note: "Exposure level (1,2, or 3) or the vehicle (i.e. passenger vehicles = 1, motor bikes = 2, and trucks = 3)."]
+  vehicle_value float [note: "The value in USD ($) of the vehicle."]
 }
