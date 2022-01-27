@@ -1,4 +1,4 @@
-CREATE TABLE public.vehicles (
+CREATE TABLE public.vehicle (
     vehicle_id UUID UNIQUE PRIMARY KEY DEFAULT uuid_generate_v4(),
     vehicle_vin VARCHAR UNIQUE,
     vehicle_make VARCHAR,

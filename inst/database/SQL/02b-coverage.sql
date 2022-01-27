@@ -1,4 +1,4 @@
-CREATE TABLE public.coverages (
+CREATE TABLE public.coverage (
     coverage_id UUID UNIQUE PRIMARY KEY DEFAULT uuid_generate_v4(),
     coverage VARCHAR,
     coverage_abbr VARCHAR,
