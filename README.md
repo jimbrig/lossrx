@@ -25,14 +25,14 @@ for a detailed look into its structure.*
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 **Table of Contents**
 
--   [Overview](#overview)
--   [Installation](#installation)
--   [Data](#data)
-    -   [Data Preparation](#data-preparation)
-    -   [Database](#database)
+- [Overview](#overview)
+- [Installation](#installation)
+- [Data](#data)
+  - [Data Preparation](#data-preparation)
+  - [Database](#database)
+- [Checks](#checks)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
