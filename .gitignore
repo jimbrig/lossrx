@@ -8,3 +8,5 @@ docs
 inst/docs
 ~*
 inst/database/_postgres-data/*
+
+inst/database/_postgres-data/
