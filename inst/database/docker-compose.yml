@@ -4,7 +4,7 @@ services:
         restart: always
         environment:
             POSTGRES_USER: postgres
-            POSTGRES_PASSWORD: admin
+            POSTGRES_PASSWORD: postgres
             POSTGRES_DB: postgres
         logging:
             options:
