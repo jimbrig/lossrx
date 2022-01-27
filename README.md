@@ -15,7 +15,8 @@ WIP](https://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.or
 <!-- badges: end -->
 
 *View the [Changelog](inst/CHANGELOG.md) for detailed progression on development of the package.*
-*View the [LAtest Database Documentation](https://dbdocs.io/jimbrigf0cdc6204e/Actuarial-Database) for a detailed look into its structure.*
+
+*View the [Latest Database Documentation](https://dbdocs.io/jimbrigf0cdc6204e/Actuarial-Database) for a detailed look into its structure.*
 
 ## Contents
 
