@@ -7,3 +7,10 @@ inst/doc
 docs
 inst/docs
 ~*
+inst/database/_postgres-data/*
+
+inst/database/_postgres-data/
+
+inst/database/README.html
+
+inst/database/postgres-data/
