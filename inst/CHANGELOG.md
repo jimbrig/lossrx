@@ -25,6 +25,7 @@ All notable changes to this project will be documented in this file.
 - Enhance README
 - Run devtools::document for new functions
 - Re-configure pkgdown
+- Enhance README's
 
 ### Features
 
@@ -45,6 +46,9 @@ All notable changes to this project will be documented in this file.
 - Add SQL scripts for new db tables
 - Add Merged lossruns CSV for dataprep
 - Update Dockerfiles and docker-compose for DB
+- Add spelling to testthat tests
+- Update database markup file
+- Add new lossruns and triangles explanatory vignette
 
 ### Miscellaneous Tasks
 
@@ -85,6 +89,9 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-01-13T01:36:57Z
 - Autopublish 2022-01-13T01:42:16Z
 - Autopublish 2022-01-27T06:00:11Z
+- Autopublish 2022-01-27T06:00:59Z
+- Update TOC
+- Update TOC
 
 ### Bugfix
 
