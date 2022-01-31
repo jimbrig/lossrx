@@ -1,0 +1,213 @@
+---
+title: "Lossruns and Triangles"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Lossruns and Triangles}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  message = FALSE,
+  warning = FALSE,
+  error = FALSE,
+  results = "asis"
+)
+```
+
+```{r setup, echo=FALSE}
+library(lossrx)
+library(dplyr)
+library(purrr)
+library(knitr)
+library(kableExtra)
+library(lubridate)
+library(dbplyr)
+library(janitor)
+library(summarytools)
+```
+
+## Overview
+
+A *lossrun* is an insurance/actuarial term for a dataset containing information 
+about a particular insurance coverage or policy's individual claims *as of a 
+particular point in time known as the evaluation date*.
+
+`lossrx` provides examples and support functions to aid in the creation, 
+analysis, validation, and proper storage of actuarial lossruns specific to 
+P&C Insurance Coverages.
+
+## Coverages
+
+It is important to note the *granularity* of a particular lossrun with regard to 
+what level of detail its values represent as well as the context in which the data 
+is provided from. 
+
+For example, it is common to have separate lossruns by coverage due to the differences in 
+the attributable dimensions associated with the values in those lossruns by coverage.
+
+For example, a Worker's Compensation lossrun will typically split its values for 
+paid, case reserves, and incurred/reported into lower-level spit-outs by:
+
+- Indemnity
+- Medical
+- Expense
+
+Whereas, in Automobile Insurance Coverages the claim amounts would be split out between 
+
+- Bodily Injury (BI)
+- Property Damage
+- Expense
+
+`lossrx` supports analysis for the following Property Casualty coverages:
+
++ Workers Compensation - WC
++ Automobile Liability - AL
++ General Liability - GL
++ Medical Professional Liability - MPL (Hospitals and Physicians)
++ Other Various Liability Types similar to WC, AL, and GL (i.e. property, government, etc.)
+
+Different coverages have different types of fields in their respective lossruns 
+which is discussed in detail in the coverages vignette.
+
+## Typical Lossrun Fields
+
+Each row in a lossrun should correspond to a specific claim at a specific 
+point in time.
+
+The following fields are typical in all lossruns, regardless of coverage of 
+business context:
+
++ Key Fields:
+  - Unique Claim ID
+  - Occurrence ID (for claims related to a single accident that are grouped by occurrence)
+  - Claimant Name (First, Last, etc.)
+  - Other Claimant Information (Age, Gender, Tenure, etc.)
+  - Policy Details (Retention Limits, Deductibles, Reinsurance Thresholds, Aggregate Thresholds, ALAE Treatment, etc.)
+
++ Dates
+  - Evaluation Date of the Lossrun
+  - Date of Accident / Loss
+  - Date of Report
+  - Report Lag { Report Date - Loss Date } (Calculated)
+  - Close Date(s)
+  - Re-open Date(s)
+  - Hire Date (for employee)
+  - Birth Date (for claimant - to derive Age)
+
++ Claim Information Fields
+  - Claim Status
+  - Claim Type (Indemnity, Medical Only, Closed no Pay, etc.)
+  - Litigation (Boolean)
+  - Location (Accident, Claimant, Jurisdiction)
+
++ Numeric Financial Fields
+  - Total Unlimited Reported / Incurred
+  - Total Unlimited Paid
+  - Total Unlimited Reserve
+  - Various Splits depending on Coverage
+      + Indemnity, Medical, Expense
+      + Bodily Injury, Property Damage, Expense
+      + Physician, Hospital, etc.
+  - Recoveries, Subrogation, etc.
+
+## Example Lossrun
+
+`lossrx` provides example lossruns in the form of a merged dataset named `losses`. 
+
+```{r loss_data, results='markup'}
+loss_data <- losses
+dplyr::glimpse(loss_data)
+```
+
+Note that the `losses` dataset contains **`r length(unique(loss_data$eval_date))`** 
+unique evaluation dates merged together:
+
+```{r eval_dates}
+analysis_data_wc <- loss_data |>
+  filter(coverage == "WC") |>
+  group_by(.data$eval_date, .data$devt_age, .data$program_year) |>
+  summarise(
+    `Total Reported Claim Counts` = n(),
+    `Total Paid` = sum(.data$total_paid, na.rm = TRUE),
+    `Total Reported` = sum(.data$total_incurred, na.rm = TRUE)
+  ) |>
+  ungroup() |>
+  arrange(program_year, devt_age)
+```
+
+This can easily be translated into triangles like so:
+
+```{r triangles_wc}
+create_triangle <- function(dat, type = c("paid", "reported", "counts")) {
+  
+  col <- switch(type,
+                "paid" = "Total Paid",
+                "reported" = "Total Reported",
+                "counts" = "Total Reported Claim Counts")
+  
+  dat |>
+    dplyr::filter(.data$devt_age %% 12 == 0) |>
+    dplyr::select(.data$program_year, .data$devt_age, col) |>
+    tidyr::pivot_wider(
+      names_from = .data$devt_age,
+      values_from = col
+    )
+  
+}
+
+wc_tris <- purrr::map(c("Paid Triangle" = "paid",
+                        "Reported Triangle" = "reported",
+                        "Reported Claim Counts Triangle" = "counts"),
+                      ~create_triangle(dat = analysis_data_wc, .x))
+```
+
+## Triangles
+
+**Reported Triangle for Worker's Compensation**
+
+```{r rept_tri_wc, echo=FALSE}
+wc_tris[["Reported Triangle"]] |>
+  rename(`Program Year` = program_year) |>
+  mutate_at(vars(2:10), formattable::currency, digits = 0) |>
+  kable(
+    digits = 0, 
+    align = "c", 
+    caption = "Reported Loss Triangle - Worker's Compensation",
+    format.args = list(big.mark = ",")
+  ) |>
+  kableExtra::kable_styling()
+```
+
+**Paid Triangle for Worker's Compensation**
+
+```{r paid_tri_wc, echo=FALSE}
+wc_tris[["Paid Triangle"]] |>
+  rename(`Program Year` = program_year) |>
+  mutate_at(vars(2:10), formattable::currency, digits = 0) |>
+  kable(
+    digits = 0, 
+    align = "c", 
+    caption = "Paid Loss Triangle - Worker's Compensation",
+    format.args = list(big.mark = ",")
+  ) |>
+  kableExtra::kable_styling()
+```
+
+**Reported Claim Counts Triangle for Worker's Compensation**
+
+```{r rept_cnts_tri_wc, echo=FALSE}
+wc_tris[["Reported Claim Counts Triangle"]] |>
+  rename(`Program Year` = program_year) |>
+  mutate_at(vars(2:10), formattable::comma, digits = 0) |>
+  kable(
+    digits = 0, 
+    align = "c", 
+    caption = "Reported Claim Counts Triangle - Worker's Compensation",
+    format.args = list(big.mark = ",")
+  ) |>
+  kableExtra::kable_styling()
+```
