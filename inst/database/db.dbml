@@ -1,22 +1,26 @@
 //// -- Project
 
 Project "Actuarial-Database" {
-  database_type: 'PostgreSQL'
-  Note: 'This is the database used by the actuarial R package and serves as a demonstation of a
-  production-like actuarial claims data warehousing environment'
+  /// database_type: 'PostgreSQL'
+  Note: "This is the database used by the actuarial R package and
+  serves as a demonstation of a production-like actuarial claims
+  data warehousing environment"
 }
 
 
-//// -- Tables and References
+//// -- Custom ENUM Types
 
-// Create Custom ENUM Types
-ENUM claim_status {
+// CLAIM_STATUS:
+
+ENUM CLAIM_STATUS {
   O [note: 'Open']
   C [note: 'Closed']
   R [note: 'ReOpened']
 }
 
-ENUM coverage_codes {
+// COVERAGE_CODE:
+
+ENUM COVERAGE_CODE {
   WC [note: 'Workers Compensation']
   AL [note: 'Automobile Liability']
   PROP [note: 'Property (Damage) Insurance']
@@ -25,44 +29,203 @@ ENUM coverage_codes {
   OTHER [note: 'Any other coverage types']
 }
 
-Table claims {
-  claim_id uuid [pk, not null, note: "Unique indentifier for the individual claim. Primary Key of this table." ]
-  claim_number int [increment, note: "Another form of claim identification but using an auto-incrememnting integer based off creation date."]
-  claimant_id uuid [ref: < claimants.claimant_id, note: "Identifier for the claim's claimant. References the claimants table > claimant_id field."]
-  occurrence_id uuid [ref: < occurrences.occurrence_id, note: "Identifier for the claim's occurrence, if applicable. Occurrences group claims by accident or occurrence and depending on the policy, occurrence or claims based reserving should be used."]
-  policy_id uuid [ref: < policies.policy_id, note: 'Identifer for the claims policy.']
-  coverage_id uuid [ref: < coverages.coverage_id, note: "Identifier for the claim's coverage (i.e. WC, AL, GL, MPL, PROP, etc.)"]
-  tpa_id uuid [ref: < tpas.tpa_id, note: "Identifier for the claim's TPA (third party administer) that provieded claim details."]
-  company_id uuid [ref: < companies.company_id, note: "Identifier for the claim's company or division, if applicable."]
-  segment_id uuid [ref: < segments.segment_id, note: "Identifier for the claim's segment, if applicable."]
-  loss_date date [not null, note: "The claim's loss date, i.e. the date which the accident or insured event took place."]
-  report_date date [not null, note: "The claim's report date, i.e. the date which the claimant reported the claim to the insurer/TPA."]
-  close_date date [default: NULL, note: "The claim's closure date, i.e. the date the claim's Status changes to Closed and case reserves are zeroed out."]
-  reopen_date date [default: NULL, note: "The claim's re-open date, i.e. the date a previosly closed claim is re-opened."]
-  reclose_date date [default: NULL, note: "The claim's last closure date given it has been re-opened at least once."]
-  Note: 'Primary claims fact table listing idividual claim\'s measures such as amounts paid, reported, and reserved as well as the dimensional relationships to various claim attributes.'
+//// -- TABLE GROUPS
+
+TableGroup claims_layer {
+  claim
+  occurrence
+  claimant
+  claim_evaluations
 }
 
-Table claim_evaluations {
-  claim_id uuid [not null, ref: > claims.claim_id, note: "Claim Identifier", pk]
-  evaluation_date date [not null, ref: > evaluations.evaluation_date, note: "Evaluation date values are evaluated as of.", pk]
-  status claim_status [note: 'O, C, or R for Open, Closed, or Re-Opened; Status can change between evals determining prior-to-current status levels (i.e. O->C is a closure, C->R is a re-opening, etc.)']
-  total_paid numeric [not null, default: 0, note: 'Total cumulative paid as of the specified evaluation date. Should be less than reported and flagged if closed and $0 paid.']
-  total_case numeric [not null, default: 0, note: 'Total cumulative case reserves as of the evaluation date. Case plus paid determines reported amounts.']
-  Note: 'This table combines individual claims and their corresponding evaluation dates values. containing all combinations of claims and evaluation dates. This table represents a merged table containing all evaluation date lossuns for a given client or project.'
+TableGroup exposure_layer {
+  vehicles
+  policies
 }
 
-Table claimants {
-  claimant_id uuid [pk, not null]
-  claimant_first_name varchar
-  claimant_last_name varchar
-  claimant_full_name varchar
-  claimant_age integer
-  claimant_details varchar
-  Note: 'The Claimants table represents all claimants that have appeared in the system over its lifetime. Claimants represent individuals that have filed claims in accordance with their policies and coverages.'
+TableGroup business_layer {
+  companies
+  segments
+  coverage
+  evaluation
+  tpas
 }
 
-Table occurrences {
+////  -- TABLES
+
+// CLAIM:
+
+Table claim [headercolor: #c0392b] {
+  claim_id uuid [
+    pk,
+    not null,
+    note: "Unique indentifier for the individual claim. Primary Key of this table."
+  ]
+  claim_number int [
+    increment,
+    note: "Another form of claim identification but using an auto-incrememnting
+    integer based off creation date."
+  ]
+  claimant_id uuid [
+    ref: < claimant.claimant_id,
+    note: "Identifier for the claim's claimant.
+    References the claimants table > claimant_id field."
+  ]
+  occurrence_id uuid [
+    ref: < occurrence.occurrence_id,
+    note: "Identifier for the claim's occurrence, if applicable.
+    Occurrences group claims by accident or occurrence and depending
+    on the policy, occurrence or claims based reserving
+    should be used."
+  ]
+  policy_id uuid [
+    ref: < policies.policy_id, note: "Identifer for the claims policy."
+  ]
+  coverage_id uuid [
+    ref: < coverage.coverage_id,
+    note: "Identifier for the claim's coverage (i.e. WC, AL, GL, MPL, PROP, etc.)"
+  ]
+  tpa_id uuid [
+    ref: < tpas.tpa_id,
+    note: "Identifier for the claim's TPA (third party administer)
+    that provieded claim details."
+  ]
+  company_id uuid [
+    ref: < companies.company_id,
+    note: "Identifier for the claim's company or division, if applicable."
+  ]
+  segment_id uuid [
+    ref: < segments.segment_id,
+    note: "Identifier for the claim's segment, if applicable."
+  ]
+  loss_date date [
+    not null,
+    note: "The claim's loss date, i.e. the date which the accident or
+    insured event took place."
+  ]
+  report_date date [
+    not null,
+    note: "The claim's report date, i.e. the date which the claimant
+    reported the claim to the insurer/TPA."
+  ]
+  close_date date [
+    default: NULL,
+    note: "The claim's closure date, i.e. the date the claim's
+    Status changes to Closed and case reserves are zeroed out."
+  ]
+  reopen_date date [
+    default: NULL,
+    note: "The claim's re-open date, i.e. the date a previosly
+    closed claim is re-opened."
+  ]
+  reclose_date date [
+    default: NULL,
+    note: "The claim's last closure date given it has been re-opened at least once."
+  ]
+
+  /// Table Note ///
+
+  Note: "Primary claims fact table listing idividual claim's measures
+  such as amounts paid, reported, and reserved as well as the
+  dimensional relationships to various claim attributes."
+
+}
+
+// EVALUATION
+
+Table evaluation {
+  evaluation_id UUID [
+    pk
+  ]
+  evaluation_date DATE [
+  not null,
+  unique
+  ]
+
+  // Table Note: //
+
+  Note: "The evaluation table represents all possible evaluation dates to analyze
+  the claims as of in the form of static loss runs."
+
+}
+
+// CLAIM EVALUATIONS
+
+Table claim_evaluations [headercolor: #3498db] {
+  claim_id UUID [
+    ref: > claim.claim_id,
+    note: "Claim Identifier"
+  ]
+  evaluation_id UUID [
+    ref: > evaluation.evaluation_id,
+    note: "Evaluation date identifier foreign key."
+  ]
+  evaluation_date DATE [
+    not null,
+    ref: > evaluation.evaluation_date,
+    note: "Evaluation date the loss values are evaluated as of."
+  ]
+  status CLAIM_STATUS [
+    not null,
+    note: "Claim status uses a custom ENUM user-defined data-type allowing only
+    the values of O, C, or R for Open, Closed, or Re-Opened. Status can change
+    between evaluation dates determining prior-to-current status levels. This is
+    known as a 'slowly changing dimention in data engineering (i.e. O->C is a
+    closure, C->R is a re-opening, etc.)"
+  ]
+  total_paid NUMERIC [
+    not null,
+    default: 0,
+    note: "Total cumulative paid as of the specified evaluation date. Should be
+    less than reported and flagged if closed and $0 paid."
+  ]
+  total_case NUMERIC [
+    not null,
+    default: 0,
+    note: "Total cumulative case reserves as of the evaluation date.
+    Case plus paid determines reported amounts."
+  ]
+
+  // Table Note: //
+
+  Note: "This table combines individual claims and their corresponding
+  evaluation dates values. containing all combinations of claims and evaluation
+  dates. This table represents a merged table containing all evaluation date
+  lossuns for a given client or project."
+
+}
+
+Table claimant [headercolor: #16a085] {
+  claimant_id UUID [
+    pk,
+    note: "Claimant unique identier and primary key for this table."
+  ]
+  claimant_first_name VARCHAR(100) [
+    note: "Claimant first name."
+  ]
+  claimant_last_name VARCHAR(100) [
+    note: "Claimant last, or family, name."
+  ]
+  claimant_full_name VARCHAR(100) [
+    note: "Claimant's full name."
+  ]
+  claimant_age INTEGER [
+    note: "Claimant's age in years represented as an integer (i.e. 78 is 78
+    years old.)"
+  ]
+  claimant_details VARCHAR(100) [
+    note: "Details about the claimant."
+  ]
+
+  // Table Note: //
+
+  Note: "The Claimants table represents all claimants that have appeared
+  in the system over its lifetime. Claimants represent individuals that have
+  filed claims in accordance with their policies and coverages."
+
+}
+
+Table occurrence [headercolor: #c0392b] {
   occurrence_id uuid [pk, not null]
   occurrence_number int [not null, increment]
   number_of_claims int
@@ -70,7 +233,7 @@ Table occurrences {
   Note: 'Occurrences represent groups of individual claims and group together all parties involved with a single occurrence or accident. Depending on the policy type, treatment of losses will either depend on occurrence based or claims based losses.'
 }
 
-Table coverages {
+Table coverage [headercolor: #f39c12] {
   coverage_id uuid [pk, not null]
   coverage varchar [not null, unique]
   coverage_abbr varchar [not null, unique]
@@ -81,7 +244,7 @@ Table coverages {
 Table policies {
   policy_id uuid [pk, not null]
   policy_type varchar
-  coverage varchar [ref: > coverages.coverage_abbr]
+  coverage varchar [ref: > coverage.coverage_abbr]
   start_date date [not null]
   end_date date [not null]
   policy_year int
@@ -95,7 +258,7 @@ Table policies {
 Table tpas {
   tpa_id uuid [pk, not null]
   tpa varchar [not null, unique]
-  coverage varchar [ref: > coverages.coverage_abbr]
+  coverage varchar [ref: > coverage.coverage_abbr]
 }
 
 Table companies {
@@ -110,15 +273,12 @@ Table segments {
   segment_abbr varchar
 }
 
-Table evaluations {
-  evaluation_id uuid [pk, not null]
-  evaluation_date date [not null, unique]
-}
+
 
 Table vehicles {
   vehicle_id uuid [pk, not null, note: "The vehicle's unique identifer and primary key."]
   vehicle_vin_number varchar [note: "VIN number for the vehicle."]
-  driver_id uuid [ref: > claimants.claimant_id, note: "Foreign key identity to the claimant whom acted as the driver (owner) of the vehicle."]
+  driver_id uuid [ref: > claimant.claimant_id, note: "Foreign key identity to the claimant whom acted as the driver (owner) of the vehicle."]
   vehicle_make varchar [note: "The make of the vehicle."]
   vehicle_model varchar [note: "The vehicle's model."]
   vehicle_year int [note: "Year the vehicle was made/purchased."]

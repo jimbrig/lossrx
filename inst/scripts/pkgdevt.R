@@ -149,6 +149,9 @@ usethis::use_vignette("A-actuarial-loss-reserving-overview",
 usethis::use_vignette("A-actuarial-loss-reserving-overview",
                       "Actuarial Loss Reserving Overview")
 
+usethis::use_vignette("Lossruns-and-Triangles",
+                      "Lossruns and Triangles")
+
 usethis::use_vignette(
   "Data-Overview"
 )
