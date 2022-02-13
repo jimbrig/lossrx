@@ -14,6 +14,7 @@ Depends:
 Imports: 
     cli,
     config,
+    connections,
     crayon,
     dbx,
     dplyr,
@@ -39,11 +40,14 @@ Imports:
     utils
 Suggests: 
     actuar,
+    dbplyr,
     devtools,
     fplot,
+    janitor,
     kableExtra,
     knitr,
     rmarkdown,
+    spelling,
     summarytools,
     testthat (>= 3.0.0),
     tidyr
