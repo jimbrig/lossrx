@@ -16,3 +16,4 @@
 ^inst/database/postgres-data$
 ^database/postgres-data$
 ^\.vscode$
+^inst/database$
