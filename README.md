@@ -12,6 +12,8 @@ WIP](https://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.or
 [![pkgdown](https://github.com/jimbrig/lossrx/actions/workflows/pkgdown.yml/badge.svg)](https://github.com/jimbrig/lossrx/actions/workflows/pkgdown.yml)
 [![R-CMD-check](https://github.com/jimbrig/lossrx/workflows/R-CMD-check/badge.svg)](https://github.com/jimbrig/lossrx/actions)
 [![codecov](https://codecov.io/gh/jimbrig/lossrx/branch/main/graph/badge.svg?token=14426d5e-bed0-4cea-b8ff-ff4561ccda4f)](https://codecov.io/gh/jimbrig/lossrx?branch=main)
+[![Codecov test
+coverage](https://codecov.io/gh/jimbrig/lossrx/branch/main/graph/badge.svg)](https://app.codecov.io/gh/jimbrig/lossrx?branch=main)
 <!-- badges: end -->
 
 *View the [Changelog](inst/CHANGELOG.md) for detailed progression on
@@ -25,14 +27,14 @@ for a detailed look into its structure.*
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
-- [Overview](#overview)
-- [Installation](#installation)
-- [Data](#data)
-  - [Data Preparation](#data-preparation)
-  - [Database](#database)
-- [Checks](#checks)
+-   [Overview](#overview)
+-   [Installation](#installation)
+-   [Data](#data)
+    -   [Data Preparation](#data-preparation)
+    -   [Database](#database)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
