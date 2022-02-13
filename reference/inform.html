@@ -103,54 +103,7 @@ this packages functions.</p>
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>...</dt>
-<dd><p>Arguments passed on to <code><a href="https://rlang.r-lib.org/reference/abort.html" class="external-link">rlang::inform</a></code></p><dl><dt><code>message</code></dt>
-<dd><p>The message to display. Character vectors are
-formatted with <code><a href="https://rlang.r-lib.org/reference/format_error_bullets.html" class="external-link">format_error_bullets()</a></code>. The first element
-defines a message header and the rest of the vector defines
-bullets. Bullets named <code>i</code> and <code>x</code> define info and error bullets
-respectively, with special Unicode and colour formatting applied
-if possible.</p>
-<p>If a message is not supplied, it is expected that the message is
-generated lazily through <a href="https://rlang.r-lib.org/reference/cnd_message.html" class="external-link">conditionMessage()</a>. In
-that case, <code>class</code> must be supplied. Only <code>inform()</code> allows empty
-messages as it is occasionally useful to build user output
-incrementally.</p></dd>
-
-    <dt><code>class</code></dt>
-<dd><p>Subclass of the condition. This allows your users
-to selectively handle the conditions signalled by your functions.</p></dd>
-
-    <dt><code>.subclass</code></dt>
-<dd><p>This argument was renamed to <code>class</code> in rlang
-0.4.2.  It will be deprecated in the next major version. This is
-for consistency with our conventions for class constructors
-documented in <a href="https://adv-r.hadley.nz/s3.html#s3-subclassing" class="external-link">https://adv-r.hadley.nz/s3.html#s3-subclassing</a>.</p></dd>
-
-    <dt><code>.frequency</code></dt>
-<dd><p>How frequently should the warning or message be
-displayed? By default (<code>"always"</code>) it is displayed at each
-time. If <code>"regularly"</code>, it is displayed once every 8 hours. If
-<code>"once"</code>, it is displayed once per session.</p></dd>
-
-    <dt><code>.frequency_id</code></dt>
-<dd><p>A unique identifier for the warning or
-message. This is used when <code>.frequency</code> is supplied to recognise
-recurring conditions. This argument must be supplied if
-<code>.frequency</code> is not set to <code>"always"</code>.</p></dd>
-
-    <dt><code>.file</code></dt>
-<dd><p>Where the message is printed. This should be a
-connection or character string which will be passed to <code><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat()</a></code>.</p>
-<p>By default, <code>inform()</code> prints to standard output in interactive
-sessions and standard error otherwise. This way IDEs can treat
-messages distinctly from warnings and errors, and R scripts can
-still filter out the messages easily by redirecting <code>stderr</code>. If
-a sink is active, either on output or on messages, messages are
-printed to <code>stderr</code>. This ensures consistency of behaviour in
-interactive and non-interactive sessions.</p></dd>
-
-  
-</dl></dd>
+<dd><p>Passed to <code><a href="https://rlang.r-lib.org/reference/abort.html" class="external-link">rlang::inform()</a></code></p></dd>
 </dl></div>
     <div id="value">
     <h2>Value</h2>
