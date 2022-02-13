@@ -12,6 +12,9 @@ All notable changes to this project will be documented in this file.
 - Ignore opened xl files (i.e. "~$")
 - Update imports/exports
 - Stop tracking docker volumes
+- Add new package dependencies
+- Remove codecov token from config
+- Add covr suggested dependency
 
 ### Documentation
 
@@ -26,6 +29,7 @@ All notable changes to this project will be documented in this file.
 - Run devtools::document for new functions
 - Re-configure pkgdown
 - Enhance README's
+- Build README
 
 ### Features
 
@@ -49,6 +53,10 @@ All notable changes to this project will be documented in this file.
 - Add spelling to testthat tests
 - Update database markup file
 - Add new lossruns and triangles explanatory vignette
+- Add database markups for bot sqlserver and psql
+- Update spelling wordlist
+- Enhance github action for test coverage
+- Update package development script
 
 ### Miscellaneous Tasks
 
@@ -92,6 +100,13 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-01-27T06:00:59Z
 - Update TOC
 - Update TOC
+- Autopublish 2022-01-31T02:03:46Z
+- Update TOC
+- Update TOC
+
+### Bug
+
+- Fix man file for inform
 
 ### Bugfix
 
