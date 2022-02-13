@@ -80,12 +80,12 @@ simulate_claims <- function(n_claims = 1000,
     payment =  payment_fun(n_claims)
   ) %>%
     dplyr::mutate(
-      report_date = accident_date + report_lag,
-      payment = ifelse(status == 0, 0, payment),
-      case = payment + stats::runif(n_claims, 0.25, 8.0),
-      transaction_date = report_date
+      report_date = .data$accident_date + .data$report_lag,
+      payment = ifelse(.data$status == 0, 0, .data$payment),
+      case = .data$payment + stats::runif(.env$n_claims, 0.25, 8.0),
+      transaction_date = .data$report_date
     ) %>%
-    dplyr::arrange(accident_date)
+    dplyr::arrange(.data$accident_date)
 
   n_trans <- stats::rnbinom(n_claims, 3, 0.25)
   trans_lag <- lapply(n_trans, function(x) stats::rnbinom(x, 7, 0.1)) %>%
@@ -100,12 +100,12 @@ simulate_claims <- function(n_claims = 1000,
 
   trans_tbl <- dplyr::bind_rows(trans_lag) %>%
     dplyr::group_by(.data$claim_num) %>%
-    dplyr::mutate(trans_lag = cumsum(trans_lag)) %>%
+    dplyr::mutate(trans_lag = cumsum(.data$trans_lag)) %>%
     dplyr::ungroup()
 
   # separate all zero claims from the claims that have payments
-  zero_claims <- dplyr::filter(claims, status == 0)
-  first_trans <- dplyr::filter(claims, status == 1)
+  zero_claims <- dplyr::filter(claims, .data$status == 0)
+  first_trans <- dplyr::filter(claims, .data$status == 1)
 
   subsequent_trans <- dplyr::left_join(trans_tbl, first_trans, by = "claim_num") %>%
     dplyr::filter(!is.na(.data$accident_date))
@@ -113,8 +113,8 @@ simulate_claims <- function(n_claims = 1000,
   n_trans <- nrow(subsequent_trans)
 
   subsequent_trans <- subsequent_trans %>%
-    dplyr::mutate(payment = payment_fun(n_trans),
-                  case = pmax(.data$case * stats::rnorm(n_trans, 1.5, 0.1) - .data$payment, 500),
+    dplyr::mutate(payment = payment_fun(.data$n_trans),
+                  case = pmax(.data$case * stats::rnorm(.env$n_trans, 1.5, 0.1) - .data$payment, 500),
                   transaction_date = .data$report_date + .data$trans_lag) %>%
     dplyr::select(-.data$trans_lag)
 
@@ -148,6 +148,6 @@ simulate_claims <- function(n_claims = 1000,
 
 # t <- simulate_claims(n = 10)
 
-get_claim_transactions <- function(claim_num, data = lossrx::claims_transactional) {
-
-}
+# get_claim_transactions <- function(claim_num, data = lossrx::claims_transactional) {
+#
+# }

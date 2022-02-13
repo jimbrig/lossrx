@@ -121,8 +121,15 @@ c(
   "utils-dates",
   "utils-feedback",
   "actuary-triangles",
+  "actuary-interp",
   "actuary-validation",
-  "actuary-loss_run"
+  "actuary-simulate_claims",
+  "actuary-loss_run",
+  "db-connect",
+  "db-config",
+  "meta-open_pkgdown",
+  "meta-data",
+  "meta-globals"
 ) |>
   purrr::walk(usethis::use_r)
 
@@ -168,3 +175,4 @@ usethis::use_data_raw("claims_transactional")
 
 usethis::use_test("loss_run")
 usethis::use_test("interp")
+

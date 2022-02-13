@@ -7,46 +7,7 @@
 inform(...)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[rlang:abort]{rlang::inform}}
-  \describe{
-    \item{\code{message}}{The message to display. Character vectors are
-formatted with \code{\link[rlang:format_error_bullets]{format_error_bullets()}}. The first element
-defines a message header and the rest of the vector defines
-bullets. Bullets named \code{i} and \code{x} define info and error bullets
-respectively, with special Unicode and colour formatting applied
-if possible.
-
-If a message is not supplied, it is expected that the message is
-generated lazily through \link[rlang:cnd_message]{conditionMessage()}. In
-that case, \code{class} must be supplied. Only \code{inform()} allows empty
-messages as it is occasionally useful to build user output
-incrementally.}
-    \item{\code{class}}{Subclass of the condition. This allows your users
-to selectively handle the conditions signalled by your functions.}
-    \item{\code{.subclass}}{This argument was renamed to \code{class} in rlang
-0.4.2.  It will be deprecated in the next major version. This is
-for consistency with our conventions for class constructors
-documented in \url{https://adv-r.hadley.nz/s3.html#s3-subclassing}.}
-    \item{\code{.frequency}}{How frequently should the warning or message be
-displayed? By default (\code{"always"}) it is displayed at each
-time. If \code{"regularly"}, it is displayed once every 8 hours. If
-\code{"once"}, it is displayed once per session.}
-    \item{\code{.frequency_id}}{A unique identifier for the warning or
-message. This is used when \code{.frequency} is supplied to recognise
-recurring conditions. This argument must be supplied if
-\code{.frequency} is not set to \code{"always"}.}
-    \item{\code{.file}}{Where the message is printed. This should be a
-connection or character string which will be passed to \code{\link[=cat]{cat()}}.
-
-By default, \code{inform()} prints to standard output in interactive
-sessions and standard error otherwise. This way IDEs can treat
-messages distinctly from warnings and errors, and R scripts can
-still filter out the messages easily by redirecting \code{stderr}. If
-a sink is active, either on output or on messages, messages are
-printed to \code{stderr}. This ensures consistency of behaviour in
-interactive and non-interactive sessions.}
-  }}
+\item{...}{Passed to \code{\link[rlang:abort]{rlang::inform()}}}
 }
 \value{
 feedback in console

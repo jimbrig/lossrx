@@ -27,6 +27,12 @@ jobs:
         with:
           extra-packages: covr
 
+      - name: Install Package
+        run: |
+          R CMD INSTALL --install-tests .
+
       - name: Test coverage
-        run: covr::codecov()
+        # run: covr::codecov()
+        run: covr::codecov(coverage = covr::package_coverage(line_exclusions = list("R/utils-feedback.R")))
         shell: Rscript {0}
+
