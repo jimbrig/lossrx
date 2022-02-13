@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file.
 - Add new package dependencies
 - Remove codecov token from config
 - Add covr suggested dependency
+- Configure build tools
 
 ### Documentation
 
@@ -30,6 +31,7 @@ All notable changes to this project will be documented in this file.
 - Re-configure pkgdown
 - Enhance README's
 - Build README
+- Re-build RAEDME
 
 ### Features
 
@@ -104,6 +106,9 @@ All notable changes to this project will be documented in this file.
 - Update TOC
 - Update TOC
 - Autopublish 2022-02-13T01:43:59Z
+- Autopublish 2022-02-13T01:46:14Z
+- Update TOC
+- Update TOC
 
 ### Bug
 
