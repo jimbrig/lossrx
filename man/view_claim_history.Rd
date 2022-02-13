@@ -4,7 +4,7 @@
 \alias{view_claim_history}
 \title{View an Individual Claim's History}
 \usage{
-view_claim_history(claim_id, claims_data = claims_transactional)
+view_claim_history(claim_id, claims_data = NULL)
 }
 \arguments{
 \item{claim_id}{Claim ID}
