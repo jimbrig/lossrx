@@ -16,7 +16,7 @@
 #' @importFrom timevis timevis
 view_claim_history <- function(claim_id, claims_data = NULL) {
 
-  if (is.null(claim_data)) claims_data <- claims_transactional
+  if (is.null(claims_data)) claims_data <- claims_transactional
 
   claim_dat <- dplyr::filter(claims_data, .data$claim_id == .env$claim_id) |>
     dplyr::arrange(.data$transaction_date)

@@ -147,7 +147,7 @@ claims <- claims_transactional
 claim <- claims[round(runif(1, 1, nrow(claims)),0), "claim_id"][[1]]
 
 # gather claim history
-claim_history <- view_claim_history(claim, claims)
+claim_history <- view_claim_history(claim, claims_data = claims)
 ```
 
 ### Claim Historical Timeline
