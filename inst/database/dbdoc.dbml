@@ -1,0 +1,477 @@
+//// -- Project
+
+Project "Claims Data Warehouse" {
+  database_type: 'SQL Server'
+  Note: "This is the database used by the lossrx R package and 
+  serves as a demonstation of a production-like actuarial claims
+  data warehousing environment"
+}
+
+
+//// -- Custom ENUM Types
+
+/// NOTE: DOES NOT WORK FOR SQL SERVER ////
+
+// CLAIM_STATUS:
+
+// ENUM CLAIM_STATUS {
+//   O [note: 'Open']
+//   C [note: 'Closed']
+//   R [note: 'ReOpened']
+// }
+
+// COVERAGE_CODE: 
+
+// ENUM COVERAGE_CODE {
+//   WC [note: 'Workers Compensation']
+//   AL [note: 'Automobile Liability']
+//   PROP [note: 'Property (Damage) Insurance']
+//   GL [note: 'General Liability']
+//   MPL [note: 'Medical Professional Liability (Malpractice)']
+//   OTHER [note: 'Any other coverage types']
+// }
+
+// Will have schemas:
+// [STG] Staging
+// [CLM] Claims
+// [EXP] Exposures
+
+////  -- TABLES
+
+// Claim dimensions:
+
+// Claimant
+
+// Coverage
+
+// Policy
+
+// Event
+
+// - Dates:
+//   + Loss Date
+//   + Report Date
+//   + Close Date
+//   + Re-Open Date
+//   + Claimant Hire Date (Used to derive Tenure)
+//   + Claimant Birth Date (Used to derive Claimant Age)
+//   + Policy Effective Date (from Policy)
+
+//
+
+
+
+// CLAIM:
+
+// Claim contains ONLY THE LATEST INFORMATION ABOUT EACH CLAIM.
+// Claim changes over time are recorded in the claim_transaction table which 
+// is at the transaction grain, not claim.
+
+// For point-in-time lossruns (i.e. using evaluation dates), can simply use the 
+// claim transaction table OR a fact table dimensional model with windows of valid 
+// values.
+
+Table claim [headercolor: #c0392b] {
+  claim_id uniqueidentifier [
+    pk,
+    not null, 
+    // will want default of NEWID() in SQL SERVER;
+    default: `NEWID()`,
+    note: "Unique indentifier for the individual claim. Primary Key of this table."
+  ]
+  claim_number int [
+    increment, 
+    not null,
+    unique,
+    note: "Another form of claim identification but using an auto-incrememnting
+    integer based off creation date."
+  ]
+  loss_date date [
+    not null, 
+    note: "The claim's loss date, i.e. the date which the accident or
+    insured event took place."
+  ]
+  report_date date [
+    not null, 
+    note: "The claim's report date, i.e. the date which the claimant 
+    reported the claim to the insurer/TPA."
+  ]
+  close_date date [
+    default: NULL, 
+    // CHECK constraint for status = Closed here.
+    note: "The claim's closure date, i.e. the date the claim's 
+    Status changes to Closed and case reserves are zeroed out."
+  ]
+  reopen_date date [
+    default: NULL,
+    note: "The claim's re-open date, i.e. the date a previosly 
+    closed claim is re-opened."
+  ]
+  reclose_date date [
+    default: NULL, 
+    note: "The claim's last closure date given it has been re-opened at least once."
+  ]
+  claimant_id uniqueidentifier [
+    ref: > claimant.claimant_id, 
+    note: "Identifier for the claim's claimant. 
+    References the claimants table > claimant_id field."
+  ]
+  occurrence_id uniqueidentifier [
+    ref: > occurrence.occurrence_id, 
+    note: "Identifier for the claim's occurrence, if applicable. 
+    Occurrences group claims by accident or occurrence and depending 
+    on the policy, occurrence or claims based reserving 
+    should be used."
+  ]
+  policy_id uniqueidentifier [
+    ref: > policies.policy_id, 
+    note: "Identifer for the claims policy."
+  ]
+  coverage_id uniqueidentifier [
+    ref:  > coverage.coverage_id, 
+    note: "Identifier for the claim's coverage (i.e. WC, AL, GL, MPL, PROP, etc.)"
+  ]
+  tpa_id uniqueidentifier [
+    ref:  > tpas.tpa_id, 
+    note: "Identifier for the claim's TPA (third party administer) 
+    that provieded claim details."
+  ]
+  company_id uniqueidentifier [
+    ref: > companies.company_id,
+    note: "Identifier for the claim's company or division, if applicable."
+  ]
+  segment_id uniqueidentifier [
+    ref: > segments.segment_id,
+    note: "Identifier for the claim's segment, if applicable."
+  ]
+  accident_location_id uniqueidentifier [
+    ref: > location.location_id,
+    note: 'foreign key to accident location.'
+  ]
+  claim_status varchar(10) [
+    not null,
+    default: 'O',
+    note: '''
+    - "O" for Open
+    - "C" for Closed
+    - "R" for Re-opened
+    '''
+  ]
+  latest_transaction_id uniqueidentifier [
+    not null,
+    ref: < claim_transaction.transaction_id,
+    note: 'From transaction table.'
+  ]
+  total_paid float [
+    not null,
+    note: '''
+    The total paid to date amount for the claim.
+    '''
+  ]
+  total_case float [
+    not null,
+    note: '''
+    The total case reseres to date for the claim (should be zero on closed claims).
+    '''
+  ]
+  created_at datetime [
+    not null,
+    default: `CURRENT_TIMESTAMP`,
+    note: 'Creation date of the claims record.'
+  ]
+  created_by varchar(100) [
+    not null,
+    default: `CURRENT_USER`,
+    note: 'User that created the claim.'
+  ]
+  modified_at datetime [
+    not null,
+    default: `CURRENT_TIMESTAMP`,
+    note: 'Last modification timestamp for the claim.'
+  ]
+  modified_by varchar(100) [
+    not null,
+    default: `CURRENT_USER`,
+    note: 'User that last modified the claim.'
+  ]
+  
+  /// Table Note ///
+  
+  Note: '''
+  Primary claims fact table listing idividual claim's measures
+  such as amounts paid, reported, and reserved as well as the 
+  dimensional relationships to various claim attributes.
+  '''
+  
+}
+
+Table claim_transaction [headercolor: #c0392b] {
+  transaction_id uniqueidentifier [
+    pk,
+    not null,
+    unique,
+    default: `NEWID()`,
+    note: 'Unique identifier for a transaction.'
+  ]
+  claim_id uniqueidentifier [
+    not null,
+    ref: > claim.claim_id,
+    note: '''
+    Many to one relationship between transactions and claims.
+    '''
+  ]
+  transaction_date date [
+    not null,
+    default: `GETUTCDATE()`,
+    note: '''
+    Date of the transaction. 
+    Should match with the corresponding claims modification dates.
+    This is how evaluated loss runs are created.
+    '''
+  ]
+  transaction_time time [
+    not null,
+    default: `CURRENT_TIMESTAMP`,
+    note: 'Timestamp for the transaction.'
+  ]
+  transaction_type varchar(100) [
+    not null,
+    default: 'payment'
+  ]
+  change_paid float [
+    not null,
+    default: 0
+  ]
+  change_case float [
+    not null,
+    default: 0
+  ]
+  change_status varchar(100) [
+    null
+  ]
+  comment text [
+    note: 'Comments about this transaction.'
+  ]
+  
+  Note: '''
+  The Claim Transaction Table represents the transactional side 
+  of this data warehouse and should be kept in sync with the claim table.
+  '''
+  
+}
+
+// DIM: Location
+
+Table location {
+  location_id uniqueidentifier [
+    default: `NEWID()`,
+    not null,
+    pk,
+    unique
+  ]
+  region varchar(50)
+  country_code varchar(10)
+  state_code varchar(5)
+  city varchar(100)
+  zip_code char(5)
+  location_type varchar(100)
+}
+
+// EVALUATION
+
+Table evaluation {
+  evaluation_date DATE [
+    pk,
+    not null, 
+    unique
+  ]
+  evaluation_qtr varchar(10) [
+    not null,
+    unique
+  ]
+  
+  // Table Note: //
+  
+  Note: "The evaluation table represents all possible evaluation dates to analyze 
+  the claims as of in the form of static loss runs."
+  
+}
+
+// CLAIM EVALUATIONS
+
+Table lossrun [headercolor: #3498db] {
+  claim_id uniqueidentifier [
+    pk,
+    not null,
+    ref: < claim.claim_id, 
+    note: "Claim Identifier"
+  ]
+  evaluation_date date [
+    pk,
+    not null,
+    ref: > evaluation.evaluation_date,
+    note: 'Evaluation date the loss values are evaluated as of.'
+  ]
+  status varchar(5) [
+    not null,
+    note: '''
+    Claim status uses a custom ENUM user-defined data-type allowing only 
+    the values of O, C, or R for Open, Closed, or Re-Opened. Status can change 
+    between evaluation dates determining prior-to-current status levels. This is 
+    known as a 'slowly changing dimention in data engineering (i.e. O->C is a 
+    closure, C->R is a re-opening, etc.)
+    '''
+  ]
+  total_paid float [
+    not null, 
+    default: 0, 
+    note: '''
+    Total cumulative paid as of the specified evaluation date. Should be 
+    less than reported and flagged if closed and $0 paid.
+    '''
+  ]
+  total_case float [
+    not null, 
+    default: 0, 
+    note: '''
+    Total cumulative case reserves as of the evaluation date. 
+    Case plus paid determines reported amounts.
+    '''
+  ]
+  
+  // Table Note: //
+  
+  Note: '''
+  This table combines individual claims and their corresponding 
+  evaluation dates values. containing all combinations of claims and evaluation
+  dates. This table represents a merged table containing all evaluation date 
+  lossuns for a given client or project.
+  '''
+}
+
+Table claimant [headercolor: #16a085] {
+  claimant_id uniqueidentifier [
+    pk, 
+    note: '''
+    Claimant unique identier and primary key for this table.
+    '''
+  ]
+  first_name VARCHAR(100) [
+    note: "Claimant first name."
+  ]
+  last_name VARCHAR(100) [
+    note: "Claimant last, or family, name."
+  ]
+  claimant_age INTEGER [
+    note: '''
+    Claimant's age in years represented as an integer (i.e. 78 is 78
+    years old.)
+    '''
+  ]
+  claimant_location uniqueidentifier [
+    ref: > location.location_id,
+    note: 'Claimant location'
+  ]
+  
+  // Table Note: //
+  
+  Note: '''
+  The Claimants table represents all claimants that have appeared 
+  in the system over its lifetime. Claimants represent individuals that have 
+  filed claims in accordance with their policies and coverages.
+  '''
+
+}
+
+Table occurrence [headercolor: #c0392b] {
+  occurrence_id uniqueidentifier [pk, not null]
+  occurrence_number int [not null, increment]
+  number_of_claims int
+  default_claim_used uniqueidentifier [
+    not null,
+    ref: > claim.claim_id,
+    note: 'Reference to the claim used to populate non-measure fields.'
+  ]
+  Note: '''
+  Occurrences represent groups of individual claims and group together all parties involved with a single occurrence or accident. Depending on the policy type, treatment of losses will either depend on occurrence based or claims based losses.
+  '''
+}
+
+Table coverage [headercolor: #f39c12] {
+  coverage_id uniqueidentifier [pk, not null]
+  coverage varchar [not null, unique]
+  coverage_abbr varchar [not null, unique]
+  coverage_exposure_base varchar [not null, unique]
+  Note: 'The coverages table lists all potential coverages and their abbrevations/codes in the given actuarial projects environment'
+}
+
+Table policies {
+  policy_id uniqueidentifier [pk, not null]
+  policy_type varchar
+  coverage varchar [ref: > coverage.coverage_abbr]
+  start_date date [not null]
+  end_date date [not null]
+  policy_year int
+  start_end_text varchar
+  premium numeric [not null]
+  alae_treatment varchar
+  occ_claims_based varchar
+  Note: 'Policy details'
+}
+
+Table tpas {
+  tpa_id uniqueidentifier [pk, not null]
+  tpa varchar [not null, unique]
+  coverage varchar [ref: > coverage.coverage_abbr]
+}
+
+Table companies {
+  company_id uniqueidentifier [pk, not null]
+  company_name varchar
+  company_abbr varchar
+}
+
+Table segments {
+  segment_id uniqueidentifier [pk, not null]
+  segment_name varchar
+  segment_abbr varchar
+}
+
+
+
+Table vehicles {
+  vehicle_id uniqueidentifier [pk, not null, note: "The vehicle's unique identifer and primary key."]
+  vehicle_vin_number varchar [note: "VIN number for the vehicle."]
+  driver_id uniqueidentifier [ref: > claimant.claimant_id, note: "Foreign key identity to the claimant whom acted as the driver (owner) of the vehicle."]
+  vehicle_make varchar [note: "The make of the vehicle."]
+  vehicle_model varchar [note: "The vehicle's model."]
+  vehicle_year int [note: "Year the vehicle was made/purchased."]
+  vehicle_color varchar [note: "Color of the vehicle."]
+  vehicle_exposure_level int [note: "Exposure level (1,2, or 3) or the vehicle (i.e. passenger vehicles = 1, motor bikes = 2, and trucks = 3)."]
+  vehicle_value float [note: "The value in USD ($) of the vehicle."]
+}
+
+
+
+//// -- TABLE GROUPS
+
+TableGroup claims_layer {
+  claim
+  claim_transaction
+  occurrence
+  claimant
+  lossrun
+}
+
+TableGroup exposure_layer {
+  vehicles
+  policies
+}
+
+TableGroup business_layer {
+  companies
+  segments
+  coverage
+  evaluation
+  tpas
+}
