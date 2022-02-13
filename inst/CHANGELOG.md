@@ -109,10 +109,12 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-02-13T01:46:14Z
 - Update TOC
 - Update TOC
+- Autopublish 2022-02-13T01:50:55Z
 
 ### Bug
 
 - Fix man file for inform
+- Fix view_claim_history function
 
 ### Bugfix
 
