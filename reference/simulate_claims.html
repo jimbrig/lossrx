@@ -120,8 +120,17 @@ data for Property Casualty Insurance.</p>
 <dd><p>Numeric - the seed is used to isolate randomness during statistical simulations.</p></dd>
 <dt>loss_distribution</dt>
 <dd><p>Character - must be one of the distributions mentioned in the details below. Defaults to lognormal.</p></dd>
-<dt>probability_open</dt>
-<dd><p>Numeric - must be within <code>0 &lt; x &lt; 1</code> and represents probability a claim is open when running binomial simulations for claims' status.</p></dd>
+<dt>params</dt>
+<dd><p>Parameters associated with the specified <code>loss_distribution</code>
+in a list (i.e. <code>list(mean_log = 7.5, sd_log = 1.5)</code> for lognormal distribution).</p></dd>
+<dt>status_prob_open</dt>
+<dd><p>Numeric - must be within <code>0 &lt; x &lt; 1</code> and represents
+probability a claim is open when running binomial simulations for claims'
+status.</p></dd>
+<dt>cache</dt>
+<dd><p>Boolean/Logical - enable caching?</p></dd>
+<dt>...</dt>
+<dd><p>If needed</p></dd>
 </dl></div>
     <div id="value">
     <h2>Value</h2>
