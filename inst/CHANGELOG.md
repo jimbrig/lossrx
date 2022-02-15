@@ -34,6 +34,7 @@ All notable changes to this project will be documented in this file.
 - Re-build RAEDME
 - Add image for actuarial diagram
 - Remove studip codecov that doesnt work
+- Fix README
 
 ### Features
 
@@ -114,6 +115,9 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-02-13T01:50:55Z
 - Autopublish 2022-02-13T01:56:34Z
 - Autopublish 2022-02-15T02:39:58Z
+- Autopublish 2022-02-15T02:45:15Z
+- Update TOC
+- Update TOC
 
 ### Bug
 
