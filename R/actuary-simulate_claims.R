@@ -33,6 +33,7 @@
 #' @importFrom randomNames randomNames
 #' @importFrom stats rlnorm rnbinom rbinom runif rnorm
 #' @importFrom tibble tibble
+#' @importFrom rlang .data .env
 simulate_claims <- function(n_claims = 1000,
                             start_date = "2015-01-01",
                             end_date = Sys.Date(),
@@ -119,7 +120,7 @@ simulate_claims <- function(n_claims = 1000,
   n_trans <- nrow(subsequent_trans)
 
   subsequent_trans <- subsequent_trans %>%
-    dplyr::mutate(payment = payment_fun(.data$n_trans),
+    dplyr::mutate(payment = payment_fun(.env$n_trans),
                   case = pmax(.data$case * stats::rnorm(.env$n_trans, 1.5, 0.1) - .data$payment, 500),
                   transaction_date = .data$report_date + .data$trans_lag) %>%
     dplyr::select(-.data$trans_lag)
@@ -152,7 +153,7 @@ simulate_claims <- function(n_claims = 1000,
 
 }
 
-# t <- simulate_claims(n = 10)
+#
 
 # get_claim_transactions <- function(claim_num, data = lossrx::claims_transactional) {
 #
