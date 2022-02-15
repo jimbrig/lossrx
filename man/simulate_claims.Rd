@@ -25,7 +25,16 @@ simulate_claims(
 
 \item{loss_distribution}{Character - must be one of the distributions mentioned in the details below. Defaults to lognormal.}
 
-\item{probability_open}{Numeric - must be within \verb{0 < x < 1} and represents probability a claim is open when running binomial simulations for claims' status.}
+\item{params}{Parameters associated with the specified \code{loss_distribution}
+in a list (i.e. \code{list(mean_log = 7.5, sd_log = 1.5)} for lognormal distribution).}
+
+\item{status_prob_open}{Numeric - must be within \verb{0 < x < 1} and represents
+probability a claim is open when running binomial simulations for claims'
+status.}
+
+\item{cache}{Boolean/Logical - enable caching?}
+
+\item{...}{If needed}
 }
 \value{
 The return value, if any, from executing the function.
