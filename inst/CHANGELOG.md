@@ -32,6 +32,7 @@ All notable changes to this project will be documented in this file.
 - Enhance README's
 - Build README
 - Re-build RAEDME
+- Add image for actuarial diagram
 
 ### Features
 
@@ -110,11 +111,15 @@ All notable changes to this project will be documented in this file.
 - Update TOC
 - Update TOC
 - Autopublish 2022-02-13T01:50:55Z
+- Autopublish 2022-02-13T01:56:34Z
 
 ### Bug
 
 - Fix man file for inform
 - Fix view_claim_history function
+- Fix roxygen tags for simulate functions params
+- Fix issues with globalVars for the view_claim_history function
+- Add globalVar for issue #37
 
 ### Bugfix
 
