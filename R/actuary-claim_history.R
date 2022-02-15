@@ -9,14 +9,16 @@
 #' @return a list containing a) claim details b) transactional history c) interactive timeline
 #' @export
 #'
-#' @importFrom dplyr arrange filter distinct select pull mutate rowwise lag transmute
+#' @importFrom dplyr arrange filter distinct select pull mutate rowwise lag transmute case_when
 #' @importFrom formattable currency
 #' @importFrom lubridate as_date
 #' @importFrom shiny HTML
 #' @importFrom timevis timevis
 view_claim_history <- function(claim_id, claims_data = NULL) {
 
-  if (is.null(claims_data)) claims_data <- claims_transactional
+  if (is.null(claims_data)) {
+    claims_data <- claims_transactional
+  }
 
   claim_dat <- dplyr::filter(claims_data, .data$claim_id == .env$claim_id) |>
     dplyr::arrange(.data$transaction_date)
@@ -43,7 +45,7 @@ view_claim_history <- function(claim_id, claims_data = NULL) {
     incr_rept = .data$reported - dplyr::lag(.data$reported, default = 0, order_by = .data$transaction_date),
     incr_case = .data$case - dplyr::lag(.data$case, default = 0, order_by = .data$transaction_date),
     incr_status = paste0(dplyr::lag(.data$status, default = "NEW", order_by = .data$transaction_date), " -> ", .data$status),
-    status_details = case_when(
+    status_details = dplyr::case_when(
       .data$incr_status == "NEW -> Open" ~ "Status: Claim Opened",
       .data$incr_status == "Open -> Open" ~ "Status: No Change",
       .data$incr_status == "Closed -> Closed" ~ "Status: No Change",
@@ -92,21 +94,21 @@ view_claim_history <- function(claim_id, claims_data = NULL) {
 
   trans_hist_out <- dplyr::select(
     claim_trans_hist,
-    -c(`Transaction ID`,
-       `Paid Change`,
-       `Case Reserve Change`,
-       `Reported Change`,
-       `Status Details`,
-       `Status`,
-       `Transaction Details`)
+    -c(.data$`Transaction ID`,
+       .data$`Paid Change`,
+       .data$`Case Reserve Change`,
+       .data$`Reported Change`,
+       .data$`Status Details`,
+       .data$`Status`,
+       .data$`Transaction Details`)
   )
 
   timeline <- dplyr::transmute(
     claim_trans_hist,
-    id = `Transaction ID`,
-    content = `Transaction Date`,
-    start = `Transaction Date`,
-    title = shiny::HTML(`Transaction Details`)
+    id = .data$`Transaction ID`,
+    content = .data$`Transaction Date`,
+    start = .data$`Transaction Date`,
+    title = shiny::HTML(.data$`Transaction Details`)
   ) |>
     timevis::timevis(options = list("tooltip.overflowMethod" = "none"))
 
