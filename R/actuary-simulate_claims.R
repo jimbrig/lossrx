@@ -7,7 +7,13 @@
 #' @param start_date,end_date Character/Date - Start and End dates for simulation to create claims within (experience_period).
 #' @param seed Numeric - the seed is used to isolate randomness during statistical simulations.
 #' @param loss_distribution Character - must be one of the distributions mentioned in the details below. Defaults to lognormal.
-#' @param probability_open Numeric - must be within `0 < x < 1` and represents probability a claim is open when running binomial simulations for claims' status.
+#' @param params Parameters associated with the specified `loss_distribution`
+#'  in a list (i.e. `list(mean_log = 7.5, sd_log = 1.5)` for lognormal distribution).
+#' @param status_prob_open Numeric - must be within `0 < x < 1` and represents
+#'  probability a claim is open when running binomial simulations for claims'
+#'  status.
+#' @param cache Boolean/Logical - enable caching?
+#' @param ... If needed
 #'
 #' @details
 #'
