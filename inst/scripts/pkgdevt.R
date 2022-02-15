@@ -144,7 +144,8 @@ c(
   "data-utils",
   "actuary-triangle",
   "actuary-validation",
-  "actuary-loss_run"
+  "actuary-loss_run",
+  "actuary-simulate_claims"
 ) |>
   purrr::walk(usethis::use_test)
 
