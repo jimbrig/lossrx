@@ -40,7 +40,6 @@ Imports:
     utils
 Suggests: 
     actuar,
-    covr,
     dbplyr,
     devtools,
     fplot,
