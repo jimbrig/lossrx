@@ -14,3 +14,7 @@ inst/database/_postgres-data/
 inst/database/README.html
 
 inst/database/postgres-data/
+
+inst/notes/
+
+data-raw/working/db-experiment.xlsx
