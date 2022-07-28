@@ -33,7 +33,7 @@ CSV file to seed the table's values
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -52,7 +52,7 @@ CSV file to seed the table's values
   <a href="../tests/index.html">Tests</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     News
      
     <span class="caret"></span>
@@ -100,31 +100,42 @@ CSV file to seed the table's values
 </ul></div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">create_tbl</span><span class="op">(</span>
-  <span class="va">conn</span>,
-  <span class="va">tbl_name</span>,
-  csv_path <span class="op">=</span> <span class="st">"data-raw/database/CSV"</span>,
-  sql_path <span class="op">=</span> <span class="st">"data-raw/database/SQL"</span>,
-  drop_if_exists <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">create_tbl</span><span class="op">(</span></span>
+<span>  <span class="va">conn</span>,</span>
+<span>  <span class="va">tbl_name</span>,</span>
+<span>  csv_path <span class="op">=</span> <span class="st">"data-raw/database/CSV"</span>,</span>
+<span>  sql_path <span class="op">=</span> <span class="st">"data-raw/database/SQL"</span>,</span>
+<span>  drop_if_exists <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>conn</dt>
 <dd><p>database connection</p></dd>
+
+
 <dt>tbl_name</dt>
 <dd><p>character string representing table name</p></dd>
+
+
 <dt>csv_path</dt>
 <dd><p>base path (excluding file) to the CSV file</p></dd>
+
+
 <dt>sql_path</dt>
 <dd><p>base path (excluding file) to the SQL file</p></dd>
+
+
 <dt>drop_if_exists</dt>
 <dd><p>Should the table be dropped (with CASCADE) if it already exists?</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>the created database table returned as an R <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame()</a></code>.</p>
+    
+
+<p>the created database table returned as an R <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame()</a></code>.</p>
     </div>
     <div id="note">
     <h2>Note</h2>
@@ -144,7 +155,7 @@ and the SQL file (excluding extensions).</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

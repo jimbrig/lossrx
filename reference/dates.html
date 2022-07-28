@@ -31,7 +31,7 @@ Derive the number of months elapsed between two dates."><meta property="og:image
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -50,7 +50,7 @@ Derive the number of months elapsed between two dates."><meta property="og:image
   <a href="../tests/index.html">Tests</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     News
      
     <span class="caret"></span>
@@ -99,29 +99,38 @@ analysis context.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">end_of_month</span><span class="op">(</span><span class="va">date</span><span class="op">)</span>
-
-<span class="fu">start_of_month</span><span class="op">(</span><span class="va">date</span><span class="op">)</span>
-
-<span class="fu">extract_date</span><span class="op">(</span><span class="va">string</span><span class="op">)</span>
-
-<span class="fu">elapsed_months</span><span class="op">(</span><span class="va">end_date</span>, <span class="va">start_date</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">end_of_month</span><span class="op">(</span><span class="va">date</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">start_of_month</span><span class="op">(</span><span class="va">date</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">extract_date</span><span class="op">(</span><span class="va">string</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">elapsed_months</span><span class="op">(</span><span class="va">end_date</span>, <span class="va">start_date</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>date</dt>
 <dd><p>character or date representation of a date.</p></dd>
+
+
 <dt>string</dt>
 <dd><p>string to extract a date from</p></dd>
+
+
 <dt>end_date</dt>
 <dd><p>end date</p></dd>
+
+
 <dt>start_date</dt>
 <dd><p>start date</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <ul><li><p><code>end_of_month</code> returns last day of the month given.</p></li>
+    
+
+<ul><li><p><code>end_of_month</code> returns last day of the month given.</p></li>
 <li><p><code>start_of_month</code> returns the first day of the month given.</p></li>
 <li><p><code>extract_date</code> returns a date object extracted from the provided string.</p></li>
 </ul><p>numeric</p>
@@ -134,22 +143,22 @@ analysis context.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># character input</span></span>
-<span class="r-in"><span class="fu">start_of_month</span><span class="op">(</span><span class="st">"2020-08-13"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># character input</span></span></span>
+<span class="r-in"><span><span class="fu">start_of_month</span><span class="op">(</span><span class="st">"2020-08-13"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2020-08-01"</span>
-<span class="r-in"><span class="fu">end_of_month</span><span class="op">(</span><span class="st">"2017-10-20"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">end_of_month</span><span class="op">(</span><span class="st">"2017-10-20"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2017-10-31"</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># can handle human-readable dates also</span></span>
-<span class="r-in"><span class="fu">start_of_month</span><span class="op">(</span><span class="st">"July 7, 1999"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># can handle human-readable dates also</span></span></span>
+<span class="r-in"><span><span class="fu">start_of_month</span><span class="op">(</span><span class="st">"July 7, 1999"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1999-07-01"</span>
-<span class="r-in"><span class="fu">end_of_month</span><span class="op">(</span><span class="st">"February 5, 2019"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">end_of_month</span><span class="op">(</span><span class="st">"February 5, 2019"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2019-02-28"</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># date input</span></span>
-<span class="r-in"><span class="fu">start_of_month</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2020-08-13"</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># date input</span></span></span>
+<span class="r-in"><span><span class="fu">start_of_month</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2020-08-13"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2020-08-01"</span>
-<span class="r-in"><span class="fu">end_of_month</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2020-10-20"</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">end_of_month</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2020-10-20"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2020-10-31"</span>
 </code></pre></div>
     </div>
@@ -165,7 +174,7 @@ analysis context.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

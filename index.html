@@ -54,7 +54,7 @@
   <a href="reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -75,7 +75,7 @@
   <a href="tests/index.html">Tests</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     News
      
     <span class="caret"></span>
@@ -124,22 +124,17 @@
 <div class="page-header"><h1 id="lossrx-">lossrx <img src="reference/figures/logo.png" align="right" height="139"><a class="anchor" aria-label="anchor" href="#lossrx-"></a>
 </h1></div>
 <!-- badges: start -->
-
-<!-- [![codecov](https://codecov.io/gh/jimbrig/lossrx/branch/main/graph/badge.svg?token=14426d5e-bed0-4cea-b8ff-ff4561ccda4f)](https://codecov.io/gh/jimbrig/lossrx?branch=main) -->
-<p><em>View the <a href="inst/CHANGELOG.html">Changelog</a> for detailed progression on development of the package.</em></p>
+<!-- [![codecov](https://codecov.io/gh/jimbrig/lossrx/branch/main/graph/badge.svg?token=14426d5e-bed0-4cea-b8ff-ff4561ccda4f)](https://codecov.io/gh/jimbrig/lossrx?branch=main) --><p><em>View the <a href="inst/CHANGELOG.html">Changelog</a> for detailed progression on development of the package.</em></p>
 <p><em>View the <a href="https://dbdocs.io/jimbrigf0cdc6204e/Actuarial-Database" class="external-link">Latest Database Documentation</a> for a detailed look into its structure.</em></p>
 <div class="section level2">
 <h2 id="contents">Contents<a class="anchor" aria-label="anchor" href="#contents"></a>
 </h2>
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-<p><strong>Table of Contents</strong></p>
+<!-- START doctoc generated TOC please keep comment here to allow auto update --><!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE --><p><strong>Table of Contents</strong></p>
 <ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#installation">Installation</a></li>
 <li>
-<a href="#data">Data</a>
-<ul>
+<a href="#data">Data</a><ul>
 <li><a href="#data-preparation">Data Preparation</a></li>
 <li><a href="#database">Database</a></li>
 </ul>
@@ -167,7 +162,7 @@
 </h2>
 <p>You can install the development version of <code>lossrx</code> with <code>pak</code>: <a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="http://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"jimbrig/lossrx"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="http://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"jimbrig/lossrx"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="data">Data<a class="anchor" aria-label="anchor" href="#data"></a>
@@ -203,16 +198,14 @@
 <span id="cb2-4"><a href="#cb2-4"></a><span class="dv">0</span> errors v <span class="op">|</span><span class="st"> </span><span class="dv">0</span> warnings v <span class="op">|</span><span class="st"> </span><span class="dv">0</span> notes v</span>
 <span id="cb2-5"><a href="#cb2-5"></a></span>
 <span id="cb2-6"><a href="#cb2-6"></a>R CMD check succeeded</span></code></pre></div>
-<blockquote>
-<p>Jimmy Briggs | 2022</p>
-</blockquote>
+<blockquote><p>Jimmy Briggs | 2022</p></blockquote>
 </div>
 </div>
 <div class="footnotes">
 <hr>
 <ol>
 <li id="fn1"><p>See the <a href="https://github.com/jimbrig/lossrx/pkgs/container/actuarialdb" class="external-link">database container package</a> for details on how to run the database as a container image.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>Similarly, you can install the package using the more common <code><a href="https://devtools.r-lib.org/reference/remote-reexports.html" class="external-link">devtools::install_github()</a></code> and <code><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">remotes::install_github()</a></code><a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Similarly, you can install the package using the more common <code><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">devtools::install_github()</a></code> and <code><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">remotes::install_github()</a></code><a href="#fnref2" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 
@@ -270,7 +263,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>

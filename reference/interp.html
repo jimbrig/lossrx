@@ -29,7 +29,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -48,7 +48,7 @@
   <a href="../tests/index.html">Tests</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     News
      
     <span class="caret"></span>
@@ -95,36 +95,51 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">interp</span><span class="op">(</span><span class="va">new_age</span>, <span class="va">cdf_array</span>, <span class="va">age_array</span>, cutoff <span class="op">=</span> <span class="fl">450</span>, method <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
-
-<span class="fu">interp.dblexp</span><span class="op">(</span><span class="va">new_age</span>, <span class="va">age_high</span>, <span class="va">age_low</span>, <span class="va">cdf_high</span>, <span class="va">cdf_low</span><span class="op">)</span>
-
-<span class="fu">interp.exp</span><span class="op">(</span><span class="va">new_age</span>, <span class="va">age_high</span>, <span class="va">age_low</span>, <span class="va">cdf_high</span>, <span class="va">cdf_low</span><span class="op">)</span>
-
-<span class="fu">interp.linear</span><span class="op">(</span><span class="va">new_age</span>, <span class="va">age_high</span>, <span class="va">age_low</span>, <span class="va">cdf_high</span>, <span class="va">cdf_low</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">interp</span><span class="op">(</span><span class="va">new_age</span>, <span class="va">cdf_array</span>, <span class="va">age_array</span>, cutoff <span class="op">=</span> <span class="fl">450</span>, method <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">interp.dblexp</span><span class="op">(</span><span class="va">new_age</span>, <span class="va">age_high</span>, <span class="va">age_low</span>, <span class="va">cdf_high</span>, <span class="va">cdf_low</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">interp.exp</span><span class="op">(</span><span class="va">new_age</span>, <span class="va">age_high</span>, <span class="va">age_low</span>, <span class="va">cdf_high</span>, <span class="va">cdf_low</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">interp.linear</span><span class="op">(</span><span class="va">new_age</span>, <span class="va">age_high</span>, <span class="va">age_low</span>, <span class="va">cdf_high</span>, <span class="va">cdf_low</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>new_age</dt>
 <dd><p>integer - value of the new age whose CDF is to be interpolated</p></dd>
+
+
 <dt>cdf_array</dt>
 <dd><p>numeric vector of CDFs (usually representative of the selected factors)</p></dd>
+
+
 <dt>age_array</dt>
 <dd><p>numeric vector of ages corresponding to the supplied <code>cdf_array</code></p></dd>
+
+
 <dt>cutoff</dt>
 <dd><p>the largest possible age, after which, no interpolation is performed</p></dd>
+
+
 <dt>method</dt>
 <dd><p>integer - must be 1, 2, or 3 where 1 represents linear, 2 represents exponential,
 and 3 represents double exponential. Defaults to 3, but falls back onto 1 if necessary.</p></dd>
+
+
 <dt>age_low, age_high</dt>
 <dd><p>Low and High ages</p></dd>
+
+
 <dt>cdf_low, cdf_high</dt>
 <dd><p>Low and High CDFs</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>derived numeric value for the supplied <code>new_age</code>'s CDF</p>
+    
+
+<p>derived numeric value for the supplied <code>new_age</code>'s CDF</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -144,14 +159,14 @@ in order to derive development factors at a variety of possible ages of maturity
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">cdfs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3.579</span>, <span class="fl">2.866</span>, <span class="fl">2.489</span>, <span class="fl">2.121</span>, <span class="fl">1.876</span>, <span class="fl">1.543</span>, <span class="fl">1.222</span>, <span class="fl">1.150</span>, <span class="fl">1.109</span>, <span class="fl">1.005</span>, <span class="fl">1.0025</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">ages</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fl">12</span>, to <span class="op">=</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">cdfs</span><span class="op">)</span> <span class="op">*</span> <span class="fl">12</span><span class="op">)</span>, by <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">interp</span><span class="op">(</span><span class="fl">14</span>, <span class="va">cdfs</span>, <span class="va">ages</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">cdfs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3.579</span>, <span class="fl">2.866</span>, <span class="fl">2.489</span>, <span class="fl">2.121</span>, <span class="fl">1.876</span>, <span class="fl">1.543</span>, <span class="fl">1.222</span>, <span class="fl">1.150</span>, <span class="fl">1.109</span>, <span class="fl">1.005</span>, <span class="fl">1.0025</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">ages</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fl">12</span>, to <span class="op">=</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">cdfs</span><span class="op">)</span> <span class="op">*</span> <span class="fl">12</span><span class="op">)</span>, by <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">interp</span><span class="op">(</span><span class="fl">14</span>, <span class="va">cdfs</span>, <span class="va">ages</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3.438518</span>
-<span class="r-in"><span class="fu">interp</span><span class="op">(</span><span class="fl">12</span>, <span class="va">cdfs</span>, <span class="va">ages</span><span class="op">)</span> <span class="op">==</span> <span class="va">cdfs</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
+<span class="r-in"><span><span class="fu">interp</span><span class="op">(</span><span class="fl">12</span>, <span class="va">cdfs</span>, <span class="va">ages</span><span class="op">)</span> <span class="op">==</span> <span class="va">cdfs</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
-<span class="r-in"><span class="fu">interp</span><span class="op">(</span><span class="fl">27</span>, <span class="va">cdfs</span>, <span class="va">ages</span>, method <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">interp</span><span class="op">(</span><span class="fl">27</span>, <span class="va">cdfs</span>, <span class="va">ages</span>, method <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2.758217</span>
 </code></pre></div>
     </div>
@@ -167,7 +182,7 @@ in order to derive development factors at a variety of possible ages of maturity
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

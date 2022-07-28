@@ -53,7 +53,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -74,7 +74,7 @@
   <a href="../tests/index.html">Tests</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     News
      
     <span class="caret"></span>
@@ -220,75 +220,75 @@
 </h2>
 <p><code>lossrx</code> provides example lossruns in the form of a merged dataset named <code>losses</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">loss_data</span> <span class="op">&lt;-</span> <span class="va">losses</span>
-<span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">loss_data</span><span class="op">)</span>
-<span class="co">#&gt; Rows: 79,748</span>
-<span class="co">#&gt; Columns: 30</span>
-<span class="co">#&gt; $ eval_date          <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2019-12-31, 2019-08-31, 2019-04-30, 2018-12-31, 20…</span>
-<span class="co">#&gt; $ devt_age           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 108, 104, 100, 96, 92, 88, 84, 80, 76, 72, 68, 64, …</span>
-<span class="co">#&gt; $ occurrence_number  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "…</span>
-<span class="co">#&gt; $ coverage           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "WC", "WC", "WC", "WC", "WC", "WC", "WC", "WC", "WC…</span>
-<span class="co">#&gt; $ member             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Member 2", "Member 2", "Member 2", "Member 2", "Me…</span>
-<span class="co">#&gt; $ program_year       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2011", "2011", "2011", "2011", "2011", "2011", "20…</span>
-<span class="co">#&gt; $ loss_date          <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2011-01-03, 2011-01-03, 2011-01-03, 2011-01-03, 20…</span>
-<span class="co">#&gt; $ rept_date          <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2011-01-04, 2011-01-04, 2011-01-04, 2011-01-04, 20…</span>
-<span class="co">#&gt; $ hire_date          <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2000-09-11, 2000-09-11, 2000-09-11, 2000-09-11, 20…</span>
-<span class="co">#&gt; $ report_lag         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …</span>
-<span class="co">#&gt; $ report_lag_group   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> 1 to 3 Days, 1 to 3 Days, 1 to 3 Days, 1 to 3 Days,…</span>
-<span class="co">#&gt; $ day_of_week        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Monday", "Monday", "Monday", "Monday", "Monday", "…</span>
-<span class="co">#&gt; $ claim_type         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "WCIN", "WCIN", "WCIN", "WCIN", "WCIN", "WCIN", "WC…</span>
-<span class="co">#&gt; $ claimant_state     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "CA", "CA", "CA", "CA", "CA", "CA", "CA", "CA", "CA…</span>
-<span class="co">#&gt; $ loss_state         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "CA", "CA", "CA", "CA", "CA", "CA", "CA", "CA", "CA…</span>
-<span class="co">#&gt; $ cause              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Strain / Overexertion", "Strain / Overexertion", "…</span>
-<span class="co">#&gt; $ department         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Drivers", "Drivers", "Drivers", "Drivers", "Driver…</span>
-<span class="co">#&gt; $ tenure             <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 19.30328, 18.96986, 18.63288, 18.30411, 17.96986, 1…</span>
-<span class="co">#&gt; $ tenure_group       <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> 10+ Years, 10+ Years, 10+ Years, 10+ Years, 10+ Yea…</span>
-<span class="co">#&gt; $ claimant_age       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51,…</span>
-<span class="co">#&gt; $ claimant_age_group <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> 30+ Years Old, 30+ Years Old, 30+ Years Old, 30+ Ye…</span>
-<span class="co">#&gt; $ driver_age         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span>
-<span class="co">#&gt; $ driver_age_group   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> (Missing), (Missing), (Missing), (Missing), (Missin…</span>
-<span class="co">#&gt; $ status             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "…</span>
-<span class="co">#&gt; $ total_paid         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 4149.66, 4149.66, 4149.66, 4149.66, 4149.66, 4149.6…</span>
-<span class="co">#&gt; $ total_incurred     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 4149.66, 4149.66, 4149.66, 4149.66, 4149.66, 4149.6…</span>
-<span class="co">#&gt; $ count              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …</span>
-<span class="co">#&gt; $ open_count         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span>
-<span class="co">#&gt; $ close_count        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …</span>
-<span class="co">#&gt; $ incurred_group     <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> $0-$50K, $0-$50K, $0-$50K, $0-$50K, $0-$50K, $0-$50…</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">loss_data</span> <span class="op">&lt;-</span> <span class="va">losses</span></span>
+<span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">loss_data</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Rows: 79,748</span></span>
+<span><span class="co">#&gt; Columns: 30</span></span>
+<span><span class="co">#&gt; $ eval_date          <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2019-12-31, 2019-08-31, 2019-04-30, 2018-12-31, 20…</span></span>
+<span><span class="co">#&gt; $ devt_age           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 108, 104, 100, 96, 92, 88, 84, 80, 76, 72, 68, 64, …</span></span>
+<span><span class="co">#&gt; $ occurrence_number  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "…</span></span>
+<span><span class="co">#&gt; $ coverage           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "WC", "WC", "WC", "WC", "WC", "WC", "WC", "WC", "WC…</span></span>
+<span><span class="co">#&gt; $ member             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Member 2", "Member 2", "Member 2", "Member 2", "Me…</span></span>
+<span><span class="co">#&gt; $ program_year       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2011", "2011", "2011", "2011", "2011", "2011", "20…</span></span>
+<span><span class="co">#&gt; $ loss_date          <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2011-01-03, 2011-01-03, 2011-01-03, 2011-01-03, 20…</span></span>
+<span><span class="co">#&gt; $ rept_date          <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2011-01-04, 2011-01-04, 2011-01-04, 2011-01-04, 20…</span></span>
+<span><span class="co">#&gt; $ hire_date          <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2000-09-11, 2000-09-11, 2000-09-11, 2000-09-11, 20…</span></span>
+<span><span class="co">#&gt; $ report_lag         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …</span></span>
+<span><span class="co">#&gt; $ report_lag_group   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> 1 to 3 Days, 1 to 3 Days, 1 to 3 Days, 1 to 3 Days,…</span></span>
+<span><span class="co">#&gt; $ day_of_week        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Monday", "Monday", "Monday", "Monday", "Monday", "…</span></span>
+<span><span class="co">#&gt; $ claim_type         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "WCIN", "WCIN", "WCIN", "WCIN", "WCIN", "WCIN", "WC…</span></span>
+<span><span class="co">#&gt; $ claimant_state     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "CA", "CA", "CA", "CA", "CA", "CA", "CA", "CA", "CA…</span></span>
+<span><span class="co">#&gt; $ loss_state         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "CA", "CA", "CA", "CA", "CA", "CA", "CA", "CA", "CA…</span></span>
+<span><span class="co">#&gt; $ cause              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Strain / Overexertion", "Strain / Overexertion", "…</span></span>
+<span><span class="co">#&gt; $ department         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Drivers", "Drivers", "Drivers", "Drivers", "Driver…</span></span>
+<span><span class="co">#&gt; $ tenure             <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 19.30328, 18.96986, 18.63288, 18.30411, 17.96986, 1…</span></span>
+<span><span class="co">#&gt; $ tenure_group       <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> 10+ Years, 10+ Years, 10+ Years, 10+ Years, 10+ Yea…</span></span>
+<span><span class="co">#&gt; $ claimant_age       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51,…</span></span>
+<span><span class="co">#&gt; $ claimant_age_group <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> 30+ Years Old, 30+ Years Old, 30+ Years Old, 30+ Ye…</span></span>
+<span><span class="co">#&gt; $ driver_age         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span></span>
+<span><span class="co">#&gt; $ driver_age_group   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> (Missing), (Missing), (Missing), (Missing), (Missin…</span></span>
+<span><span class="co">#&gt; $ status             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "…</span></span>
+<span><span class="co">#&gt; $ total_paid         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 4149.66, 4149.66, 4149.66, 4149.66, 4149.66, 4149.6…</span></span>
+<span><span class="co">#&gt; $ total_incurred     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 4149.66, 4149.66, 4149.66, 4149.66, 4149.66, 4149.6…</span></span>
+<span><span class="co">#&gt; $ count              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …</span></span>
+<span><span class="co">#&gt; $ open_count         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span></span>
+<span><span class="co">#&gt; $ close_count        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …</span></span>
+<span><span class="co">#&gt; $ incurred_group     <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> $0-$50K, $0-$50K, $0-$50K, $0-$50K, $0-$50K, $0-$50…</span></span></code></pre></div>
 <p>Note that the <code>losses</code> dataset contains <strong>27</strong> unique evaluation dates merged together:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">analysis_data_wc</span> <span class="op">&lt;-</span> <span class="va">loss_data</span> |&gt;
-  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">coverage</span> <span class="op">==</span> <span class="st">"WC"</span><span class="op">)</span> |&gt;
-  <span class="fu">group_by</span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">eval_date</span>, <span class="va">.data</span><span class="op">$</span><span class="va">devt_age</span>, <span class="va">.data</span><span class="op">$</span><span class="va">program_year</span><span class="op">)</span> |&gt;
-  <span class="fu">summarise</span><span class="op">(</span>
-    `Total Reported Claim Counts` <span class="op">=</span> <span class="fu">n</span><span class="op">(</span><span class="op">)</span>,
-    `Total Paid` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">total_paid</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
-    `Total Reported` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">total_incurred</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-  <span class="op">)</span> |&gt;
-  <span class="fu">ungroup</span><span class="op">(</span><span class="op">)</span> |&gt;
-  <span class="fu">arrange</span><span class="op">(</span><span class="va">program_year</span>, <span class="va">devt_age</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">analysis_data_wc</span> <span class="op">&lt;-</span> <span class="va">loss_data</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">coverage</span> <span class="op">==</span> <span class="st">"WC"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">eval_date</span>, <span class="va">.data</span><span class="op">$</span><span class="va">devt_age</span>, <span class="va">.data</span><span class="op">$</span><span class="va">program_year</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">summarise</span><span class="op">(</span></span>
+<span>    `Total Reported Claim Counts` <span class="op">=</span> <span class="fu">n</span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    `Total Paid` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">total_paid</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>    `Total Reported` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">total_incurred</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">ungroup</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">arrange</span><span class="op">(</span><span class="va">program_year</span>, <span class="va">devt_age</span><span class="op">)</span></span></code></pre></div>
 <p>This can easily be translated into triangles like so:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">create_triangle</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dat</span>, <span class="va">type</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"paid"</span>, <span class="st">"reported"</span>, <span class="st">"counts"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-  
-  <span class="va">col</span> <span class="op">&lt;-</span> <span class="kw"><a href="https://rdrr.io/r/base/switch.html" class="external-link">switch</a></span><span class="op">(</span><span class="va">type</span>,
-                <span class="st">"paid"</span> <span class="op">=</span> <span class="st">"Total Paid"</span>,
-                <span class="st">"reported"</span> <span class="op">=</span> <span class="st">"Total Reported"</span>,
-                <span class="st">"counts"</span> <span class="op">=</span> <span class="st">"Total Reported Claim Counts"</span><span class="op">)</span>
-  
-  <span class="va">dat</span> |&gt;
-    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">devt_age</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html" class="external-link">%%</a></span> <span class="fl">12</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> |&gt;
-    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">program_year</span>, <span class="va">.data</span><span class="op">$</span><span class="va">devt_age</span>, <span class="va">col</span><span class="op">)</span> |&gt;
-    <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html" class="external-link">pivot_wider</a></span><span class="op">(</span>
-      names_from <span class="op">=</span> <span class="va">.data</span><span class="op">$</span><span class="va">devt_age</span>,
-      values_from <span class="op">=</span> <span class="va">col</span>
-    <span class="op">)</span>
-  
-<span class="op">}</span>
-
-<span class="va">wc_tris</span> <span class="op">&lt;-</span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Paid Triangle"</span> <span class="op">=</span> <span class="st">"paid"</span>,
-                        <span class="st">"Reported Triangle"</span> <span class="op">=</span> <span class="st">"reported"</span>,
-                        <span class="st">"Reported Claim Counts Triangle"</span> <span class="op">=</span> <span class="st">"counts"</span><span class="op">)</span>,
-                      <span class="op">~</span><span class="fu">create_triangle</span><span class="op">(</span>dat <span class="op">=</span> <span class="va">analysis_data_wc</span>, <span class="va">.x</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">create_triangle</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dat</span>, <span class="va">type</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"paid"</span>, <span class="st">"reported"</span>, <span class="st">"counts"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  </span>
+<span>  <span class="va">col</span> <span class="op">&lt;-</span> <span class="kw"><a href="https://rdrr.io/r/base/switch.html" class="external-link">switch</a></span><span class="op">(</span><span class="va">type</span>,</span>
+<span>                <span class="st">"paid"</span> <span class="op">=</span> <span class="st">"Total Paid"</span>,</span>
+<span>                <span class="st">"reported"</span> <span class="op">=</span> <span class="st">"Total Reported"</span>,</span>
+<span>                <span class="st">"counts"</span> <span class="op">=</span> <span class="st">"Total Reported Claim Counts"</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">dat</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">devt_age</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html" class="external-link">%%</a></span> <span class="fl">12</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">program_year</span>, <span class="va">.data</span><span class="op">$</span><span class="va">devt_age</span>, <span class="va">col</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html" class="external-link">pivot_wider</a></span><span class="op">(</span></span>
+<span>      names_from <span class="op">=</span> <span class="va">.data</span><span class="op">$</span><span class="va">devt_age</span>,</span>
+<span>      values_from <span class="op">=</span> <span class="va">col</span></span>
+<span>    <span class="op">)</span></span>
+<span>  </span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">wc_tris</span> <span class="op">&lt;-</span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Paid Triangle"</span> <span class="op">=</span> <span class="st">"paid"</span>,</span>
+<span>                        <span class="st">"Reported Triangle"</span> <span class="op">=</span> <span class="st">"reported"</span>,</span>
+<span>                        <span class="st">"Reported Claim Counts Triangle"</span> <span class="op">=</span> <span class="st">"counts"</span><span class="op">)</span>,</span>
+<span>                      <span class="op">~</span><span class="fu">create_triangle</span><span class="op">(</span>dat <span class="op">=</span> <span class="va">analysis_data_wc</span>, <span class="va">.x</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="triangles">Triangles<a class="anchor" aria-label="anchor" href="#triangles"></a>
@@ -1297,7 +1297,7 @@ NA
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>

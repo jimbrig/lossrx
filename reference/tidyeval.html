@@ -101,7 +101,7 @@ because it throws an error if the input is not a name as expected.
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -120,7 +120,7 @@ because it throws an error if the input is not a name as expected.
   <a href="../tests/index.html">Tests</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     News
      
     <span class="caret"></span>
@@ -174,26 +174,26 @@ operators which you should not have to use in simple cases.</p>
 <p>The curly-curly operator <code>{{</code> allows you to tunnel data-variables
 passed from function arguments inside other tidy eval functions.
 <code>{{</code> is designed for individual arguments. To pass multiple
-arguments contained in dots, use <code>...</code> in the normal way.</p><div class="sourceCode"><pre><code><span class="va">my_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>, <span class="va">var</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span>
-  <span class="va">data</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-    <span class="fu">group_by</span><span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-    <span class="fu">summarise</span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="op">{</span><span class="op">{</span> <span class="va">var</span> <span class="op">}</span><span class="op">}</span><span class="op">)</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div></li>
+arguments contained in dots, use <code>...</code> in the normal way.</p><div class="sourceCode"><pre><code><span><span class="va">my_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>, <span class="va">var</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">data</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu">summarise</span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="op">{</span><span class="op">{</span> <span class="va">var</span> <span class="op">}</span><span class="op">}</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div></li>
 <li><p><code>enquo()</code> and <code>enquos()</code> delay the execution of one or several
 function arguments. The former returns a single expression, the
 latter returns a list of expressions. Once defused, expressions
 will no longer evaluate on their own. They must be injected back
 into an evaluation context with <code>!!</code> (for a single expression) and
-<code>!!!</code> (for a list of expressions).</p><div class="sourceCode"><pre><code><span class="va">my_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>, <span class="va">var</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span>
-  <span class="co"># Defuse</span>
-  <span class="va">var</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tidyeval.html">enquo</a></span><span class="op">(</span><span class="va">var</span><span class="op">)</span>
-  <span class="va">dots</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tidyeval.html">enquos</a></span><span class="op">(</span><span class="va">...</span><span class="op">)</span>
-
-  <span class="co"># Inject</span>
-  <span class="va">data</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-    <span class="fu">group_by</span><span class="op">(</span><span class="op">!</span><span class="op">!</span><span class="op">!</span><span class="va">dots</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-    <span class="fu">summarise</span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="op">!</span><span class="op">!</span><span class="va">var</span><span class="op">)</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div>
+<code>!!!</code> (for a list of expressions).</p><div class="sourceCode"><pre><code><span><span class="va">my_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>, <span class="va">var</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="co"># Defuse</span></span>
+<span>  <span class="va">var</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tidyeval.html">enquo</a></span><span class="op">(</span><span class="va">var</span><span class="op">)</span></span>
+<span>  <span class="va">dots</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tidyeval.html">enquos</a></span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co"># Inject</span></span>
+<span>  <span class="va">data</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu">group_by</span><span class="op">(</span><span class="op">!</span><span class="op">!</span><span class="op">!</span><span class="va">dots</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu">summarise</span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="op">!</span><span class="op">!</span><span class="va">var</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 
 <p>In this simple case, the code is equivalent to the usage of <code>{{</code>
 and <code>...</code> above. Defusing with <code>enquo()</code> or <code>enquos()</code> is only
@@ -201,27 +201,27 @@ needed in more complex cases, for instance if you need to inspect
 or modify the expressions in some way.</p></li>
 <li><p>The <code>.data</code> pronoun is an object that represents the current
 slice of data. If you have a variable name in a string, use the
-<code>.data</code> pronoun to subset that variable with <code>[[</code>.</p><div class="sourceCode"><pre><code><span class="va">my_var</span> <span class="op">&lt;-</span> <span class="st">"disp"</span>
-<span class="va">mtcars</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu">summarise</span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">.data</span><span class="op">[[</span><span class="va">my_var</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></code></pre></div></li>
+<code>.data</code> pronoun to subset that variable with <code>[[</code>.</p><div class="sourceCode"><pre><code><span><span class="va">my_var</span> <span class="op">&lt;-</span> <span class="st">"disp"</span></span>
+<span><span class="va">mtcars</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu">summarise</span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">.data</span><span class="op">[[</span><span class="va">my_var</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></code></pre></div></li>
 <li><p>Another tidy eval operator is <code>:=</code>. It makes it possible to use
 glue and curly-curly syntax on the LHS of <code>=</code>. For technical
 reasons, the R language doesn't support complex expressions on
-the left of <code>=</code>, so we use <code>:=</code> as a workaround.</p><div class="sourceCode"><pre><code><span class="va">my_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>, <span class="va">var</span>, <span class="va">suffix</span> <span class="op">=</span> <span class="st">"foo"</span><span class="op">)</span> <span class="op">{</span>
-  <span class="co"># Use `{{` to tunnel function arguments and the usual glue</span>
-  <span class="co"># operator `{` to interpolate plain strings.</span>
-  <span class="va">data</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-    <span class="fu">summarise</span><span class="op">(</span><span class="st">"{{ var }}_mean_{suffix}"</span> <span class="op">:=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="op">{</span><span class="op">{</span> <span class="va">var</span> <span class="op">}</span><span class="op">}</span><span class="op">)</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div></li>
+the left of <code>=</code>, so we use <code>:=</code> as a workaround.</p><div class="sourceCode"><pre><code><span><span class="va">my_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>, <span class="va">var</span>, <span class="va">suffix</span> <span class="op">=</span> <span class="st">"foo"</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="co"># Use `{{` to tunnel function arguments and the usual glue</span></span>
+<span>  <span class="co"># operator `{` to interpolate plain strings.</span></span>
+<span>  <span class="va">data</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu">summarise</span><span class="op">(</span><span class="st">"{{ var }}_mean_{suffix}"</span> <span class="op">:=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="op">{</span><span class="op">{</span> <span class="va">var</span> <span class="op">}</span><span class="op">}</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div></li>
 <li><p>Many tidy eval functions like <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">dplyr::mutate()</a></code> or
 <code><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">dplyr::summarise()</a></code> give an automatic name to unnamed inputs. If
 you need to create the same sort of automatic names by yourself,
 use <code>as_label()</code>. For instance, the glue-tunnelling syntax above
-can be reproduced manually with:</p><div class="sourceCode"><pre><code><span class="va">my_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>, <span class="va">var</span>, <span class="va">suffix</span> <span class="op">=</span> <span class="st">"foo"</span><span class="op">)</span> <span class="op">{</span>
-  <span class="va">var</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tidyeval.html">enquo</a></span><span class="op">(</span><span class="va">var</span><span class="op">)</span>
-  <span class="va">prefix</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tidyeval.html">as_label</a></span><span class="op">(</span><span class="va">var</span><span class="op">)</span>
-  <span class="va">data</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-    <span class="fu">summarise</span><span class="op">(</span><span class="st">"{prefix}_mean_{suffix}"</span> <span class="op">:=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="op">!</span><span class="op">!</span><span class="va">var</span><span class="op">)</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div>
+can be reproduced manually with:</p><div class="sourceCode"><pre><code><span><span class="va">my_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>, <span class="va">var</span>, <span class="va">suffix</span> <span class="op">=</span> <span class="st">"foo"</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">var</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tidyeval.html">enquo</a></span><span class="op">(</span><span class="va">var</span><span class="op">)</span></span>
+<span>  <span class="va">prefix</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tidyeval.html">as_label</a></span><span class="op">(</span><span class="va">var</span><span class="op">)</span></span>
+<span>  <span class="va">data</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu">summarise</span><span class="op">(</span><span class="st">"{prefix}_mean_{suffix}"</span> <span class="op">:=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="op">!</span><span class="op">!</span><span class="va">var</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 
 <p>Expressions defused with <code>enquo()</code> (or tunnelled with <code>{{</code>) need
 not be simple column names, they can be arbitrarily complex.
@@ -244,7 +244,7 @@ because it throws an error if the input is not a name as expected.</p></li>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

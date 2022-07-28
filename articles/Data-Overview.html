@@ -53,7 +53,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -74,7 +74,7 @@
   <a href="../tests/index.html">Tests</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     News
      
     <span class="caret"></span>
@@ -131,16 +131,16 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/load_all.html" class="external-link">load_all</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co"># library(lossrx)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"claims_transactional"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"losses"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"exposures"</span><span class="op">)</span>
-
-<span class="va">latest_eval</span> <span class="op">&lt;-</span> <span class="va">losses</span> |&gt; <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">eval_date</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">eval_date</span><span class="op">)</span><span class="op">)</span>
-<span class="va">wc_dat</span> <span class="op">&lt;-</span> <span class="va">latest_eval</span> |&gt; <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">coverage</span> <span class="op">==</span> <span class="st">"WC"</span><span class="op">)</span>
-<span class="va">al_dat</span> <span class="op">&lt;-</span> <span class="va">latest_eval</span> |&gt; <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">coverage</span> <span class="op">==</span> <span class="st">"AL"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/load_all.html" class="external-link">load_all</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co"># library(lossrx)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"claims_transactional"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"losses"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"exposures"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">latest_eval</span> <span class="op">&lt;-</span> <span class="va">losses</span> <span class="op">|&gt;</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">eval_date</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">eval_date</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">wc_dat</span> <span class="op">&lt;-</span> <span class="va">latest_eval</span> <span class="op">|&gt;</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">coverage</span> <span class="op">==</span> <span class="st">"WC"</span><span class="op">)</span></span>
+<span><span class="va">al_dat</span> <span class="op">&lt;-</span> <span class="va">latest_eval</span> <span class="op">|&gt;</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">coverage</span> <span class="op">==</span> <span class="st">"AL"</span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="lossrx-datasets">
 <code>lossrx</code> Datasets<a class="anchor" aria-label="anchor" href="#lossrx-datasets"></a>
@@ -156,17 +156,17 @@
 <h2 id="loss-data">Loss Data<a class="anchor" aria-label="anchor" href="#loss-data"></a>
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">plot_distr</span><span class="op">(</span>
-  <span class="op">~</span> <span class="va">total_incurred</span> <span class="op">|</span> <span class="va">coverage</span>,
-  <span class="va">latest_eval</span>,
-  mod.method <span class="op">=</span> <span class="st">"split"</span>
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">plot_distr</span><span class="op">(</span></span>
+<span>  <span class="op">~</span> <span class="va">total_incurred</span> <span class="op">|</span> <span class="va">coverage</span>,</span>
+<span>  <span class="va">latest_eval</span>,</span>
+<span>  mod.method <span class="op">=</span> <span class="st">"split"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p><img src="Data-Overview_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
 <p><strong>Top 10 Rows</strong>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">losses</span><span class="op">)</span> |&gt;
-  <span class="fu">kable</span><span class="op">(</span>format <span class="op">=</span> <span class="st">"html"</span>, digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> |&gt;
-  <span class="fu">kable_styling</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">losses</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">kable</span><span class="op">(</span>format <span class="op">=</span> <span class="st">"html"</span>, digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">kable_styling</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <table class="table table" style="margin-left: auto; margin-right: auto;">
 <thead><tr>
 <th style="text-align:left;">
@@ -817,11 +817,11 @@ $0-$50K
 </table>
 <p><strong>Summary</strong>:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">dfSummary</span><span class="op">(</span><span class="va">losses</span>, 
-                varnumbers   <span class="op">=</span> <span class="cn">FALSE</span>, 
-                valid.col    <span class="op">=</span> <span class="cn">FALSE</span>, 
-                graph.magnif <span class="op">=</span> <span class="fl">0.76</span><span class="op">)</span>,
-      method <span class="op">=</span> <span class="st">'render'</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu">dfSummary</span><span class="op">(</span><span class="va">losses</span>, </span>
+<span>                varnumbers   <span class="op">=</span> <span class="cn">FALSE</span>, </span>
+<span>                valid.col    <span class="op">=</span> <span class="cn">FALSE</span>, </span>
+<span>                graph.magnif <span class="op">=</span> <span class="fl">0.76</span><span class="op">)</span>,</span>
+<span>      method <span class="op">=</span> <span class="st">'render'</span><span class="op">)</span></span></code></pre></div>
 <div class="container st-container">
 <h3>Data Frame Summary</h3>
 <h4>losses</h4>
@@ -846,7 +846,7 @@ $0-$50K
 <tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">range : 8y 8m 1d</td></tr>
 </table></td>
       <td align="left" style="vertical-align:middle">27 distinct values</td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHYAAABVCAQAAAA2ltgCAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ3bTdCLAAABUklEQVR42u2cWwrCMBREjXR17kAXGHfgurqD+ieJEIl59N7MzPFHEaSHDtPkthiOCw9X6wOQrGT72dIPwfpohhCzGronUtu/P+WfW/L+lX1DFWPJokIlC1FQsXIZCCGbN3AZqhhLFhXJoiJZVCTrk3jsn1ftmmlZ2X4ki4pkUXEtm/bvPuDWhWvZ0UgWFcmiIllUqGQdzI3z7dpj4n1TB7K1I+5+qGIsWVQki4pRG7dNBxeVLT/RMhOqGEsWFSpZF2vjFlr6fFnZlj6nijGV7NQYn7ctN5eNh806qYxibMnMLYI72fSiMjr6inE7NvtUI9mZIeyHKsaSRYVK9sTrrH1Tnyh71u2rMk0x7n8+dCHZVZEsKlSyA9p4nYr6IVs7QfI2fGmSXUdigGzOOmEdIItwnnnbOJ/04kF1ZqlkQ1qyT4DG/Sb9b5kA6FeEKsaSReUNcYJPmGafx3MAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjItMDItMTVUMDQ6MzM6MTMrMDA6MDDkqRJBAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIyLTAyLTE1VDA0OjMzOjEzKzAwOjAwlfSq/QAAAABJRU5ErkJggg=="></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHYAAABVCAQAAAA2ltgCAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAECzcPBi6AAABUklEQVR42u2cWwrCMBREjXR17kAXGHfgurqD+ieJEIl59N7MzPFHEaSHDtPkthiOCw9X6wOQrGT72dIPwfpohhCzGronUtu/P+WfW/L+lX1DFWPJokIlC1FQsXIZCCGbN3AZqhhLFhXJoiJZVCTrk3jsn1ftmmlZ2X4ki4pkUXEtm/bvPuDWhWvZ0UgWFcmiIllUqGQdzI3z7dpj4n1TB7K1I+5+qGIsWVQki4pRG7dNBxeVLT/RMhOqGEsWFSpZF2vjFlr6fFnZlj6nijGV7NQYn7ctN5eNh806qYxibMnMLYI72fSiMjr6inE7NvtUI9mZIeyHKsaSRYVK9sTrrH1Tnyh71u2rMk0x7n8+dCHZVZEsKlSyA9p4nYr6IVs7QfI2fGmSXUdigGzOOmEdIItwnnnbOJ/04kF1ZqlkQ1qyT4DG/Sb9b5kA6FeEKsaSReUNcYJPmGafx3MAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjItMDctMjhUMDA6MTY6NDQrMDA6MDBzSK7fAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIyLTA3LTI4VDAwOjE2OjQ0KzAwOjAwAhUWYwAAAABJRU5ErkJggg=="></td>
       <td align="center">0
 (0.0%)</td>
     </tr>
@@ -860,7 +860,7 @@ $0-$50K
 <tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">IQR (CV) : 40 (0.6)</td></tr>
 </table></td>
       <td align="left" style="vertical-align:middle">27 distinct values</td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHYAAABVCAQAAAA2ltgCAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ3bTdCLAAABYElEQVR42u2a0RHCIBBExUkB1pUOtMDYQeqyg/ihGXBMSCLIwe4+PxxnopMnx3FHcNOJh7P1DUhWsul04QcXuXAIJvctdmFlhDmp2/+1/v0+Wt//z1CFsWRRkSwqkkVFsqhIFhXJonKg69mHbwXrawSzy9bcCFKFsWRRkSwqkkVFsqhIFhXJoiJZVIxkH9PrNRQ90qGRDZnHwPpGi8giIVlUftpdrHm7NLtszdulMajCWLKoJD7+KFvuGcv6VNUn/U4ZqMJYsqhkfz7rWUpethXXiuwwpSec7+RlXXFRhTGV7B/nbDq5u6uqZXPP9cKytuVlYVnbopIqQUkWFSpZ86VnftYwFuiNqUaWSvYjjNvaUUqUrXf7O0+VbJ6g9hEbBN97Xzb+CKo5K1lUmpP1R0+OH4BoTjYFKtlGlp59LBZFwXIEJbu1U00VxlSyLgzzO2AjcA3mrAP0W4UqjCWLyhP6Fk8OjgGLbQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wMi0xNVQwNDozMzoxMyswMDowMOSpEkEAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDItMTVUMDQ6MzM6MTMrMDA6MDCV9Kr9AAAAAElFTkSuQmCC"></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHYAAABVCAQAAAA2ltgCAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAECzcPBi6AAABYElEQVR42u2a0RHCIBBExUkB1pUOtMDYQeqyg/ihGXBMSCLIwe4+PxxnopMnx3FHcNOJh7P1DUhWsul04QcXuXAIJvctdmFlhDmp2/+1/v0+Wt//z1CFsWRRkSwqkkVFsqhIFhXJonKg69mHbwXrawSzy9bcCFKFsWRRkSwqkkVFsqhIFhXJoiJZVIxkH9PrNRQ90qGRDZnHwPpGi8giIVlUftpdrHm7NLtszdulMajCWLKoJD7+KFvuGcv6VNUn/U4ZqMJYsqhkfz7rWUpethXXiuwwpSec7+RlXXFRhTGV7B/nbDq5u6uqZXPP9cKytuVlYVnbopIqQUkWFSpZ86VnftYwFuiNqUaWSvYjjNvaUUqUrXf7O0+VbJ6g9hEbBN97Xzb+CKo5K1lUmpP1R0+OH4BoTjYFKtlGlp59LBZFwXIEJbu1U00VxlSyLgzzO2AjcA3mrAP0W4UqjCWLyhP6Fk8OjgGLbQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wNy0yOFQwMDoxNjo0NCswMDowMHNIrt8AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDctMjhUMDA6MTY6NDQrMDA6MDACFRZjAAAAAElFTkSuQmCC"></td>
       <td align="center">0
 (0.0%)</td>
     </tr>
@@ -948,7 +948,7 @@ $0-$50K
 <td style="padding:0 4px 0 2px;border:0" align="left">)</td>
 </tr>
 </table></td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAH4AAADMCAQAAAAfKN99AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ3bTdCLAAABXElEQVR42u3YsW2DUBhG0RAxnUfwgM4GWY9Uv/QonC5B4tzjCrl5V2BLfNvx4fq8+gDFF3+BY/m8gD+AtZe+88WrilcVrypeVbyqeBUdv61vsdvVp/kHay9954sfwpLzNl5TvKp4VfGq4lXFq4pX0fEtOariR0sOpHhV8ariVcWrilcVr6LjW3JUxY+WHEjxquJVxauKVxWvKl5Fx7fkqIofLTmQ4lXFq4pXFa8qXlW8io5vyVEVP1pyIMWrilcVrypeVbyqeBUd35KjKn605ECKVxWvKl5VvKp4VfEqOr4lR1X8aMmBFK8qXlW8qnhV8ariVXR8S46q+NGSAyleVbyqeFXxquJVxavo+JYcVfGjJQdSvKp4VfGq4lXFq4pX0fEtOSo6fl8viCVn+W3v528eVx/tj32frujHvnhV8ariVcWrilcVrzotOV+3f6V9nper2/f+gn7si1f9AIdIOo2sX9KuAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTAyLTE1VDA0OjMzOjEzKzAwOjAw5KkSQQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wMi0xNVQwNDozMzoxMyswMDowMJX0qv0AAAAASUVORK5CYII="></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAH4AAADMCAQAAAAfKN99AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAECzcPBi6AAABXElEQVR42u3YsW2DUBhG0RAxnUfwgM4GWY9Uv/QonC5B4tzjCrl5V2BLfNvx4fq8+gDFF3+BY/m8gD+AtZe+88WrilcVrypeVbyqeBUdv61vsdvVp/kHay9954sfwpLzNl5TvKp4VfGq4lXFq4pX0fEtOariR0sOpHhV8ariVcWrilcVr6LjW3JUxY+WHEjxquJVxauKVxWvKl5Fx7fkqIofLTmQ4lXFq4pXFa8qXlW8io5vyVEVP1pyIMWrilcVrypeVbyqeBUd35KjKn605ECKVxWvKl5VvKp4VfEqOr4lR1X8aMmBFK8qXlW8qnhV8ariVXR8S46q+NGSAyleVbyqeFXxquJVxavo+JYcVfGjJQdSvKp4VfGq4lXFq4pX0fEtOSo6fl8viCVn+W3v528eVx/tj32frujHvnhV8ariVcWrilcVrzotOV+3f6V9nper2/f+gn7si1f9AIdIOo2sX9KuAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTA3LTI4VDAwOjE2OjQ0KzAwOjAwc0iu3wAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wNy0yOFQwMDoxNjo0NCswMDowMAIVFmMAAAAASUVORK5CYII="></td>
       <td align="center">0
 (0.0%)</td>
     </tr>
@@ -973,7 +973,7 @@ $0-$50K
 <td style="padding:0 4px 0 2px;border:0" align="left">)</td>
 </tr>
 </table></td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAFEAAAAqCAQAAABhY3+/AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ3bTdCLAAAAhElEQVRYw+3XsQ2AMAwFUYwyHRvAgLAB60FrUCgsxeRHuqtAUDzhFMauSb25NwDiPxV/c6QdzM1i73tIeT5a0r9JvAEGDRGiShAhqgQRokqvTefs7alkfjMLLnWJedVog951fgfdQNm6IaoEEaJKECGqBLFFolv36q5NZ0X8aoBBQ2zRDSV7C1reDduHAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTAyLTE1VDA0OjMzOjEzKzAwOjAw5KkSQQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wMi0xNVQwNDozMzoxMyswMDowMJX0qv0AAAAASUVORK5CYII="></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAFEAAAAqCAQAAABhY3+/AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAECzcPBi6AAAAhElEQVRYw+3XsQ2AMAwFUYwyHRvAgLAB60FrUCgsxeRHuqtAUDzhFMauSb25NwDiPxV/c6QdzM1i73tIeT5a0r9JvAEGDRGiShAhqgQRokqvTefs7alkfjMLLnWJedVog951fgfdQNm6IaoEEaJKECGqBLFFolv36q5NZ0X8aoBBQ2zRDSV7C1reDduHAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTA3LTI4VDAwOjE2OjQ0KzAwOjAwc0iu3wAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wNy0yOFQwMDoxNjo0NCswMDowMAIVFmMAAAAASUVORK5CYII="></td>
       <td align="center">0
 (0.0%)</td>
     </tr>
@@ -1061,7 +1061,7 @@ $0-$50K
 <td style="padding:0 4px 0 2px;border:0" align="left">)</td>
 </tr>
 </table></td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAB4AAADNCAQAAAAFkwioAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ3bTdCLAAAA8ElEQVRo3u3a2w3CIBSAYTBO5wZ2QLoBc7kBvhnacLUQOPTXF038EvCkf9KLdur/1+OCHYif/pc98wdsWikXw0q9EtROtGcweGJ8OqpsFdb+8akLgP/7dss2yZJsOonTJTHuzIXOGQzui4WWpGWGYiWxgQiJnTMY3BdTkmBJwhUZu2wweGJMSQIliXdE7JzB4L74jiU5YOM+h7dxFXjcssHghbDQkiQu127ZXUQv15ZEWOicweC+eLWS5DtSdeOn8bLB4FUxJfmVpOy0UOicweC+mJJQEjD4Ol6tJPGNRjBnN2BwA1x94+ftfdY3fMj/C1yIS6X7vcTDAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTAyLTE1VDA0OjMzOjEzKzAwOjAw5KkSQQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wMi0xNVQwNDozMzoxMyswMDowMJX0qv0AAAAASUVORK5CYII="></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAB4AAADNCAQAAAAFkwioAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAECzcPBi6AAAA8ElEQVRo3u3a2w3CIBSAYTBO5wZ2QLoBc7kBvhnacLUQOPTXF038EvCkf9KLdur/1+OCHYif/pc98wdsWikXw0q9EtROtGcweGJ8OqpsFdb+8akLgP/7dss2yZJsOonTJTHuzIXOGQzui4WWpGWGYiWxgQiJnTMY3BdTkmBJwhUZu2wweGJMSQIliXdE7JzB4L74jiU5YOM+h7dxFXjcssHghbDQkiQu127ZXUQv15ZEWOicweC+eLWS5DtSdeOn8bLB4FUxJfmVpOy0UOicweC+mJJQEjD4Ol6tJPGNRjBnN2BwA1x94+ftfdY3fMj/C1yIS6X7vcTDAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTA3LTI4VDAwOjE2OjQ0KzAwOjAwc0iu3wAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wNy0yOFQwMDoxNjo0NCswMDowMAIVFmMAAAAASUVORK5CYII="></td>
       <td align="center">0
 (0.0%)</td>
     </tr>
@@ -1135,7 +1135,7 @@ $0-$50K
 <td style="padding:0 4px 0 2px;border:0" align="left">)</td>
 </tr>
 </table></td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAACEAAACoCAQAAADEUk/0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ3bTdCLAAAA20lEQVRo3u3azQ2DMAyG4bjqdN2gHpBukPXorUqq/LiFg3He3IKUB7CVT0FC9nR03A4LToh7OXmZC/OUDpHSwwRkh7WAgAhNSLm/rZtdq1X1xHznctXZqbUZXkRlSMxTKzeu+WgqBERo4mun5j+IS6aWyoSwnrXq4aOpEBChCVKrW4txarUr5aOpEBChiTVTS2VKcNaCgHBKrJdaKiain1qjGvloKgREaGKN1FLTYw1Ta9stiI+mQkCEJqKnli2vmrXgCxECwiURObV+SayTngICAuIKhPCv62e8AWn9NY1Th6epAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTAyLTE1VDA0OjMzOjEzKzAwOjAw5KkSQQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wMi0xNVQwNDozMzoxMyswMDowMJX0qv0AAAAASUVORK5CYII="></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAACEAAACoCAQAAADEUk/0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAECzcPBi6AAAA20lEQVRo3u3azQ2DMAyG4bjqdN2gHpBukPXorUqq/LiFg3He3IKUB7CVT0FC9nR03A4LToh7OXmZC/OUDpHSwwRkh7WAgAhNSLm/rZtdq1X1xHznctXZqbUZXkRlSMxTKzeu+WgqBERo4mun5j+IS6aWyoSwnrXq4aOpEBChCVKrW4txarUr5aOpEBChiTVTS2VKcNaCgHBKrJdaKiain1qjGvloKgREaGKN1FLTYw1Ta9stiI+mQkCEJqKnli2vmrXgCxECwiURObV+SayTngICAuIKhPCv62e8AWn9NY1Th6epAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTA3LTI4VDAwOjE2OjQ0KzAwOjAwc0iu3wAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wNy0yOFQwMDoxNjo0NCswMDowMAIVFmMAAAAASUVORK5CYII="></td>
       <td align="center">0
 (0.0%)</td>
     </tr>
@@ -1149,7 +1149,7 @@ $0-$50K
 <tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">range : 8y 11m 29d</td></tr>
 </table></td>
       <td align="left" style="vertical-align:middle">2430 distinct values</td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHYAAABVCAQAAAA2ltgCAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ3bTdCLAAABXElEQVR42u2aWw6CMBBFrWF17EAXiDtwXe4Av5SB0KSFKZ25c48/aNBw0nnVNM23ONx7PwBlKXueQb5J4npaJfMzFf2aQaTGkL9t/F+9ez+xEqHCmLKoUBYVyqJCWVSG2i/IMdLbEFkouyh6HiILZcey24zDnK3Hx4ZQSdZHLqvJ7mNrxRvL2lrxU7KTs/9hT8keX7U+o0nzMN6nT3BfKts77JvI5qR6z2FNZC1VYEmocZGyqISS7dRnJdcNGAZkr6vdocKYsqgYyFlJ22JlTLZtsQoVxpRFhbKoUBYVyqJCWVSMzcYS/U2BYVn9TUGoMKYsKpRFxXA1lui0ISeyOm0oVBhTFhUnOStZilVtqXIoe/wYCsPYC7Xd17VsbfcNFcaURYWyqFDWI5/598qfal712d6Hn1uzGSqsnhTWASaMKbvB9WycY1V7xAYhyc9fgAXqkZNFJ1TOUhaVL18+P+7PAYfQAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTAyLTE1VDA0OjMzOjEzKzAwOjAw5KkSQQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wMi0xNVQwNDozMzoxMyswMDowMJX0qv0AAAAASUVORK5CYII="></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHYAAABVCAQAAAA2ltgCAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAECzcPBi6AAABXElEQVR42u2aWw6CMBBFrWF17EAXiDtwXe4Av5SB0KSFKZ25c48/aNBw0nnVNM23ONx7PwBlKXueQb5J4npaJfMzFf2aQaTGkL9t/F+9ez+xEqHCmLKoUBYVyqJCWVSG2i/IMdLbEFkouyh6HiILZcey24zDnK3Hx4ZQSdZHLqvJ7mNrxRvL2lrxU7KTs/9hT8keX7U+o0nzMN6nT3BfKts77JvI5qR6z2FNZC1VYEmocZGyqISS7dRnJdcNGAZkr6vdocKYsqgYyFlJ22JlTLZtsQoVxpRFhbKoUBYVyqJCWVSMzcYS/U2BYVn9TUGoMKYsKpRFxXA1lui0ISeyOm0oVBhTFhUnOStZilVtqXIoe/wYCsPYC7Xd17VsbfcNFcaURYWyqFDWI5/598qfal712d6Hn1uzGSqsnhTWASaMKbvB9WycY1V7xAYhyc9fgAXqkZNFJ1TOUhaVL18+P+7PAYfQAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTA3LTI4VDAwOjE2OjQ0KzAwOjAwc0iu3wAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wNy0yOFQwMDoxNjo0NCswMDowMAIVFmMAAAAASUVORK5CYII="></td>
       <td align="center">0
 (0.0%)</td>
     </tr>
@@ -1163,7 +1163,7 @@ $0-$50K
 <tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">range : 8y 11m 27d</td></tr>
 </table></td>
       <td align="left" style="vertical-align:middle">2240 distinct values</td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHYAAABVCAQAAAA2ltgCAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ3bTdCLAAABWUlEQVR42u2awQ2DMAxFm4rp2KAdMN2gc7EBPRWciqgBEmJ//8eFIqjyhGNjQphvfrj3HgBlKXueQf4IYj8mk/kZiv5NIVJjyJ82Lnvv3iOuhKswpiwqlEWFsqhQFhXKojKUnRY3e3xr7UGh7LhxzF57wDDej43ut5Ksje6XYVwPXeHdWFZXeDeXlfSu1qdkp2XwZXetd7Vucmej0jWVJrKa5qnEVemhLCquZC+ts9vI3N225iqQvS53uwpjyqLiSlZBgpK0zczKZNtmZldhTFlUKIsKZVGhLCqURYWyOpjm71ZrhUGxbH0oi4qy5j3HOmvPvL8wIru+wYjzcV1XYUxZVFzJGklQkuOZ2aDsePhKhrEV9i6WmJbdu1jiKowpiwplUXElm5QerZ/OllBSc3/qrNaPZ/9TMnJXYUxZVEw/G+dIEq1IVkEefxnOxjkeOVl0XM1ZyqLyAVo7PVCNNFWkAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTAyLTE1VDA0OjMzOjEzKzAwOjAw5KkSQQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wMi0xNVQwNDozMzoxMyswMDowMJX0qv0AAAAASUVORK5CYII="></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHYAAABVCAQAAAA2ltgCAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAEC2rOygsAAABWUlEQVR42u2awQ2DMAxFm4rp2KAdMN2gc7EBPRWciqgBEmJ//8eFIqjyhGNjQphvfrj3HgBlKXueQf4IYj8mk/kZiv5NIVJjyJ82Lnvv3iOuhKswpiwqlEWFsqhQFhXKojKUnRY3e3xr7UGh7LhxzF57wDDej43ut5Ksje6XYVwPXeHdWFZXeDeXlfSu1qdkp2XwZXetd7Vucmej0jWVJrKa5qnEVemhLCquZC+ts9vI3N225iqQvS53uwpjyqLiSlZBgpK0zczKZNtmZldhTFlUKIsKZVGhLCqURYWyOpjm71ZrhUGxbH0oi4qy5j3HOmvPvL8wIru+wYjzcV1XYUxZVFzJGklQkuOZ2aDsePhKhrEV9i6WmJbdu1jiKowpiwplUXElm5QerZ/OllBSc3/qrNaPZ/9TMnJXYUxZVEw/G+dIEq1IVkEefxnOxjkeOVl0XM1ZyqLyAVo7PVCNNFWkAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTA3LTI4VDAwOjE2OjQ1KzAwOjAw1T+lawAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wNy0yOFQwMDoxNjo0NSswMDowMKRiHdcAAAAASUVORK5CYII="></td>
       <td align="center">0
 (0.0%)</td>
     </tr>
@@ -1177,7 +1177,7 @@ $0-$50K
 <tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">range : 46y 2m 14d</td></tr>
 </table></td>
       <td align="left" style="vertical-align:middle">1727 distinct values</td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHYAAABVCAQAAAA2ltgCAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ5CRIExAAABK0lEQVR42u2cwQ2DMAxFm4rpukE7YLpB5+oG9AZGatRQiBI//8cFJA55ijGJZUjzJQ7X3gOQrGSPM9mL1Hs0O8km4TwKg7c5abo45racvarujxvGHsgH3pXuZG3w7iVUGEuWimSpSJaKZKlIlopkqUiWSihZF5v3I9UJd7L7S2vfCRXGkqUiWSqSpSJZKpKlEkrWyUbgNzUtBxjZmn1RqDCWLBXJUpEsFclSGXYFdVZh3IXsWYVxS6gwliwVyVKRLBXJUpEsFclSGUo2z+/lwMu2RrJUulcqWpRfhpVtUX4pESqMJUtlgGf2fDZJz7QcdJJdV0gtklIp5SmM25Dn/z/N7y67XQ6s7ThWqvWbs4FsqceoRmok8WSn5wn8OdTdTE4C+hUJlY0lS+UDGdcx1PeJ2SoAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjItMDItMTVUMDQ6MzM6MTQrMDA6MDAhDizPAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIyLTAyLTE1VDA0OjMzOjE0KzAwOjAwUFOUcwAAAABJRU5ErkJggg=="></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHYAAABVCAQAAAA2ltgCAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAEC2rOygsAAABK0lEQVR42u2cwQ2DMAxFm4rpukE7YLpB5+oG9AZGatRQiBI//8cFJA55ijGJZUjzJQ7X3gOQrGSPM9mL1Hs0O8km4TwKg7c5abo45racvarujxvGHsgH3pXuZG3w7iVUGEuWimSpSJaKZKlIlopkqUiWSihZF5v3I9UJd7L7S2vfCRXGkqUiWSqSpSJZKpKlEkrWyUbgNzUtBxjZmn1RqDCWLBXJUpEsFclSGXYFdVZh3IXsWYVxS6gwliwVyVKRLBXJUpEsFclSGUo2z+/lwMu2RrJUulcqWpRfhpVtUX4pESqMJUtlgGf2fDZJz7QcdJJdV0gtklIp5SmM25Dn/z/N7y67XQ6s7ThWqvWbs4FsqceoRmok8WSn5wn8OdTdTE4C+hUJlY0lS+UDGdcx1PeJ2SoAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjItMDctMjhUMDA6MTY6NDUrMDA6MDDVP6VrAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIyLTA3LTI4VDAwOjE2OjQ1KzAwOjAwpGId1wAAAABJRU5ErkJggg=="></td>
       <td align="center">33290
 (41.7%)</td>
     </tr>
@@ -1191,7 +1191,7 @@ $0-$50K
 <tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">IQR (CV) : 3 (4.7)</td></tr>
 </table></td>
       <td align="left" style="vertical-align:middle">166 distinct values</td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHYAAABVCAQAAAA2ltgCAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ5CRIExAAAAu0lEQVR42u3csQ2CUBRAUTFM5wgOiBu4nnYGTCiMGsLlnArym3cDv33D43Qc560HECv2e+P85ba4wNdh6+F+YZ40Lo8ur6f71lP+waF+Y7FVYqvEVomtElsltkpsldgqsVViq8RWia0SWyW2SmyV2CqxVWKrxFaJrRJbJbZKbJXYKrFVYqvEVomtElsltkpsldgqsVViq8RWia0a14+m2aaSxuqVt9i1JSvTftdGzT7TsN+Kzx3qzoqtegJEogsLs3JZcgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wMi0xNVQwNDozMzoxNCswMDowMCEOLM8AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDItMTVUMDQ6MzM6MTQrMDA6MDBQU5RzAAAAAElFTkSuQmCC"></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHYAAABVCAQAAAA2ltgCAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAEC2rOygsAAAAu0lEQVR42u3csQ2CUBRAUTFM5wgOiBu4nnYGTCiMGsLlnArym3cDv33D43Qc560HECv2e+P85ba4wNdh6+F+YZ40Lo8ur6f71lP+waF+Y7FVYqvEVomtElsltkpsldgqsVViq8RWia0SWyW2SmyV2CqxVWKrxFaJrRJbJbZKbJXYKrFVYqvEVomtElsltkpsldgqsVViq8RWia0a14+m2aaSxuqVt9i1JSvTftdGzT7TsN+Kzx3qzoqtegJEogsLs3JZcgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wNy0yOFQwMDoxNjo0NSswMDowMNU/pWsAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDctMjhUMDA6MTY6NDUrMDA6MDCkYh3XAAAAAElFTkSuQmCC"></td>
       <td align="center">0
 (0.0%)</td>
     </tr>
@@ -1223,7 +1223,7 @@ $0-$50K
 <td style="padding:0 4px 0 2px;border:0" align="left">)</td>
 </tr>
 </table></td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAEIAAAA8CAQAAAB4daTSAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ5CRIExAAAAlElEQVRYw+3ZwQmAMAyF4UY6nSM4oG7Q9epJSHtLKCaF/9160Q8T8KHSS3yOaAAInaoPTz/NF2jlEs+N9S6meBIgQIAAAQLElog6HlsIQvR73VUMnEnXJ4Zx3H9Wb/XYp52w1ztfxt1LMQ4QIECAAAHCGprVl3zjWNOs7N+wljcrz1alGAcIECBAgACxJUL4LwpiygtlPRGRxHYzMQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wMi0xNVQwNDozMzoxNCswMDowMCEOLM8AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDItMTVUMDQ6MzM6MTQrMDA6MDBQU5RzAAAAAElFTkSuQmCC"></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAEIAAAA8CAQAAAB4daTSAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAEC2rOygsAAAAlElEQVRYw+3ZwQmAMAyF4UY6nSM4oG7Q9epJSHtLKCaF/9160Q8T8KHSS3yOaAAInaoPTz/NF2jlEs+N9S6meBIgQIAAAQLElog6HlsIQvR73VUMnEnXJ4Zx3H9Wb/XYp52w1ztfxt1LMQ4QIECAAAHCGprVl3zjWNOs7N+wljcrz1alGAcIECBAgACxJUL4LwpiygtlPRGRxHYzMQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wNy0yOFQwMDoxNjo0NSswMDowMNU/pWsAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDctMjhUMDA6MTY6NDUrMDA6MDCkYh3XAAAAAElFTkSuQmCC"></td>
       <td align="center">0
 (0.0%)</td>
     </tr>
@@ -1283,7 +1283,7 @@ $0-$50K
 <td style="padding:0 4px 0 2px;border:0" align="left">)</td>
 </tr>
 </table></td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAACQAAACDCAQAAABPEHFFAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ5CRIExAAAAx0lEQVRo3u3awQmEMBCF4cxidZaQArMdpK50MB4WIZF1TIIuw/K/kx7ywczhoaJouCevmxyH0FLfvHXtOJJDlM9VvV9/owEBAZlZ2ts8DUldBTJ42HeNNDtKXQ25Jze78DcaEBCQGRpyEEpatGiZevR2PhoQENAxNOQgtDdkmuhI56MBAQE9Bv1xQx7esnuPRTGhEEZe1x8aDQgI6DcQDXkSOYHGGrJ9uPe3IyAgIDM0ZJsoF1BfQ37/7OFvR0BAQGaE34YuswFkKDBOUHmbbgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wMi0xNVQwNDozMzoxNCswMDowMCEOLM8AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDItMTVUMDQ6MzM6MTQrMDA6MDBQU5RzAAAAAElFTkSuQmCC"></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAACQAAACDCAQAAABPEHFFAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAEC2rOygsAAAAx0lEQVRo3u3awQmEMBCF4cxidZaQArMdpK50MB4WIZF1TIIuw/K/kx7ywczhoaJouCevmxyH0FLfvHXtOJJDlM9VvV9/owEBAZlZ2ts8DUldBTJ42HeNNDtKXQ25Jze78DcaEBCQGRpyEEpatGiZevR2PhoQENAxNOQgtDdkmuhI56MBAQE9Bv1xQx7esnuPRTGhEEZe1x8aDQgI6DcQDXkSOYHGGrJ9uPe3IyAgIDM0ZJsoF1BfQ37/7OFvR0BAQGaE34YuswFkKDBOUHmbbgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wNy0yOFQwMDoxNjo0NSswMDowMNU/pWsAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDctMjhUMDA6MTY6NDUrMDA6MDCkYh3XAAAAAElFTkSuQmCC"></td>
       <td align="center">0
 (0.0%)</td>
     </tr>
@@ -1371,7 +1371,7 @@ $0-$50K
 <td style="padding:0 4px 0 2px;border:0" align="left">)</td>
 </tr>
 </table></td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAADQAAADNCAQAAABd7JuxAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ5CRIExAAAA9klEQVR42u3cwQ2CQBAFUNZYgHXZARSIHViXHeB1MRoiDgxu3ucCl33ZIeEHDpSp2yennZwGoXN9cQu+YX35AHXddbMdtXePQCAQKBF6eXrfQxfvq/NSV1D5dqWF1GvnjG4Madjh7WA0LAgEAv0jtGnD1mmvYbOqfG3DXhan3t7oQCAQKBHSsKuTA43TozpiXp1zdwQCgUCNQhp2dTI/Rw/RE9x3RyAQCAQKjIaNgWLfWo+wIxAIBAL9Fg0bA2lYEAgEAs2jYWMgDQsCgUCgeTRsDKRhQSAQCDSPho2BNCwIBAKB5tGwMZCGBYFAIFASVPxw8vDQEyApPB5LONJiAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTAyLTE1VDA0OjMzOjE0KzAwOjAwIQ4szwAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wMi0xNVQwNDozMzoxNCswMDowMFBTlHMAAAAASUVORK5CYII="></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAADQAAADNCAQAAABd7JuxAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAEC2rOygsAAAA9klEQVR42u3cwQ2CQBAFUNZYgHXZARSIHViXHeB1MRoiDgxu3ucCl33ZIeEHDpSp2yennZwGoXN9cQu+YX35AHXddbMdtXePQCAQKBF6eXrfQxfvq/NSV1D5dqWF1GvnjG4Madjh7WA0LAgEAv0jtGnD1mmvYbOqfG3DXhan3t7oQCAQKBHSsKuTA43TozpiXp1zdwQCgUCNQhp2dTI/Rw/RE9x3RyAQCAQKjIaNgWLfWo+wIxAIBAL9Fg0bA2lYEAgEAs2jYWMgDQsCgUCgeTRsDKRhQSAQCDSPho2BNCwIBAKB5tGwMZCGBYFAIFASVPxw8vDQEyApPB5LONJiAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTA3LTI4VDAwOjE2OjQ1KzAwOjAw1T+lawAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wNy0yOFQwMDoxNjo0NSswMDowMKRiHdcAAAAASUVORK5CYII="></td>
       <td align="center">0
 (0.0%)</td>
     </tr>
@@ -1459,7 +1459,7 @@ $0-$50K
 <td style="padding:0 4px 0 2px;border:0" align="left">)</td>
 </tr>
 </table></td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAACAAAADNCAQAAABzqbojAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ5CRIExAAAA7klEQVRo3u3Z0Q3CIBRGYTBO1xE6IG7QudwAH21R5DaQcPt76JMPfBGanlSMOfSNW+d8B8B9/+Fh2pA15hoQwmIAUg7R0x4AAIgAxdO4nQYOz3Y0TtrPGbuE9LNIa2wCtiIdx/zbCAAgAggUaXTSakXaKkHzsAQAABGAIlEkAAA/AEUyFaleIx9LAAAQAShSAaT8LK7UPCx3tgQAgD8GBIrUOBpfm6viaBwAwAugXaR2jT4AigQAMBFQLpKtR9Ui2X8Cz98DAAARQLVI1hp9+QbL6bek+XsAACACqBbpPThHAgC4DjD2z7pr7kE38AJY+0thLIJ08gAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wMi0xNVQwNDozMzoxNCswMDowMCEOLM8AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDItMTVUMDQ6MzM6MTQrMDA6MDBQU5RzAAAAAElFTkSuQmCC"></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAACAAAADNCAQAAABzqbojAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAEC2rOygsAAAA7klEQVRo3u3Z0Q3CIBRGYTBO1xE6IG7QudwAH21R5DaQcPt76JMPfBGanlSMOfSNW+d8B8B9/+Fh2pA15hoQwmIAUg7R0x4AAIgAxdO4nQYOz3Y0TtrPGbuE9LNIa2wCtiIdx/zbCAAgAggUaXTSakXaKkHzsAQAABGAIlEkAAA/AEUyFaleIx9LAAAQAShSAaT8LK7UPCx3tgQAgD8GBIrUOBpfm6viaBwAwAugXaR2jT4AigQAMBFQLpKtR9Ui2X8Cz98DAAARQLVI1hp9+QbL6bek+XsAACACqBbpPThHAgC4DjD2z7pr7kE38AJY+0thLIJ08gAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wNy0yOFQwMDoxNjo0NSswMDowMNU/pWsAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDctMjhUMDA6MTY6NDUrMDA6MDCkYh3XAAAAAElFTkSuQmCC"></td>
       <td align="center">175
 (0.2%)</td>
     </tr>
@@ -1547,7 +1547,7 @@ $0-$50K
 <td style="padding:0 4px 0 2px;border:0" align="left">)</td>
 </tr>
 </table></td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAB4AAADNCAQAAAAFkwioAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ5CRIExAAAA+0lEQVRo3u3ZWw7CIBBAUTCurjuQBeIOui53UH8RBwHLpB1665eJJ9JOetOH39z/222HPRDf0y/PhgPw8AXs3FKh60n2GQw+Mc7OqrUL+/QU9g0g/f24ZccfJQm+gsslkY+F0TmDwbrYaElGZqhcEilDRucMButiSlIoidwRs3MGg3UxJRFKUqrIscsGg0+Mr1iSDxy3V/aJWzM+btlg8ETYaEkqj2uDb8b549paiI3OGQzWxfOVJFT3ovMV8sBlg8GzYkqSlKTlxtDonMFgXTxTSeoNEf956boqMTpnMFgXz1QSefvuS/PdjXSNYnTOYLAuHvfix84+78JvAkBLkwKePsUAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjItMDItMTVUMDQ6MzM6MTQrMDA6MDAhDizPAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIyLTAyLTE1VDA0OjMzOjE0KzAwOjAwUFOUcwAAAABJRU5ErkJggg=="></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAB4AAADNCAQAAAAFkwioAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAEC2rOygsAAAA+0lEQVRo3u3ZWw7CIBBAUTCurjuQBeIOui53UH8RBwHLpB1665eJJ9JOetOH39z/222HPRDf0y/PhgPw8AXs3FKh60n2GQw+Mc7OqrUL+/QU9g0g/f24ZccfJQm+gsslkY+F0TmDwbrYaElGZqhcEilDRucMButiSlIoidwRs3MGg3UxJRFKUqrIscsGg0+Mr1iSDxy3V/aJWzM+btlg8ETYaEkqj2uDb8b549paiI3OGQzWxfOVJFT3ovMV8sBlg8GzYkqSlKTlxtDonMFgXTxTSeoNEf956boqMTpnMFgXz1QSefvuS/PdjXSNYnTOYLAuHvfix84+78JvAkBLkwKePsUAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjItMDctMjhUMDA6MTY6NDUrMDA6MDDVP6VrAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIyLTA3LTI4VDAwOjE2OjQ1KzAwOjAwpGId1wAAAABJRU5ErkJggg=="></td>
       <td align="center">25
 (0.0%)</td>
     </tr>
@@ -1635,7 +1635,7 @@ $0-$50K
 <td style="padding:0 4px 0 2px;border:0" align="left">)</td>
 </tr>
 </table></td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAACgAAADNCAQAAABgfvrXAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ5CRIExAAABDElEQVR42u3bzRGCMBCGYeJQgHVZggVSgnXRQTxknFk1aH6WsKtvODEDz2T38EUkhDjpjpOy5wCcojiWxoZKw37JgICAgNkRZASGRkQa6jOc5UlK7GvrRB/TlUvAGtdYvxCwBAACAn4d8/PprRu0n9h7LwGXwtvOm92xXzIgIOAhIImtDKbf2JZnCAgI6BYksZXBlNgt/4u4LRkQEHAUSGIrg0tXVrssGRAQ0C1IYpPYgICAXsA/TOzM5pOa8b5R5eXBp/RVZhq5xyT7PQQEBDwEJLE/X1yykbArsYeUDAgI+Bsgid2oiF6R2ICAgGNAEnvrsvLPdIoSu+Ylsf0eAgICHgLuu/nEZMn2wTsek19I3xQpogAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wMi0xNVQwNDozMzoxNCswMDowMCEOLM8AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDItMTVUMDQ6MzM6MTQrMDA6MDBQU5RzAAAAAElFTkSuQmCC"></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAACgAAADNCAQAAABgfvrXAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAEC2rOygsAAABDElEQVR42u3bzRGCMBCGYeJQgHVZggVSgnXRQTxknFk1aH6WsKtvODEDz2T38EUkhDjpjpOy5wCcojiWxoZKw37JgICAgNkRZASGRkQa6jOc5UlK7GvrRB/TlUvAGtdYvxCwBAACAn4d8/PprRu0n9h7LwGXwtvOm92xXzIgIOAhIImtDKbf2JZnCAgI6BYksZXBlNgt/4u4LRkQEHAUSGIrg0tXVrssGRAQ0C1IYpPYgICAXsA/TOzM5pOa8b5R5eXBp/RVZhq5xyT7PQQEBDwEJLE/X1yykbArsYeUDAgI+Bsgid2oiF6R2ICAgGNAEnvrsvLPdIoSu+Ylsf0eAgICHgLuu/nEZMn2wTsek19I3xQpogAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wNy0yOFQwMDoxNjo0NSswMDowMNU/pWsAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDctMjhUMDA6MTY6NDUrMDA6MDCkYh3XAAAAAElFTkSuQmCC"></td>
       <td align="center">0
 (0.0%)</td>
     </tr>
@@ -1681,7 +1681,7 @@ $0-$50K
 <td style="padding:0 4px 0 2px;border:0" align="left">)</td>
 </tr>
 </table></td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAFUAAABhCAQAAAANFyVqAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ5CRIExAAAA5UlEQVR42u3asQ2DMBBAUTvKAJmLDZIBwwaslzQpbIsUIGzfl/7vaNADXcHJ5E+idJsNkDq3e3mxhhvcZ/5DTWmZbavaqivQAEiVSkmqVEpSpVJqvqy2c3cZUi4/UfPp2/Sq1FEH4P17iFe815uCbwF1oAGQKpWSVKmUpEql5BZwVdAtAERtFpZyC3gEmwfQW5UqlZJUqZSkSqUEoroF9AhEBR1bNG91CXxwARoAqVIpSZVKSapUSjvHFjE/AV1Y+rS7BRxvxNBc8vPSmIM50ABIlUpJqlRKUqVSov68FDvQAEjt0RfTXRrg8FvgGgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wMi0xNVQwNDozMzoxNCswMDowMCEOLM8AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDItMTVUMDQ6MzM6MTQrMDA6MDBQU5RzAAAAAElFTkSuQmCC"></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAFUAAABhCAQAAAANFyVqAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAEC2rOygsAAAA5UlEQVR42u3asQ2DMBBAUTvKAJmLDZIBwwaslzQpbIsUIGzfl/7vaNADXcHJ5E+idJsNkDq3e3mxhhvcZ/5DTWmZbavaqivQAEiVSkmqVEpSpVJqvqy2c3cZUi4/UfPp2/Sq1FEH4P17iFe815uCbwF1oAGQKpWSVKmUpEql5BZwVdAtAERtFpZyC3gEmwfQW5UqlZJUqZSkSqUEoroF9AhEBR1bNG91CXxwARoAqVIpSZVKSapUSjvHFjE/AV1Y+rS7BRxvxNBc8vPSmIM50ABIlUpJqlRKUqVSov68FDvQAEjt0RfTXRrg8FvgGgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wNy0yOFQwMDoxNjo0NSswMDowMNU/pWsAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDctMjhUMDA6MTY6NDUrMDA6MDCkYh3XAAAAAElFTkSuQmCC"></td>
       <td align="center">45
 (0.1%)</td>
     </tr>
@@ -1695,7 +1695,7 @@ $0-$50K
 <tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">IQR (CV) : 6.6 (0.8)</td></tr>
 </table></td>
       <td align="left" style="vertical-align:middle">11551 distinct values</td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHYAAABVCAQAAAA2ltgCAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ5CRIExAAABQklEQVR42u2cXQ7CIBAGxfQAnssb6AHrDXouboAPFkuNmjZQfj5mXhqTxjCwrtuF1LhTP5xLDwBZZOMZwg9mvo7BD/ludnxbhYQ5afh+y3W+TqXHmpSuwhhZVZANsc4660aJQouVVQVZVZBVBVlVkFUFWVWQVQVZVYatN9r58f3ScGu1q5XtV3Z0r45T6UFlkVUHWVWQVQVZVZBVZfODgGfZz2vvtMVu2ZZPW3QVxsiqgqwqyKqCrCq7K6gFXzi2UzZGyL4Kx5bKxq7CGFlVkFUFWVWQVSWigvK0cwChq5VFVhVkVUmQjT317wIllK1/F4gwjqXW7tQhsrV2pwjjVNSWnw+VrS0/Hyq7UEfKyiTrU1ZZ6Uyya+n1O07y6WeW/ZSe3mvuWwDTnz+u2Akx4RQ/BM+Q34IJMoJ+P+mqqEBWlSccITj3Klje7gAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wMi0xNVQwNDozMzoxNCswMDowMCEOLM8AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDItMTVUMDQ6MzM6MTQrMDA6MDBQU5RzAAAAAElFTkSuQmCC"></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHYAAABVCAQAAAA2ltgCAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAEC2rOygsAAABQklEQVR42u2cXQ7CIBAGxfQAnssb6AHrDXouboAPFkuNmjZQfj5mXhqTxjCwrtuF1LhTP5xLDwBZZOMZwg9mvo7BD/ludnxbhYQ5afh+y3W+TqXHmpSuwhhZVZANsc4660aJQouVVQVZVZBVBVlVkFUFWVWQVQVZVYatN9r58f3ScGu1q5XtV3Z0r45T6UFlkVUHWVWQVQVZVZBVZfODgGfZz2vvtMVu2ZZPW3QVxsiqgqwqyKqCrCq7K6gFXzi2UzZGyL4Kx5bKxq7CGFlVkFUFWVWQVSWigvK0cwChq5VFVhVkVUmQjT317wIllK1/F4gwjqXW7tQhsrV2pwjjVNSWnw+VrS0/Hyq7UEfKyiTrU1ZZ6Uyya+n1O07y6WeW/ZSe3mvuWwDTnz+u2Akx4RQ/BM+Q34IJMoJ+P+mqqEBWlSccITj3Klje7gAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wNy0yOFQwMDoxNjo0NSswMDowMNU/pWsAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDctMjhUMDA6MTY6NDUrMDA6MDCkYh3XAAAAAElFTkSuQmCC"></td>
       <td align="center">33290
 (41.7%)</td>
     </tr>
@@ -1748,7 +1748,7 @@ $0-$50K
 <td style="padding:0 4px 0 2px;border:0" align="left">)</td>
 </tr>
 </table></td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAADwAAAByCAQAAAClp3rlAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ5CRIExAAAA4UlEQVRo3u3aywnDMBCEYSu4OpeQApUO3J5yCUF+JIyxdiXYf24+fShrsYNJKlOfPDq5AeG5fnh9Bv5MNlj9Pu1OvEyL04njzRgYGBgYWE6qV5XRNvzmz1r0yxgNJP+snO07ybx9PO8fq8GJ480YGBgYGFjObjtZ7KHzxKs+YgNp30GkBmIx+3jXCRgYGBhYDg3ELXIDOeZeJxEbyDF334Z41wkYGBgYWA4NxC2XGkjL7yCXGkgu7eh41wkYGBgYWA4NxC1jzDgXy/+hrptZxvupgYGBgYHljNFAPBNvxt3gNyfDJAejVd60AAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTAyLTE1VDA0OjMzOjE0KzAwOjAwIQ4szwAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wMi0xNVQwNDozMzoxNCswMDowMFBTlHMAAAAASUVORK5CYII="></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAADwAAAByCAQAAAClp3rlAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAEC2rOygsAAAA4UlEQVRo3u3aywnDMBCEYSu4OpeQApUO3J5yCUF+JIyxdiXYf24+fShrsYNJKlOfPDq5AeG5fnh9Bv5MNlj9Pu1OvEyL04njzRgYGBgYWE6qV5XRNvzmz1r0yxgNJP+snO07ybx9PO8fq8GJ480YGBgYGFjObjtZ7KHzxKs+YgNp30GkBmIx+3jXCRgYGBhYDg3ELXIDOeZeJxEbyDF334Z41wkYGBgYWA4NxC2XGkjL7yCXGkgu7eh41wkYGBgYWA4NxC1jzDgXy/+hrptZxvupgYGBgYHljNFAPBNvxt3gNyfDJAejVd60AAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTA3LTI4VDAwOjE2OjQ1KzAwOjAw1T+lawAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wNy0yOFQwMDoxNjo0NSswMDowMKRiHdcAAAAASUVORK5CYII="></td>
       <td align="center">0
 (0.0%)</td>
     </tr>
@@ -1762,7 +1762,7 @@ $0-$50K
 <tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">IQR (CV) : 40 (0.8)</td></tr>
 </table></td>
       <td align="left" style="vertical-align:middle">73 distinct values</td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHYAAABVCAQAAAA2ltgCAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ5CRIExAAABIUlEQVR42u3b3Q2CMBhG4dYwHRvogLABc7FBvRGoaUggtHzl7XlujDEaDj+lmNQH146X9QYQS+x1XfxmXC/gj7fesFziMan7/6h3zjk3WW9hIU2dxsSqIlYVsaqIVUWsKmJVEauKWFXEqiJWFbGqiFVFrCpiVRGrilhVxKoiVhWxqohVRawqYlURq4pYVcSq6s5+YUhWPT1n8cTp2P73OiWLJ4bq146cjk0tkdtuqFWG2P76T9ykqQGqSOwc5jCHoboFnBxZVRkGqH213YyKxtZ2M2rqNCZW1U2xddx5ObKqmootep9NLVetzSTjYGyuocX2cfDwkX3OU2uG2LxsZs1GsTazZqPYzZ1Dlo9HnrG6/xaue0c70Qv27WpqUkGsqi+kYy3NlLWdBwAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wMi0xNVQwNDozMzoxNCswMDowMCEOLM8AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDItMTVUMDQ6MzM6MTQrMDA6MDBQU5RzAAAAAElFTkSuQmCC"></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHYAAABVCAQAAAA2ltgCAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAEC2rOygsAAABIUlEQVR42u3b3Q2CMBhG4dYwHRvogLABc7FBvRGoaUggtHzl7XlujDEaDj+lmNQH146X9QYQS+x1XfxmXC/gj7fesFziMan7/6h3zjk3WW9hIU2dxsSqIlYVsaqIVUWsKmJVEauKWFXEqiJWFbGqiFVFrCpiVRGrilhVxKoiVhWxqohVRawqYlURq4pYVcSq6s5+YUhWPT1n8cTp2P73OiWLJ4bq146cjk0tkdtuqFWG2P76T9ykqQGqSOwc5jCHoboFnBxZVRkGqH213YyKxtZ2M2rqNCZW1U2xddx5ObKqmootep9NLVetzSTjYGyuocX2cfDwkX3OU2uG2LxsZs1GsTazZqPYzZ1Dlo9HnrG6/xaue0c70Qv27WpqUkGsqi+kYy3NlLWdBwAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wNy0yOFQwMDoxNjo0NSswMDowMNU/pWsAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDctMjhUMDA6MTY6NDUrMDA6MDCkYh3XAAAAAElFTkSuQmCC"></td>
       <td align="center">1565
 (2.0%)</td>
     </tr>
@@ -1808,7 +1808,7 @@ $0-$50K
 <td style="padding:0 4px 0 2px;border:0" align="left">)</td>
 </tr>
 </table></td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAD0AAABhCAQAAADPJ2HuAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ5CRIExAAAAtElEQVRo3u3azQ2AIAyGYWuYzg1kQNyA9fTioRoOBLVC+vbkT+Ij1MQvqOzTXzX/Jjulg97ZXmx8lNJRDYTrqcVw1D57DQ0NDQ39sG5vrmxIi36DSvNlaktrvUx4Om8qfj/8iZQCDQ0NDT0aTUoxrl56nfbalJJfCFE+JxwaGhoaelyalGJcxWWcD0v1lGUcaGhoaOixaONlnFVt+wxIhZRi86nJ6xMODQ0NDQ3dUMLvym7oAwpKGcwG9GLdAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTAyLTE1VDA0OjMzOjE0KzAwOjAwIQ4szwAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wMi0xNVQwNDozMzoxNCswMDowMFBTlHMAAAAASUVORK5CYII="></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAD0AAABhCAQAAADPJ2HuAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAEC2rOygsAAAAtElEQVRo3u3azQ2AIAyGYWuYzg1kQNyA9fTioRoOBLVC+vbkT+Ij1MQvqOzTXzX/Jjulg97ZXmx8lNJRDYTrqcVw1D57DQ0NDQ39sG5vrmxIi36DSvNlaktrvUx4Om8qfj/8iZQCDQ0NDT0aTUoxrl56nfbalJJfCFE+JxwaGhoaelyalGJcxWWcD0v1lGUcaGhoaOixaONlnFVt+wxIhZRi86nJ6xMODQ0NDQ3dUMLvym7oAwpKGcwG9GLdAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTA3LTI4VDAwOjE2OjQ1KzAwOjAw1T+lawAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wNy0yOFQwMDoxNjo0NSswMDowMKRiHdcAAAAASUVORK5CYII="></td>
       <td align="center">0
 (0.0%)</td>
     </tr>
@@ -1822,7 +1822,7 @@ $0-$50K
 <tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">IQR (CV) : 16 (0.3)</td></tr>
 </table></td>
       <td align="left" style="vertical-align:middle">64 distinct values</td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHYAAABVCAQAAAA2ltgCAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ5CRIExAAABLUlEQVR42u2bQQ6CMBBFwXA6b6AHxBtwLm6AG00nBmKsZdr+ec8FcdPw4DsdqB23IQ6X2ieALLL/M9kvY9GhZ1MO7mWH/gFbk6bsUb4KDsP1dVxqmX5QWDYJtqOYiPubzWXuZLIuIttydC2hYoysKsiqgqwqoWSL98b7tPEE5CTbRo8VKsbIqoKsKsiq4jTPWlKD4d1eVJCt94I1VIyRVQVZVULJZk89vSx5FJG1D+S9ECrGyKqCrCrIqlJVdt3eH58WhTurCrKqIKsKsqogq0qF5Y99PFaAmpH1WAEKFWNkVUFWFWRVQVYVZFVBVhVkVUFWlWbeVCTO2wPUoOx5e4CI8TE9/q8tW7aNbWZOst6sryQtplTlF7DR5vLRdUj3uZnLMQr6HRKqGiOryhOwpS/34scooQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wMi0xNVQwNDozMzoxNCswMDowMCEOLM8AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDItMTVUMDQ6MzM6MTQrMDA6MDBQU5RzAAAAAElFTkSuQmCC"></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHYAAABVCAQAAAA2ltgCAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAEC2rOygsAAABLUlEQVR42u2bQQ6CMBBFwXA6b6AHxBtwLm6AG00nBmKsZdr+ec8FcdPw4DsdqB23IQ6X2ieALLL/M9kvY9GhZ1MO7mWH/gFbk6bsUb4KDsP1dVxqmX5QWDYJtqOYiPubzWXuZLIuIttydC2hYoysKsiqgqwqoWSL98b7tPEE5CTbRo8VKsbIqoKsKsiq4jTPWlKD4d1eVJCt94I1VIyRVQVZVULJZk89vSx5FJG1D+S9ECrGyKqCrCrIqlJVdt3eH58WhTurCrKqIKsKsqogq0qF5Y99PFaAmpH1WAEKFWNkVUFWFWRVQVYVZFVBVhVkVUFWlWbeVCTO2wPUoOx5e4CI8TE9/q8tW7aNbWZOst6sryQtplTlF7DR5vLRdUj3uZnLMQr6HRKqGiOryhOwpS/34scooQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wNy0yOFQwMDoxNjo0NSswMDowMNU/pWsAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDctMjhUMDA6MTY6NDUrMDA6MDCkYh3XAAAAAElFTkSuQmCC"></td>
       <td align="center">63489
 (79.6%)</td>
     </tr>
@@ -1868,7 +1868,7 @@ $0-$50K
 <td style="padding:0 4px 0 2px;border:0" align="left">)</td>
 </tr>
 </table></td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAGcAAABhCAQAAABhEXdvAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ5CRIExAAAA7ElEQVR42u3ZQQqDMBBAUVM8XY/QA3qEnssbpLsyKUiqFPIz/c+V0EU+juDQUpdMbqMPYM7/5Cw1XNuUL1IsSPZ0zCEzh8wcMnPIzCEzh8wcshJXnDL6NJfEgmRPp8mZcxs9zJmfOWTmkJlDZg6ZOWTmkJlD5jZKljlnq/v7Gn2wH+TMzxwyc8jMITOHzBwyc8iS5biNkiXLWePNN3/1PtATuba3987Pn6PP25Fs2MwhM4fMHDJzyMwhM4fs44ua/sXc43JNdnobBQpDdXIb5Wnf9mTDZg6ZOWTmkJlDZg6ZOWSZt9H5JRs2c8he1w8sYSHI4oYAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjItMDItMTVUMDQ6MzM6MTQrMDA6MDAhDizPAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIyLTAyLTE1VDA0OjMzOjE0KzAwOjAwUFOUcwAAAABJRU5ErkJggg=="></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAGcAAABhCAQAAABhEXdvAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAEC4yMnmWAAAA7ElEQVR42u3ZQQqDMBBAUVM8XY/QA3qEnssbpLsyKUiqFPIz/c+V0EU+juDQUpdMbqMPYM7/5Cw1XNuUL1IsSPZ0zCEzh8wcMnPIzCEzh8wcshJXnDL6NJfEgmRPp8mZcxs9zJmfOWTmkJlDZg6ZOWTmkJlD5jZKljlnq/v7Gn2wH+TMzxwyc8jMITOHzBwyc8iS5biNkiXLWePNN3/1PtATuba3987Pn6PP25Fs2MwhM4fMHDJzyMwhM4fs44ua/sXc43JNdnobBQpDdXIb5Wnf9mTDZg6ZOWTmkJlDZg6ZOWSZt9H5JRs2c8he1w8sYSHI4oYAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjItMDctMjhUMDA6MTY6NDYrMDA6MDDk17/2AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIyLTA3LTI4VDAwOjE2OjQ2KzAwOjAwlYoHSgAAAABJRU5ErkJggg=="></td>
       <td align="center">0
 (0.0%)</td>
     </tr>
@@ -1907,7 +1907,7 @@ $0-$50K
 <td style="padding:0 4px 0 2px;border:0" align="left">)</td>
 </tr>
 </table></td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHMAAABPCAQAAABy8jK7AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ5CRIExAAAAzUlEQVR42u3aQQ6CMBQGYZ7hdB6BA+INuB4ubY3RYDTV+efbERLSCWXRF2qfEpxGL8BMM4+a24sL6ENdqo2Z+5vn0av7mHWf6nYVsmnNJDGTxEwSM0nMJDGT5O6Eso1ez5d0p7J6+zG/qC0L2bSJmStoSPIkk8tMEjNJzCQxk8RMEjNJQjKdHpCEZHaTvcfTgwWwl1/+YsEYaYZsWjNJzCQxk8RMEjNJzCRxekCSmOm/B3/OTBIzScwkMZPETBIzScwkKewRsxPyNs0kuQIe2BSPeOkUugAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wMi0xNVQwNDozMzoxNCswMDowMCEOLM8AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDItMTVUMDQ6MzM6MTQrMDA6MDBQU5RzAAAAAElFTkSuQmCC"></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHMAAABPCAQAAABy8jK7AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAEC4yMnmWAAAAzUlEQVR42u3aQQ6CMBQGYZ7hdB6BA+INuB4ubY3RYDTV+efbERLSCWXRF2qfEpxGL8BMM4+a24sL6ENdqo2Z+5vn0av7mHWf6nYVsmnNJDGTxEwSM0nMJDGT5O6Eso1ez5d0p7J6+zG/qC0L2bSJmStoSPIkk8tMEjNJzCQxk8RMEjNJQjKdHpCEZHaTvcfTgwWwl1/+YsEYaYZsWjNJzCQxk8RMEjNJzCRxekCSmOm/B3/OTBIzScwkMZPETBIzScwkKewRsxPyNs0kuQIe2BSPeOkUugAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wNy0yOFQwMDoxNjo0NiswMDowMOTXv/YAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDctMjhUMDA6MTY6NDYrMDA6MDCVigdKAAAAAElFTkSuQmCC"></td>
       <td align="center">0
 (0.0%)</td>
     </tr>
@@ -1921,7 +1921,7 @@ $0-$50K
 <tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">IQR (CV) : 3154 (4.9)</td></tr>
 </table></td>
       <td align="left" style="vertical-align:middle">10119 distinct values</td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHYAAABVCAQAAAA2ltgCAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ81Q7GnAAAAuElEQVR42u3cQQ5AMBBA0an0dI7ggNzA9dhJhY0gTX//22EzP9Ry0hb9GGoPYKyx7+XyYjkO8JRqD/aV8p+Uz4/GiIhYa0/4k64+Y2OpjKUylspYKmOpjKUylspYKmOpjKUylspYKmOpjKUylspYKmOpjKUylspYKmOpjKUylspYKmOpjKUylspYKmOpjKUylspYKmOpjKUylspYqnx/ewYuXrnEXhetzK0vjCpeVmq95YmuzqyxVDtbegsLkK9HngAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wMi0xNVQwNDozMzoxNSswMDowMId5J3sAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDItMTVUMDQ6MzM6MTUrMDA6MDD2JJ/HAAAAAElFTkSuQmCC"></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHYAAABVCAQAAAA2ltgCAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAEC4yMnmWAAAAuElEQVR42u3cQQ5AMBBA0an0dI7ggNzA9dhJhY0gTX//22EzP9Ry0hb9GGoPYKyx7+XyYjkO8JRqD/aV8p+Uz4/GiIhYa0/4k64+Y2OpjKUylspYKmOpjKUylspYKmOpjKUylspYKmOpjKUylspYKmOpjKUylspYKmOpjKUylspYKmOpjKUylspYKmOpjKUylspYKmOpjKUylspYqnx/ewYuXrnEXhetzK0vjCpeVmq95YmuzqyxVDtbegsLkK9HngAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wNy0yOFQwMDoxNjo0NiswMDowMOTXv/YAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDctMjhUMDA6MTY6NDYrMDA6MDCVigdKAAAAAElFTkSuQmCC"></td>
       <td align="center">0
 (0.0%)</td>
     </tr>
@@ -1935,7 +1935,7 @@ $0-$50K
 <tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">IQR (CV) : 3526 (4.7)</td></tr>
 </table></td>
       <td align="left" style="vertical-align:middle">9606 distinct values</td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHYAAABVCAQAAAA2ltgCAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ81Q7GnAAAAu0lEQVR42u3csQ2AIBQA0Y9hOjfQAXUD53IDLEwMFlZqSI57VsTmXwKUpBL9GFoPYKyx7+V6sV4HeE6tB/tKfSfl+68xIiK21hP+pKttbCyVsVTGUhlLZSyVsVTGUhlLZSyVsVTGUhlLZSyVsVTGUhlLZSyVsVTGUhlLZSyVsVTGUhlLZSyVsVTGUhlLZSyVsVTGUhlLZSyVsVTGUhlL9RC7l/NbUC8opbpmRaWdpuqVnATse+SZpeoq9gBCGhMKnnq5dAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wMi0xNVQwNDozMzoxNSswMDowMId5J3sAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDItMTVUMDQ6MzM6MTUrMDA6MDD2JJ/HAAAAAElFTkSuQmCC"></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHYAAABVCAQAAAA2ltgCAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAEC4yMnmWAAAAu0lEQVR42u3csQ2AIBQA0Y9hOjfQAXUD53IDLEwMFlZqSI57VsTmXwKUpBL9GFoPYKyx7+V6sV4HeE6tB/tKfSfl+68xIiK21hP+pKttbCyVsVTGUhlLZSyVsVTGUhlLZSyVsVTGUhlLZSyVsVTGUhlLZSyVsVTGUhlLZSyVsVTGUhlLZSyVsVTGUhlLZSyVsVTGUhlLZSyVsVTGUhlL9RC7l/NbUC8opbpmRaWdpuqVnATse+SZpeoq9gBCGhMKnnq5dAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wNy0yOFQwMDoxNjo0NiswMDowMOTXv/YAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDctMjhUMDA6MTY6NDYrMDA6MDCVigdKAAAAAElFTkSuQmCC"></td>
       <td align="center">0
 (0.0%)</td>
     </tr>
@@ -1965,7 +1965,7 @@ $0-$50K
 <td style="padding:0 4px 0 0;border:0" align="left">)</td>
 </tr>
 </table></td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAH4AAAAqCAQAAADfNSfiAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ81Q7GnAAAAhUlEQVRo3u3YQQqAIBBA0SY8XQftCF7PtmPQJsgh/n+tRAg/SmAxNq69egHGG19gpOcEfAByL3rnjacynsp4KuOpjKcynsp4qshX+KhezQK5F73zLQ8If3Ly8W7zzFG9tI/1aYQ+9sZTGU9lPJXxVMZTGU91u9X1d2/5qSBc4Z+gj73xVBeLjhVIvJihZQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wMi0xNVQwNDozMzoxNSswMDowMId5J3sAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDItMTVUMDQ6MzM6MTUrMDA6MDD2JJ/HAAAAAElFTkSuQmCC"></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAH4AAAAqCAQAAADfNSfiAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAEC4yMnmWAAAAhUlEQVRo3u3YQQqAIBBA0SY8XQftCF7PtmPQJsgh/n+tRAg/SmAxNq69egHGG19gpOcEfAByL3rnjacynsp4KuOpjKcynsp4qshX+KhezQK5F73zLQ8If3Ly8W7zzFG9tI/1aYQ+9sZTGU9lPJXxVMZTGU91u9X1d2/5qSBc4Z+gj73xVBeLjhVIvJihZQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wNy0yOFQwMDoxNjo0NiswMDowMOTXv/YAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDctMjhUMDA6MTY6NDYrMDA6MDCVigdKAAAAAElFTkSuQmCC"></td>
       <td align="center">0
 (0.0%)</td>
     </tr>
@@ -1995,7 +1995,7 @@ $0-$50K
 <td style="padding:0 4px 0 0;border:0" align="left">)</td>
 </tr>
 </table></td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHMAAAAqCAQAAAAqy6xSAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ81Q7GnAAAAjUlEQVRo3u3YQQqAIBQAUY1O1w3qgHUDr1dbC4KKwJo/b+cmHPouNK8pgq71Bsw0866+Xiyogzrmk8yUhtZ7e03ZrYIMrZkkZpKYSWImiZkkZpIcbijl2Vc+L9dXzPz4M19Ul0Uc2vnk9WD6/W++8HpAOK9BhtZMEjNJzCQxk8RMEjNJIr4ecAUZWjNJNkNOC8eRBZpRAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTAyLTE1VDA0OjMzOjE1KzAwOjAwh3knewAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wMi0xNVQwNDozMzoxNSswMDowMPYkn8cAAAAASUVORK5CYII="></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHMAAAAqCAQAAAAqy6xSAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAEC4yMnmWAAAAjUlEQVRo3u3YQQqAIBQAUY1O1w3qgHUDr1dbC4KKwJo/b+cmHPouNK8pgq71Bsw0866+Xiyogzrmk8yUhtZ7e03ZrYIMrZkkZpKYSWImiZkkZpIcbijl2Vc+L9dXzPz4M19Ul0Uc2vnk9WD6/W++8HpAOK9BhtZMEjNJzCQxk8RMEjNJIr4ecAUZWjNJNkNOC8eRBZpRAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTA3LTI4VDAwOjE2OjQ2KzAwOjAw5Ne/9gAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wNy0yOFQwMDoxNjo0NiswMDowMJWKB0oAAAAASUVORK5CYII="></td>
       <td align="center">0
 (0.0%)</td>
     </tr>
@@ -2025,7 +2025,7 @@ $0-$50K
 <td style="padding:0 4px 0 0;border:0" align="left">)</td>
 </tr>
 </table></td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHMAAAAqCAQAAAAqy6xSAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ81Q7GnAAAAlElEQVRo3u3YwQmAMAxGYSOdzhEcsG7gevWaSgsqQunL/91ED31QD4mVJYJ19AGUqcy3kn84Oj/qbqOP+YWPSfWrrfH5Ofq8PwhyaZVJokwSZZIok0SZJMokuU0ohGmkxfxUNuVY2eXLIl7aDFrz1RuPB9uDOeXi/8Egl1aZJMokUSaJMkmUSaJMkojbA64gl1aZJBf8Eg23a9Mk8wAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wMi0xNVQwNDozMzoxNSswMDowMId5J3sAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDItMTVUMDQ6MzM6MTUrMDA6MDD2JJ/HAAAAAElFTkSuQmCC"></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHMAAAAqCAQAAAAqy6xSAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAEC4yMnmWAAAAlElEQVRo3u3YwQmAMAxGYSOdzhEcsG7gevWaSgsqQunL/91ED31QD4mVJYJ19AGUqcy3kn84Oj/qbqOP+YWPSfWrrfH5Ofq8PwhyaZVJokwSZZIok0SZJMokuU0ohGmkxfxUNuVY2eXLIl7aDFrz1RuPB9uDOeXi/8Egl1aZJMokUSaJMkmUSaJMkojbA64gl1aZJBf8Eg23a9Mk8wAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wNy0yOFQwMDoxNjo0NiswMDowMOTXv/YAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDctMjhUMDA6MTY6NDYrMDA6MDCVigdKAAAAAElFTkSuQmCC"></td>
       <td align="center">0
 (0.0%)</td>
     </tr>
@@ -2071,30 +2071,30 @@ $0-$50K
 <td style="padding:0 4px 0 2px;border:0" align="left">)</td>
 </tr>
 </table></td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHoAAABhCAQAAACzQX03AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmAg8EIQ81Q7GnAAAA2ElEQVR42u3asQ2DMBQG4f9FmS4bJAM6G7Ce05pINEgI8N3X0VicbAo/UT08j7NfwGijj/McH74Tf+Dv2ohOXme/20GW1RPyeBtNYTSF0RRGUxhNYTTF3y1r2bfKzdR4ha7dy1zf2Onxbj1JPjNveBLoThtNYTSF0RRGUxhNYTSF0RROTiiMbr1N/KvNRjSF0RRGUxhNYTSF0RRGUyCjnZxQGM2Ym7jTHEZTGE1hNIXRFEZTGE2BjHZcROHkhMJoCqMpjKYwmsJoCqMpjKYoyBV6BbnTRlP8AAdqFwl+02ccAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTAyLTE1VDA0OjMzOjE1KzAwOjAwh3knewAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wMi0xNVQwNDozMzoxNSswMDowMPYkn8cAAAAASUVORK5CYII="></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAAAHoAAABhCAQAAACzQX03AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfmBxwAEC4yMnmWAAAA2ElEQVR42u3asQ2DMBQG4f9FmS4bJAM6G7Ce05pINEgI8N3X0VicbAo/UT08j7NfwGijj/McH74Tf+Dv2ohOXme/20GW1RPyeBtNYTSF0RRGUxhNYTTF3y1r2bfKzdR4ha7dy1zf2Onxbj1JPjNveBLoThtNYTSF0RRGUxhNYTSF0RROTiiMbr1N/KvNRjSF0RRGUxhNYTSF0RRGUyCjnZxQGM2Ym7jTHEZTGE1hNIXRFEZTGE2BjHZcROHkhMJoCqMpjKYwmsJoCqMpjKYoyBV6BbnTRlP8AAdqFwl+02ccAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTA3LTI4VDAwOjE2OjQ2KzAwOjAw5Ne/9gAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wNy0yOFQwMDoxNjo0NiswMDowMJWKB0oAAAAASUVORK5CYII="></td>
       <td align="center">0
 (0.0%)</td>
     </tr>
 </tbody>
 </table>
-<p>Generated by <a href="https://github.com/dcomtois/summarytools" class="external-link">summarytools</a> 1.0.0 (<a href="https://www.r-project.org/" class="external-link">R</a> version 4.1.2)<br>2022-02-15</p>
+<p>Generated by <a href="https://github.com/dcomtois/summarytools" class="external-link">summarytools</a> 1.0.1 (<a href="https://www.r-project.org/" class="external-link">R</a> version 4.2.1)<br>2022-07-28</p>
 </div>
 <div class="section level3">
 <h3 id="workers-compensation">Worker’s Compensation<a class="anchor" aria-label="anchor" href="#workers-compensation"></a>
 </h3>
 <p><strong>Distribution of Claims</strong></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">fplot</span><span class="op">)</span>
-<span class="fu">fplot</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/fplot/man/plot_distr.html" class="external-link">plot_distr</a></span><span class="op">(</span><span class="va">wc_dat</span><span class="op">$</span><span class="va">total_incurred</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">fplot</span><span class="op">)</span></span>
+<span><span class="fu">fplot</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/fplot/man/plot_distr.html" class="external-link">plot_distr</a></span><span class="op">(</span><span class="va">wc_dat</span><span class="op">$</span><span class="va">total_incurred</span><span class="op">)</span></span></code></pre></div>
 <p><img src="Data-Overview_files/figure-html/dists-1.png" width="700"></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/fplot/man/plot_distr.html" class="external-link">plot_distr</a></span><span class="op">(</span><span class="op">~</span> <span class="va">total_incurred</span> <span class="op">|</span> <span class="va">cause</span>, <span class="va">wc_dat</span>, cumul <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/fplot/man/plot_distr.html" class="external-link">plot_distr</a></span><span class="op">(</span><span class="op">~</span> <span class="va">total_incurred</span> <span class="op">|</span> <span class="va">cause</span>, <span class="va">wc_dat</span>, cumul <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="Data-Overview_files/figure-html/dists-2.png" width="700"></p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/fplot/man/plot_lines.html" class="external-link">plot_lines</a></span><span class="op">(</span>
-  <span class="va">total_incurred</span> <span class="op">~</span> <span class="va">program_year</span>,
-  <span class="va">losses</span>
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/fplot/man/plot_lines.html" class="external-link">plot_lines</a></span><span class="op">(</span></span>
+<span>  <span class="va">total_incurred</span> <span class="op">~</span> <span class="va">program_year</span>,</span>
+<span>  <span class="va">losses</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p><img src="Data-Overview_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
 </div>
 </div>
@@ -2117,7 +2117,7 @@ $0-$50K
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>

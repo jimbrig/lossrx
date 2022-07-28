@@ -53,7 +53,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -74,7 +74,7 @@
   <a href="../tests/index.html">Tests</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     News
      
     <span class="caret"></span>
@@ -249,23 +249,23 @@
 <p>Actuaries frequently need to fit a <em>parametric</em> distribution model to a set of claims data in order to a) smooth the empirical distribution and b) interpolate or extrapolate between or beyond the existing data.</p>
 <p><code>lossrx</code> provides some useful helper functions meant to aid an actuary in determining an optimal parametric distribution to fit the data at hand:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jimbrig.github.io/lossrx">lossrx</a></span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"claims_transactional"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"losses"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"exposures"</span><span class="op">)</span>
-
-<span class="va">latest_eval</span> <span class="op">&lt;-</span> <span class="va">losses</span> |&gt; <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">eval_date</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">eval_date</span><span class="op">)</span><span class="op">)</span>
-<span class="va">wc_dat</span> <span class="op">&lt;-</span> <span class="va">latest_eval</span> |&gt; <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">coverage</span> <span class="op">==</span> <span class="st">"WC"</span>, <span class="va">total_incurred</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span>
-<span class="va">al_dat</span> <span class="op">&lt;-</span> <span class="va">latest_eval</span> |&gt; <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">coverage</span> <span class="op">==</span> <span class="st">"AL"</span><span class="op">)</span>
-
-<span class="va">describe_distribution</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span>
-
-  <span class="fu">fitdistrplus</span><span class="fu">::</span><span class="fu">descdist</span><span class="op">(</span>data <span class="op">=</span> <span class="va">data</span>, boot <span class="op">=</span> <span class="fl">1000</span>, <span class="va">...</span><span class="op">)</span>
-  
-<span class="op">}</span>
-
-<span class="fu">describe_distribution</span><span class="op">(</span><span class="va">wc_dat</span><span class="op">$</span><span class="va">total_incurred</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jimbrig.github.io/lossrx">lossrx</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"claims_transactional"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"losses"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"exposures"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">latest_eval</span> <span class="op">&lt;-</span> <span class="va">losses</span> <span class="op">|&gt;</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">eval_date</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">.data</span><span class="op">$</span><span class="va">eval_date</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">wc_dat</span> <span class="op">&lt;-</span> <span class="va">latest_eval</span> <span class="op">|&gt;</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">coverage</span> <span class="op">==</span> <span class="st">"WC"</span>, <span class="va">total_incurred</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span></span>
+<span><span class="va">al_dat</span> <span class="op">&lt;-</span> <span class="va">latest_eval</span> <span class="op">|&gt;</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">coverage</span> <span class="op">==</span> <span class="st">"AL"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">describe_distribution</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
+<span></span>
+<span>  <span class="fu">fitdistrplus</span><span class="fu">::</span><span class="fu">descdist</span><span class="op">(</span>data <span class="op">=</span> <span class="va">data</span>, boot <span class="op">=</span> <span class="fl">1000</span>, <span class="va">...</span><span class="op">)</span></span>
+<span>  </span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu">describe_distribution</span><span class="op">(</span><span class="va">wc_dat</span><span class="op">$</span><span class="va">total_incurred</span><span class="op">)</span></span></code></pre></div>
 </div>
   </div>
 
@@ -286,7 +286,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>

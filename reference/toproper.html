@@ -29,7 +29,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -48,7 +48,7 @@
   <a href="../tests/index.html">Tests</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     News
      
     <span class="caret"></span>
@@ -95,37 +95,48 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">toproper</span><span class="op">(</span>
-  <span class="va">string</span>,
-  replace_underscores <span class="op">=</span> <span class="cn">TRUE</span>,
-  underscore_replacement <span class="op">=</span> <span class="st">" "</span>,
-  return_as <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"titlecase"</span>, <span class="st">"uppercase"</span>, <span class="st">"lowercase"</span>, <span class="st">"asis"</span><span class="op">)</span>,
-  uppers <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Tpa"</span><span class="op">)</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">toproper</span><span class="op">(</span></span>
+<span>  <span class="va">string</span>,</span>
+<span>  replace_underscores <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  underscore_replacement <span class="op">=</span> <span class="st">" "</span>,</span>
+<span>  return_as <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"titlecase"</span>, <span class="st">"uppercase"</span>, <span class="st">"lowercase"</span>, <span class="st">"asis"</span><span class="op">)</span>,</span>
+<span>  uppers <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Tpa"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>string</dt>
 <dd><p>string to manipulate on</p></dd>
+
+
 <dt>replace_underscores</dt>
 <dd><p>Logical: if <code>TRUE</code> replaces all underscores
 with specified <code>underscore_replacement</code> argument's value.</p></dd>
+
+
 <dt>underscore_replacement</dt>
 <dd><p>Character: if argument <code>replace_underscores</code>
 equals <code>TRUE</code>, will replace all "_"'s with specified string.</p></dd>
+
+
 <dt>return_as</dt>
 <dd><p>How should the string be returned? Options are:</p><ul><li><p>"titlecase": Applies <code><a href="https://stringr.tidyverse.org/reference/case.html" class="external-link">stringr::str_to_title</a></code>.</p></li>
 <li><p>"uppercase": Applies <code>toupper</code>.</p></li>
 <li><p>"lowercase": Applied <code>tolower</code>.</p></li>
 <li><p>"asis": No manipulation. Returns as is.</p></li>
 </ul></dd>
+
+
 <dt>uppers</dt>
 <dd><p>Abbreviations to keep upper-case.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>"Proper" string</p>
+    
+
+<p>"Proper" string</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -134,10 +145,10 @@ equals <code>TRUE</code>, will replace all "_"'s with specified string.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">s</span> <span class="op">&lt;-</span> <span class="st">"variable_a is awesome"</span></span>
-<span class="r-in"><span class="fu">toproper</span><span class="op">(</span><span class="va">s</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">s</span> <span class="op">&lt;-</span> <span class="st">"variable_a is awesome"</span></span></span>
+<span class="r-in"><span><span class="fu">toproper</span><span class="op">(</span><span class="va">s</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Variable A Is Awesome"</span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -152,7 +163,7 @@ equals <code>TRUE</code>, will replace all "_"'s with specified string.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

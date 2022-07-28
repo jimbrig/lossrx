@@ -30,7 +30,7 @@ about an individual claim's historical transactions."><meta property="og:image" 
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -49,7 +49,7 @@ about an individual claim's historical transactions."><meta property="og:image" 
   <a href="../tests/index.html">Tests</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     News
      
     <span class="caret"></span>
@@ -97,19 +97,24 @@ about an individual claim's historical transactions.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">view_claim_history</span><span class="op">(</span><span class="va">claim_id</span>, claims_data <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">view_claim_history</span><span class="op">(</span><span class="va">claim_id</span>, claims_data <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>claim_id</dt>
 <dd><p>Claim ID</p></dd>
+
+
 <dt>claims_data</dt>
 <dd><p>Dataset</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a list containing a) claim details b) transactional history c) interactive timeline</p>
+    
+
+<p>a list containing a) claim details b) transactional history c) interactive timeline</p>
     </div>
 
   </div>
@@ -124,7 +129,7 @@ about an individual claim's historical transactions.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>
