@@ -1,6 +1,6 @@
 CREATE TABLE public.claims (
     claim_id UUID UNIQUE PRIMARY KEY DEFAULT uuid_generate_v4(),
-    claim_number INTEGER ASC,
+    claim_number INTEGER,
     occurrence_id UUID,
     claimant_id UUID,
     coverage_id UUID,
@@ -23,7 +23,7 @@ CREATE TABLE public.claims (
     medical_prop_reported NUMERIC,
     expense_paid NUMERIC,
     expense_reported NUMERIC,
-    recovery NUMERIC
+    recovery NUMERIC,
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     created_by VARCHAR DEFAULT NULL,
     modified_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
