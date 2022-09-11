@@ -7,8 +7,8 @@ library(config)
 library(dplyr)
 library(dbplyr)
 
-# db_config <- config::get(file = "inst/database/config.yml")$local_container
-db_config <- config::get(file = "inst/database/config.yml")$spawn
+db_config <- config::get(file = "inst/database/config.yml")$local_container
+# db_config <- config::get(file = "inst/database/config.yml")$spawn
 
 
 conn <- dbx::dbxConnect(db_config$conn_string)
