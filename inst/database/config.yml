@@ -11,5 +11,5 @@ default:
     server: localhost
     port: 5432
     username: postgres
-    password: admin
-    conn_string: postgres://postgres:admin@localhost/postgres
+    password: password1
+    conn_string: postgres://postgres:password1@localhost/postgres
