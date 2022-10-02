@@ -16,6 +16,7 @@ All notable changes to this project will be documented in this file.
 - Remove codecov token from config
 - Add covr suggested dependency
 - Configure build tools
+- Update custom domain in pkgdown config
 
 ### Documentation
 
@@ -118,6 +119,9 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-02-15T02:45:15Z
 - Update TOC
 - Update TOC
+- Autopublish 2022-02-15T02:52:24Z
+- Autopublish 2022-02-15T04:29:35Z
+- Autopublish 2022-07-28T00:11:57Z
 
 ### Bug
 
@@ -126,10 +130,15 @@ All notable changes to this project will be documented in this file.
 - Fix roxygen tags for simulate functions params
 - Fix issues with globalVars for the view_claim_history function
 - Add globalVar for issue #37
+- Fix bug in simulate function related to .data$
 
 ### Bugfix
 
 - Rstudio/connections dependency
+
+### Gitflow-feature-stash
+
+- Test_simulate
 
 ### Release
 
