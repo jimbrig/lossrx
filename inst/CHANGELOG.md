@@ -16,6 +16,8 @@ All notable changes to this project will be documented in this file.
 - Remove codecov token from config
 - Add covr suggested dependency
 - Configure build tools
+- Update DESCRIPTION roxygen version
+- Update dependencies.R
 - Update custom domain in pkgdown config
 
 ### Documentation
@@ -36,6 +38,7 @@ All notable changes to this project will be documented in this file.
 - Add image for actuarial diagram
 - Remove studip codecov that doesnt work
 - Fix README
+- Update man docs
 
 ### Features
 
@@ -122,6 +125,14 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-02-15T02:52:24Z
 - Autopublish 2022-02-15T04:29:35Z
 - Autopublish 2022-07-28T00:11:57Z
+- Autopublish 2022-09-12T00:48:34Z
+
+### Refactor
+
+- Adjust database SQL scripts
+- Use local postgres container with updated credentials
+- Adjust db_init.R script
+- Add claims SQL table DDL
 
 ### Bug
 
