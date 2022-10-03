@@ -5,7 +5,7 @@ on:
     branches: [main, master]
     tags: ['*']
 
-name: pkgdown
+name: Create-PkgDown
 
 jobs:
   pkgdown:
