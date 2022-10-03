@@ -19,6 +19,9 @@ All notable changes to this project will be documented in this file.
 - Update DESCRIPTION roxygen version
 - Update dependencies.R
 - Update custom domain in pkgdown config
+- Bump roxygen version
+- Add covr suggest dependency
+- Refactor .Rproj
 
 ### Documentation
 
@@ -66,6 +69,7 @@ All notable changes to this project will be documented in this file.
 - Update spelling wordlist
 - Enhance github action for test coverage
 - Update package development script
+- Add data metadata
 
 ### Miscellaneous Tasks
 
@@ -126,6 +130,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-02-15T04:29:35Z
 - Autopublish 2022-07-28T00:11:57Z
 - Autopublish 2022-09-12T00:48:34Z
+- Autopublish 2022-10-02T21:41:41Z
 
 ### Refactor
 
