@@ -1,7 +1,7 @@
 url: https://docs.jimbrig.com/lossrx/
 template:
   bootstrap: 5
-  bootswatch: cyborg
+  bootswatch: simplex
 destination: inst/docs
 site_url: ~
 reference:
@@ -95,5 +95,5 @@ navbar:
         href: articles/Data-Overview.html
     tests:
       text: Tests
-      href: tests/index.html
+      href: testdown/index.html
 
