@@ -18,7 +18,4 @@ LineEndingConversion: Posix
 
 BuildType: Package
 PackageUseDevtools: Yes
-PackageInstallArgs: --install-tests
-PackageBuildArgs: --install-tests
-PackageBuildBinaryArgs: --install-tests
 PackageRoxygenize: rd,collate,namespace
