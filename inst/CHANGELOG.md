@@ -3,9 +3,14 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Configuration
+
+- Update code metadata
+
 ### Miscellaneous Tasks
 
 - Autopublish 2022-10-04T00:04:18Z
+- Autopublish 2022-10-04T00:05:06Z
 
 ## [0.0.4] - 2022-10-04
 
