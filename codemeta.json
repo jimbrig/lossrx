@@ -4,15 +4,17 @@
   "identifier": "lossrx",
   "description": "Actuarial Loss Development and Reserving Helper Functions and ShinyApp.",
   "name": "lossrx: Actuarial Loss Development and Reserving with R",
+  "relatedLink": "https://docs.jimbrig.com/lossrx",
   "codeRepository": "https://github.com/jimbrig/lossrx",
+  "issueTracker": "https://github.com/jimbrig/lossrx/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.1.2 (2021-11-01)",
+  "runtimePlatform": "R version 4.2.1 (2022-06-23 ucrt)",
   "author": [
     {
       "@type": "Person",
@@ -46,6 +48,30 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "covr",
+      "name": "covr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=covr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "dbplyr",
+      "name": "dbplyr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=dbplyr"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "devtools",
       "name": "devtools",
       "provider": {
@@ -67,6 +93,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=fplot"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "janitor",
+      "name": "janitor",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=janitor"
     },
     {
       "@type": "SoftwareApplication",
@@ -106,6 +144,18 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "spelling",
+      "name": "spelling",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=spelling"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "summarytools",
       "name": "summarytools",
       "provider": {
@@ -128,6 +178,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=testthat"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "tidyr",
+      "name": "tidyr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=tidyr"
     }
   ],
   "softwareRequirements": {
@@ -151,6 +213,24 @@
     },
     "3": {
       "@type": "SoftwareApplication",
+      "identifier": "config",
+      "name": "config",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=config"
+    },
+    "4": {
+      "@type": "SoftwareApplication",
+      "identifier": "connections",
+      "name": "connections",
+      "sameAs": "https://github.com/rstudio/connections"
+    },
+    "5": {
+      "@type": "SoftwareApplication",
       "identifier": "crayon",
       "name": "crayon",
       "provider": {
@@ -161,7 +241,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=crayon"
     },
-    "4": {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "dbx",
       "name": "dbx",
@@ -173,7 +253,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=dbx"
     },
-    "5": {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "dplyr",
       "name": "dplyr",
@@ -185,14 +265,26 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=dplyr"
     },
-    "6": {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "flipTime",
       "name": "flipTime",
       "version": ">= 2.9.4",
       "sameAs": "https://github.com/Displayr/flipTime"
     },
-    "7": {
+    "9": {
+      "@type": "SoftwareApplication",
+      "identifier": "formattable",
+      "name": "formattable",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=formattable"
+    },
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "fs",
       "name": "fs",
@@ -204,7 +296,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=fs"
     },
-    "8": {
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "glue",
       "name": "glue",
@@ -216,7 +308,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=glue"
     },
-    "9": {
+    "12": {
       "@type": "SoftwareApplication",
       "identifier": "here",
       "name": "here",
@@ -228,7 +320,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=here"
     },
-    "10": {
+    "13": {
       "@type": "SoftwareApplication",
       "identifier": "lubridate",
       "name": "lubridate",
@@ -240,7 +332,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=lubridate"
     },
-    "11": {
+    "14": {
       "@type": "SoftwareApplication",
       "identifier": "magrittr",
       "name": "magrittr",
@@ -252,7 +344,19 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=magrittr"
     },
-    "12": {
+    "15": {
+      "@type": "SoftwareApplication",
+      "identifier": "pool",
+      "name": "pool",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=pool"
+    },
+    "16": {
       "@type": "SoftwareApplication",
       "identifier": "purrr",
       "name": "purrr",
@@ -264,7 +368,19 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=purrr"
     },
-    "13": {
+    "17": {
+      "@type": "SoftwareApplication",
+      "identifier": "randomNames",
+      "name": "randomNames",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=randomNames"
+    },
+    "18": {
       "@type": "SoftwareApplication",
       "identifier": "readr",
       "name": "readr",
@@ -276,7 +392,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=readr"
     },
-    "14": {
+    "19": {
       "@type": "SoftwareApplication",
       "identifier": "rlang",
       "name": "rlang",
@@ -289,7 +405,36 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rlang"
     },
-    "15": {
+    "20": {
+      "@type": "SoftwareApplication",
+      "identifier": "RPostgres",
+      "name": "RPostgres",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=RPostgres"
+    },
+    "21": {
+      "@type": "SoftwareApplication",
+      "identifier": "shiny",
+      "name": "shiny",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=shiny"
+    },
+    "22": {
+      "@type": "SoftwareApplication",
+      "identifier": "stats",
+      "name": "stats"
+    },
+    "23": {
       "@type": "SoftwareApplication",
       "identifier": "stringr",
       "name": "stringr",
@@ -301,7 +446,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=stringr"
     },
-    "16": {
+    "24": {
       "@type": "SoftwareApplication",
       "identifier": "tibble",
       "name": "tibble",
@@ -313,7 +458,19 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=tibble"
     },
-    "17": {
+    "25": {
+      "@type": "SoftwareApplication",
+      "identifier": "timevis",
+      "name": "timevis",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=timevis"
+    },
+    "26": {
       "@type": "SoftwareApplication",
       "identifier": "usethis",
       "name": "usethis",
@@ -325,18 +482,17 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=usethis"
     },
-    "18": {
+    "27": {
       "@type": "SoftwareApplication",
       "identifier": "utils",
       "name": "utils"
     },
     "SystemRequirements": null
   },
-  "fileSize": "3215.578KB",
-  "relatedLink": "https://jimbrig.github.io/lossrx",
+  "fileSize": "3386.503KB",
   "releaseNotes": "https://github.com/jimbrig/lossrx/blob/master/NEWS.md",
   "readme": "https://github.com/jimbrig/lossrx/blob/main/README.md",
-  "contIntegration": ["https://github.com/jimbrig/lossrx/actions/workflows/pkgdown.yaml", "https://github.com/jimbrig/lossrx/actions", "https://codecov.io/gh/jimbrig/lossrx?branch=main"],
+  "contIntegration": ["https://github.com/jimbrig/lossrx/actions/workflows/pkgdown.yml", "https://github.com/jimbrig/lossrx/actions", "https://codecov.io/gh/jimbrig/lossrx"],
   "developmentStatus": ["https://lifecycle.r-lib.org/articles/stages.html#experimental", "http://www.repostatus.org/#wip"],
   "keywords": ["workflow", "actuarial-science", "modelling", "reserving", "data-science", "claims-reserving", "claims-data", "property-casualty", "insurance", "rstats", "rpackage", "rshiny"]
 }
