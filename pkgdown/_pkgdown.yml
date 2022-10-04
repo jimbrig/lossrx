@@ -1,7 +1,7 @@
 url: https://docs.jimbrig.com/lossrx/
 template:
   bootstrap: 5
-  bootswatch: simplex
+  bootswatch: superhero
 destination: inst/docs
 site_url: ~
 reference:

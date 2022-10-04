@@ -1,6 +1,6 @@
 template:
   bootstrap: 5
-  bootswatch: cyborg
+  bootswatch: superhero
 url: https://docs.jimbrig.com/lossrx/
 site_url: ~
 reference:
