@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+
+### Miscellaneous Tasks
+
+- Autopublish 2022-10-04T00:04:18Z
+
 ## [0.0.4] - 2022-10-04
 
 ### Configuration
