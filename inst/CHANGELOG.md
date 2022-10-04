@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [0.0.4] - 2022-10-04
 
 ### Configuration
 
@@ -42,6 +42,12 @@ All notable changes to this project will be documented in this file.
 - Remove studip codecov that doesnt work
 - Fix README
 - Update man docs
+- Update pkgdown for new release
+- Bump DESCRIPTION version; add URL
+- Update NEWS.md
+- Update pkgdown config
+- Trying out different bootswatch themes
+- Switch to superhero theme
 
 ### Features
 
@@ -136,6 +142,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-10-03T23:20:48Z
 - Autopublish 2022-10-03T23:23:08Z
 - Autopublish 2022-10-03T23:36:13Z
+- Autopublish 2022-10-03T23:36:46Z
 
 ### Refactor
 
@@ -152,6 +159,7 @@ All notable changes to this project will be documented in this file.
 - Fix issues with globalVars for the view_claim_history function
 - Add globalVar for issue #37
 - Fix bug in simulate function related to .data$
+- Fix vignette index
 
 ### Bugfix
 
