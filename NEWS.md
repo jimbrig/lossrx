@@ -2,6 +2,103 @@
 
 > All notable changes to this project will be documented in this file.
 
+# lossrx 0.0.4
+
+> Date: 2022-10-03
+
+## Features
+
+- Add some suggested package deps
+- Update WORDLIST for spelling
+- Add mockaroo mock datasets to data-raw
+- Simulate_function
+- Add gh-labels support
+- Re-structure and enhance data-raw prep files
+- Add spawn database
+- Add database connection function
+- Add actuarial claims history function
+- Add working xl data files
+- Add workflow diagram
+- Add new vignette for getting started
+- Add new simulation function
+- Update database inst dir
+- Add SQL scripts for new db tables
+- Add Merged lossruns CSV for dataprep
+- Update Dockerfiles and docker-compose for DB
+- Add spelling to testthat tests
+- Update database markup file
+- Add new lossruns and triangles explanatory vignette
+- Add database markups for bot sqlserver and psql
+- Update spelling wordlist
+- Enhance github action for test coverage
+- Update package development script
+- Add data metadata
+
+## Configuration
+
+- Buildignore postgresdata
+- Re-do deps
+- Buildignore .vscode
+- Remove .vscode for R CMD CHECK
+- Ignore opened xl files (i.e. "~$")
+- Update imports/exports
+- Stop tracking docker volumes
+- Add new package dependencies
+- Remove codecov token from config
+- Add covr suggested dependency
+- Configure build tools
+- Update DESCRIPTION roxygen version
+- Update dependencies.R
+- Update custom domain in pkgdown config
+- Bump roxygen version
+- Add covr suggest dependency
+- Refactor .Rproj
+
+## Documentation
+
+- Update pkgdown yml
+- Update pkgdown yml pt 2
+- Enhance pkgdown NEWS menu
+- Update lossrx vignette
+- Add documentation for original raw data
+- Enhance README data preparation and database sections
+- Enhance structure of README
+- Enhance README
+- Run devtools::document for new functions
+- Re-configure pkgdown
+- Enhance README's
+- Build README
+- Re-build RAEDME
+- Add image for actuarial diagram
+- Remove studip codecov that doesnt work
+- Fix README
+- Update man docs
+
+## Refactor
+
+- Adjust database SQL scripts
+- Use local postgres container with updated credentials
+- Adjust db_init.R script
+- Add claims SQL table DDL
+
+## Bug Fixes
+
+- Fix man file for inform
+- Fix view_claim_history function
+- Fix roxygen tags for simulate functions params
+- Fix issues with globalVars for the view_claim_history function
+- Add globalVar for issue #37
+- Fix bug in simulate function related to .data$
+- Rstudio/connections dependency
+
+## Tests
+
+- Test Simulate
+
+## Release
+
+- Update NEWS.md for release
+
 # lossrx 0.0.3
 
 > Date 2022-01-05
