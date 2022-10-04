@@ -2,7 +2,7 @@
 title: "Actuarial Statistical Distributions"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{actuarial-statistical-distributions}
+  %\VignetteIndexEntry{Actuarial Statistical Distributions}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
