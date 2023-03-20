@@ -120,18 +120,29 @@ c(
   "utils-data",
   "utils-dates",
   "utils-feedback",
-  "actuary-triangles",
-  "actuary-interp",
-  "actuary-validation",
-  "actuary-simulate_claims",
-  "actuary-loss_run",
-  "db-connect",
-  "db-config",
-  "meta-open_pkgdown",
+  "utils-pipe",
+  "utils-strings",
+  "utils-tidyeval",
+  "meta-package",
   "meta-data",
-  "meta-globals"
+  "meta-docs",
+  "meta-globals",
+  "db-config",
+  "db-connect",
+  "actuary-triangles",
+  "actuary-interpolation",
+  "actuary-validation",
+  "actuary-simulation",
+  "actuary-loss_run",
+  "actuary-loss_devt",
+  "actuary-claim_history",
+  "app-ui",
+  "app-run",
+  "app-config",
+  "app-mod_triangles",
+  "app-mod_ldf_modal"
 ) |>
-  purrr::walk(usethis::use_r)
+  purrr::walk(usethis::use_r, open = FALSE)
 
 usethis::use_r("simulate_claims")
 
