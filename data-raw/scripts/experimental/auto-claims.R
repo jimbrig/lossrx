@@ -14,6 +14,9 @@ library(stringr)
 
 # use the trafficaccidents package for some data
 # devtools::install_github("bergant/trafficaccidents")
+# pak::pak("bergant/trafficaccidents")
+require(trafficaccidents)
+
 events <- trafficaccidents::event
 parties <- trafficaccidents::party
 dates <- trafficaccidents::calendar
