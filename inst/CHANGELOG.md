@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Features
+
+- Add experimental decay factors work in dev scripts
+
 ### Miscellaneous Tasks
 
 - Autopublish 2023-03-31T20:32:15Z
@@ -13,6 +17,13 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2023-03-31T20:50:16Z
 - Autopublish 2023-03-31T20:57:49Z
 - Autopublish 2023-03-31T20:58:49Z
+- Autopublish 2023-03-31T21:02:57Z
+
+### Refactor
+
+- Refactor data-raw data preparation scripts 
+- Update pkgdevt.R
+- Refactor R folder contents and file names
 
 ### Cicd
 
