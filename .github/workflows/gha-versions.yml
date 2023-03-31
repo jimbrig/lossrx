@@ -1,0 +1,20 @@
+name: GitHub Actions Version Updater
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 12 * * *' # at 12:00 every day
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run GitHub Actions Version Updater
+        uses: saadmk11/github-actions-version-updater@v0.7.4
+        with:
+          ${{ secrets.GITHUB_TOKEN }}
