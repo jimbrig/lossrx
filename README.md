@@ -19,6 +19,8 @@ WIP](https://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.or
 *View the [Changelog](inst/CHANGELOG.md) for detailed progression on
 development of the package.*
 
+*View the [GITHUB.md](.github/GITHUB.md) document for details on the various CI/CD workflows implemented with this repository on the R Package (~14 total workflows).*
+
 *View the [Latest Database
 Documentation](https://dbdocs.io/jimbrigf0cdc6204e/Actuarial-Database)
 for a detailed look into its structure.*
