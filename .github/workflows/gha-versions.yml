@@ -4,6 +4,10 @@ on:
   workflow_dispatch:
   schedule:
     - cron:  '0 12 * * *' # at 12:00 every day
+  push:
+    branches: '*'
+    paths: 
+      - '.github/workflows/*'
 
 jobs:
   build:
