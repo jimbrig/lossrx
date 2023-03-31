@@ -12,13 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3.5.0
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate a changelog
-        uses: orhun/git-cliff-action@v1
+        uses: orhun/git-cliff-action@v2.0.5
         id: git-cliff
         with:
           config: ./cliff.toml
@@ -30,6 +30,6 @@ jobs:
         run: cat "${{ steps.git-cliff.outputs.changelog }}"
 
       - name: Commit and Push Changes
-        uses: actions-js/push@master
+        uses: actions-js/push@v1.4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

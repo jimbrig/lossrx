@@ -7,8 +7,8 @@ jobs:
     name: Run linguist
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@main
-      - uses: fabasoad/linguist-action@main
+      - uses: actions/checkout@v3.5.0
+      - uses: fabasoad/linguist-action@v1.0.4
         id: linguist
         with:
           path: './'
