@@ -3,17 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-### Configuration
+### Cicd
 
-- Update code metadata
-
-### Miscellaneous Tasks
-
-- Autopublish 2022-10-04T00:04:18Z
-- Autopublish 2022-10-04T00:05:06Z
-- Autopublish 2022-10-04T00:11:23Z
-- Autopublish 2022-10-04T00:19:43Z
-- Autopublish 2022-10-04T00:21:50Z
+- Add new gha for updating gha versions - gha-versions.yml
 
 ## [0.0.4] - 2022-10-04
 
@@ -36,6 +28,7 @@ All notable changes to this project will be documented in this file.
 - Bump roxygen version
 - Add covr suggest dependency
 - Refactor .Rproj
+- Update code metadata
 
 ### Documentation
 
@@ -157,6 +150,12 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-10-03T23:23:08Z
 - Autopublish 2022-10-03T23:36:13Z
 - Autopublish 2022-10-03T23:36:46Z
+- Autopublish 2022-10-04T00:04:18Z
+- Autopublish 2022-10-04T00:05:06Z
+- Autopublish 2022-10-04T00:11:23Z
+- Autopublish 2022-10-04T00:19:43Z
+- Autopublish 2022-10-04T00:21:50Z
+- Autopublish 2022-10-04T00:23:35Z
 
 ### Refactor
 
