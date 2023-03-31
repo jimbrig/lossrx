@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 - Add experimental decay factors work in dev scripts
+- Create initial Dockerfile for plumber API
+- Scaffold API directory in inst/api
 
 ### Miscellaneous Tasks
 
@@ -27,6 +29,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2023-03-31T21:47:53Z
 - Autopublish 2023-03-31T21:49:47Z
 - Autopublish 2023-03-31T22:07:56Z
+- Autopublish 2023-03-31T22:18:53Z
 
 ### Refactor
 
@@ -94,6 +97,8 @@ All notable changes to this project will be documented in this file.
 - Add some suggested package deps
 - Update WORDLIST for spelling
 - Add mockaroo mock datasets to data-raw
+- Create initial Dockerfile for plumber API
+- Scaffold API directory in inst/api
 - Simulate_function
 - Add gh-labels support
 - Re-structure and enhance data-raw prep files
