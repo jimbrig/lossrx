@@ -9,9 +9,11 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2023-03-31T20:38:12Z
 - Autopublish 2023-03-31T20:43:57Z
 - Autopublish 2023-03-31T20:45:41Z
+- Autopublish 2023-03-31T20:48:43Z
 
 ### Cicd
 
+- Update docker.yml gha with latest versions and changed docker image tag from latest
 - Add new gha for updating gha versions - gha-versions.yml
 
 ## [0.0.4] - 2022-10-04
