@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3.5.3
     - name: Create a Release
-      uses: elgohr/Github-Release-Action@20220921051011
+      uses: elgohr/Github-Release-Action@20230626184259
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       with:
