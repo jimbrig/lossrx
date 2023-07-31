@@ -43,7 +43,6 @@ simulate_claims <- function(n_claims = 1000,
                             status_prob_open = 0.96,
                             cache = FALSE,
                             ...) {
-
   # loss_distribution <- match.arg("loss_distribution")
 
   stopifnot(
@@ -84,7 +83,7 @@ simulate_claims <- function(n_claims = 1000,
     claimant = randomNames::randomNames(n_claims),
     report_lag = stats::rnbinom(n_claims, 5, .25), # 0 if claim closed when reported
     status = stats::rbinom(n_claims, 1, 0.96), # initial payment amount
-    payment =  payment_fun(n_claims)
+    payment = payment_fun(n_claims)
   ) %>%
     dplyr::mutate(
       report_date = .data$accident_date + .data$report_lag,
@@ -96,7 +95,9 @@ simulate_claims <- function(n_claims = 1000,
 
   n_trans <- stats::rnbinom(n_claims, 3, 0.25)
   trans_lag <- lapply(n_trans, function(x) stats::rnbinom(x, 7, 0.1)) %>%
-    lapply(function(x) { if (length(x) == 0) 0 else x })
+    lapply(function(x) {
+      if (length(x) == 0) 0 else x
+    })
 
   for (i in seq_len(n_claims)) {
     trans_lag[[i]] <- tibble::tibble(
@@ -120,9 +121,11 @@ simulate_claims <- function(n_claims = 1000,
   n_trans <- nrow(subsequent_trans)
 
   subsequent_trans <- subsequent_trans %>%
-    dplyr::mutate(payment = payment_fun(.env$n_trans),
-                  case = pmax(.data$case * stats::rnorm(.env$n_trans, 1.5, 0.1) - .data$payment, 500),
-                  transaction_date = .data$report_date + .data$trans_lag) %>%
+    dplyr::mutate(
+      payment = payment_fun(.env$n_trans),
+      case = pmax(.data$case * stats::rnorm(.env$n_trans, 1.5, 0.1) - .data$payment, 500),
+      transaction_date = .data$report_date + .data$trans_lag
+    ) %>%
     dplyr::select(-.data$trans_lag)
 
   trans <- dplyr::bind_rows(zero_claims, first_trans, subsequent_trans) %>%
@@ -135,22 +138,25 @@ simulate_claims <- function(n_claims = 1000,
   trans <- trans %>%
     dplyr::arrange(.data$trans_num) %>%
     dplyr::group_by(.data$claim_num) %>%
-    dplyr::mutate(final_trans = ifelse(.data$trans_num == max(.data$trans_num), TRUE, FALSE),
-                  status = ifelse(.data$final_trans, 0, 1),
-                  case = ifelse(.data$final_trans, 0, .data$case),
-                  status = ifelse(.data$status == 0, "Closed", "Open"),
-                  paid = round(cumsum(.data$payment), 0),
-                  case = round(.data$case, 0),
-                  payment = round(.data$payment, 0)) %>%
+    dplyr::mutate(
+      final_trans = ifelse(.data$trans_num == max(.data$trans_num), TRUE, FALSE),
+      status = ifelse(.data$final_trans, 0, 1),
+      case = ifelse(.data$final_trans, 0, .data$case),
+      status = ifelse(.data$status == 0, "Closed", "Open"),
+      paid = round(cumsum(.data$payment), 0),
+      case = round(.data$case, 0),
+      payment = round(.data$payment, 0)
+    ) %>%
     dplyr::select(-.data$final_trans) %>%
     dplyr::arrange(.data$accident_date) %>%
     dplyr::ungroup() %>%
     dplyr::arrange(.data$claim_num, dplyr::desc(.data$transaction_date))
 
-  if (cache) { saveRDS(trans, file = "trans.RDS") }
+  if (cache) {
+    saveRDS(trans, file = "trans.RDS")
+  }
 
   trans
-
 }
 
 #

@@ -61,7 +61,6 @@
 #' interp(12, cdfs, ages) == cdfs[[1]]
 #' interp(27, cdfs, ages, method = 2)
 interp <- function(new_age, cdf_array, age_array, cutoff = 450, method = 3) {
-
   stopifnot(
     is.numeric(new_age),
     is.numeric(cdf_array),
@@ -80,7 +79,9 @@ interp <- function(new_age, cdf_array, age_array, cutoff = 450, method = 3) {
   cdf_high <- cdf_array[match(age_high, age_array)]
   cdf_low <- cdf_array[match(age_low, age_array)]
 
-  if (any(age_high == age_low, cdf_high == cdf_low)) return(cdf_high)
+  if (any(age_high == age_low, cdf_high == cdf_low)) {
+    return(cdf_high)
+  }
 
   if (any(method == 1, new_age < min(age_array), cdf_high < 1, cdf_low < 1)) {
     out <- interp.linear(new_age, age_high, age_low, cdf_high, cdf_low)
@@ -94,7 +95,6 @@ interp <- function(new_age, cdf_array, age_array, cutoff = 450, method = 3) {
 
   out <- interp.dblexp(new_age, age_high, age_low, cdf_high, cdf_low)
   return(out)
-
 }
 
 
@@ -103,37 +103,31 @@ interp <- function(new_age, cdf_array, age_array, cutoff = 450, method = 3) {
 #' @param age_low,age_high Low and High ages
 #' @param cdf_low,cdf_high Low and High CDFs
 interp.dblexp <- function(new_age, age_high, age_low, cdf_high, cdf_low) {
-
   new_cdf <- exp(exp(((age_high - new_age) * log(log(1 / (1 / cdf_low))) +
-                        (new_age - age_low) * log(log(1 / (1 / cdf_high)))) /
-                       (age_high - age_low)))
+    (new_age - age_low) * log(log(1 / (1 / cdf_high)))) /
+    (age_high - age_low)))
 
   new_cdf
-
 }
 
 #' @describeIn interp Exponential Interpolation
 #' @param age_low,age_high Low and High ages
 #' @param cdf_low,cdf_high Low and High CDFs
 interp.exp <- function(new_age, age_high, age_low, cdf_high, cdf_low) {
-
   new_cdf <- 1 / (1 - exp(((age_high - new_age) * log(1 - (1 / cdf_low)) +
-                             (new_age - age_low) * log(1 - (1 / cdf_high))) /
-                            (age_high - age_low)))
+    (new_age - age_low) * log(1 - (1 / cdf_high))) /
+    (age_high - age_low)))
   new_cdf
-
 }
 
 #' @describeIn interp Linear Interpolation
 #' @param age_low,age_high Low and High ages
 #' @param cdf_low,cdf_high Low and High CDFs
 interp.linear <- function(new_age, age_high, age_low, cdf_high, cdf_low) {
-
-  new_cdf <- 1 / ((( age_high - new_age) * (1 / cdf_low) + (new_age - age_low) * (1 / cdf_high)) /
-                    (age_high - age_low))
+  new_cdf <- 1 / (((age_high - new_age) * (1 / cdf_low) + (new_age - age_low) * (1 / cdf_high)) /
+    (age_high - age_low))
 
   new_cdf
-
 }
 
 
@@ -141,4 +135,4 @@ interp.linear <- function(new_age, age_high, age_low, cdf_high, cdf_low) {
 #  For Linear Interpolation the formula is as follows:
 #    \if{html}{\figure{dblexp.svg}{options: width=100 alt="Double Exponential Interpolation"}}
 #  \if{latex}{\figure{dblexp.svg}{options: width=0.5in}}
-#}
+# }

@@ -72,7 +72,9 @@ extract_date <- function(string) {
       recursive = TRUE
     ),
     collapse = ""
-  ) |> lubridate::mdy() |> as.character()
+  ) |>
+    lubridate::mdy() |>
+    as.character()
 }
 
 #' Elapsed Months

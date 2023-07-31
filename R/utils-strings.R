@@ -5,8 +5,8 @@
 #' @return String of numbers
 #' @export
 #' @importFrom stringr str_extract
-extract_num <- function(string){
-  stringr::str_extract(string, "\\d+")  # "\\-*\\d+\\.*\\d*")
+extract_num <- function(string) {
+  stringr::str_extract(string, "\\d+") # "\\-*\\d+\\.*\\d*")
 }
 
 #' To Proper
@@ -41,28 +41,21 @@ toproper <- function(string,
                      underscore_replacement = " ",
                      return_as = c("titlecase", "uppercase", "lowercase", "asis"),
                      uppers = c("Tpa")) {
-
-  return_as = match.arg(return_as, several.ok = FALSE)
+  return_as <- match.arg(return_as, several.ok = FALSE)
 
   if (replace_underscores) {
     string <- stringr::str_replace_all(string, pattern = "_", replacement = underscore_replacement)
   }
 
-  if (return_as == "asis") return(string)
+  if (return_as == "asis") {
+    return(string)
+  }
 
-  hold <- switch(
-    return_as,
+  hold <- switch(return_as,
     titlecase = stringr::str_to_title(string),
     uppercase = toupper(string),
     lowercase = tolower(string)
   )
 
   stringr::str_replace_all(hold, uppers, toupper(uppers))
-
 }
-
-
-
-
-
-
