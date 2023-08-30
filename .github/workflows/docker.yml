@@ -11,7 +11,7 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3.5.3
+    - uses: actions/checkout@v3.6.0
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@v5
       with:
