@@ -9,8 +9,9 @@
 #  ------------------------------------------------------------------------
 
 # simulate transactions on insurance claims
-# transactions will include claim closures, payments and changes in case reserves
-# this is all completely made up and does not accurately resemble actual claims
+# transactions will include claim closures, payments and changes in case 
+# reserves this is all completely made up and does not accurately resemble 
+# actual claims
 library(lubridate)
 library(dplyr)
 library(tibble)
@@ -80,7 +81,8 @@ trans_tbl <- bind_rows(trans_lag) %>%
 zero_claims <- dplyr::filter(claims, status == 0)
 first_trans <- dplyr::filter(claims, status == 1)
 
-subsequent_trans <- left_join(trans_tbl, first_trans, by = c("claim_num", "claim_id")) %>%
+subsequent_trans <- left_join(trans_tbl, first_trans, 
+                              by = c("claim_num", "claim_id")) %>%
   filter(!is.na(accident_date))
 
 n_trans <- nrow(subsequent_trans)
@@ -116,9 +118,8 @@ trans <- trans %>%
   filter(.data$transaction_date <= end_date)
 
 fs::dir_create("data-raw/cache")
-qs::qsave(trans, file = paste0("data-raw/cache/", Sys.Date(), "-transactional-claims.qs"))
+qs::qsave(trans, file = paste0("data-raw/cache/", Sys.Date(), 
+                               "-transactional-claims.qs"))
 
 claims_transactional <- trans
 usethis::use_data(claims_transactional, overwrite = TRUE)
-
-
