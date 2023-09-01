@@ -8,6 +8,10 @@ All notable changes to this project will be documented in this file.
 - Add experimental decay factors work in dev scripts
 - Create initial Dockerfile for plumber API
 - Scaffold API directory in inst/api
+- Add data.world feature
+- Add inst/config files
+- Fix build-prep
+- Update deps file
 
 ### Miscellaneous Tasks
 
@@ -51,12 +55,18 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2023-09-01T02:15:36Z
 - Autopublish 2023-09-01T02:16:59Z
 - Autopublish 2023-09-01T02:22:16Z
+- Autopublish 2023-09-01T02:24:23Z
+- Cleanup
 
 ### Refactor
 
 - Refactor data-raw data preparation scripts 
 - Update pkgdevt.R
 - Refactor R folder contents and file names
+
+### Bug
+
+- Bump roxygen version in DESCRIPTION
 
 ### Cicd
 
