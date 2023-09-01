@@ -4,6 +4,9 @@
 - color: d73a4a
   description: Something isn't working
   name: bug
+- color: d73a4a
+  description: Fix something (i.e. a vulnerability) detected from dependabot.
+  name: dependabot
 - color: 8ed92e
   description: Configuration and meta-infrastructural changes
   name: config
