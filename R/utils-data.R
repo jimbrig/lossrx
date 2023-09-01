@@ -48,7 +48,6 @@ coalesce_join <- function(x,
                           suffix = c(".x", ".y"),
                           join = dplyr::full_join,
                           ...) {
-
   joined <- join(y, x, by = by, suffix = suffix, ...)
 
   # names of desired output
@@ -68,14 +67,15 @@ coalesce_join <- function(x,
   )
 
   coalesced <- purrr::map_dfc(
-    to_coalesce, ~ dplyr::coalesce(joined[[paste0(.x, suffix[1])]],
-                                   joined[[paste0(.x, suffix[2])]])
+    to_coalesce, ~ dplyr::coalesce(
+      joined[[paste0(.x, suffix[1])]],
+      joined[[paste0(.x, suffix[2])]]
+    )
   )
 
   names(coalesced) <- to_coalesce
 
   dplyr::bind_cols(joined, coalesced)[cols]
-
 }
 
 
@@ -103,14 +103,15 @@ doc_data <- function(obj,
                      description = "DATASET_DESCRIPTION",
                      write_to_file = TRUE,
                      ...) {
-
   vartype <- vapply(obj, typeof, FUN.VALUE = character(1))
 
   items <- paste0("#'   \\item{\\code{",
-                  names(vartype),
-                  "}}{",
-                  vartype,
-                  ". DESCRIPTION.}", collapse = "\n")
+    names(vartype),
+    "}}{",
+    vartype,
+    ". DESCRIPTION.}",
+    collapse = "\n"
+  )
 
   out <- paste0(
     "\n#' ",
@@ -128,10 +129,11 @@ doc_data <- function(obj,
     "\""
   )
 
-  if (!write_to_file) return(out)
+  if (!write_to_file) {
+    return(out)
+  }
   write(out, file = "R/data.R", append = TRUE, sep = "\n")
   usethis::use_r("data.R")
 
   invisible(out)
-
 }

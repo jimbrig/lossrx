@@ -15,7 +15,6 @@
 #' @importFrom shiny HTML
 #' @importFrom timevis timevis
 view_claim_history <- function(claim_id, claims_data = NULL) {
-
   if (is.null(claims_data)) {
     claims_data <- claims_transactional
   }
@@ -24,11 +23,12 @@ view_claim_history <- function(claim_id, claims_data = NULL) {
     dplyr::arrange(.data$transaction_date)
 
   claim_details <- dplyr::select(claim_dat,
-                                 `Claim ID` = .data$claim_id,
-                                 `Claimant` = .data$claimant,
-                                 `State` = .data$state,
-                                 `Accident Date` = .data$accident_date,
-                                 `Report Date` = .data$report_date) |>
+    `Claim ID` = .data$claim_id,
+    `Claimant` = .data$claimant,
+    `State` = .data$state,
+    `Accident Date` = .data$accident_date,
+    `Report Date` = .data$report_date
+  ) |>
     dplyr::distinct()
 
   close_date <- dplyr::filter(claim_dat, .data$status == "Closed") |>
@@ -94,13 +94,15 @@ view_claim_history <- function(claim_id, claims_data = NULL) {
 
   trans_hist_out <- dplyr::select(
     claim_trans_hist,
-    -c(.data$`Transaction ID`,
-       .data$`Paid Change`,
-       .data$`Case Reserve Change`,
-       .data$`Reported Change`,
-       .data$`Status Details`,
-       .data$`Status`,
-       .data$`Transaction Details`)
+    -c(
+      .data$`Transaction ID`,
+      .data$`Paid Change`,
+      .data$`Case Reserve Change`,
+      .data$`Reported Change`,
+      .data$`Status Details`,
+      .data$`Status`,
+      .data$`Transaction Details`
+    )
   )
 
   timeline <- dplyr::transmute(
@@ -117,5 +119,4 @@ view_claim_history <- function(claim_id, claims_data = NULL) {
     "Transactions" = trans_hist_out,
     "Timeline" = timeline
   )
-
 }

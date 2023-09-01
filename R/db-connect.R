@@ -12,7 +12,6 @@
 #' @importFrom pool dbPool
 #' @importFrom RPostgres Postgres
 connect_db <- function(pool = TRUE) {
-
   config_file <- system.file(package = "lossrx", "database/config.yml")
   config <- config::get(file = config_file)$local_container
 
