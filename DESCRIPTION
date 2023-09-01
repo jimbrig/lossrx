@@ -40,14 +40,18 @@ Imports:
     utils
 Suggests: 
     actuar,
+    attachment,
     covr,
     dbplyr,
+    desc,
     devtools,
     fplot,
     janitor,
     kableExtra,
     knitr,
+    pkgdown,
     rmarkdown,
+    roxygen2,
     spelling,
     summarytools,
     testthat (>= 3.0.0),
@@ -62,4 +66,4 @@ Encoding: UTF-8
 Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
