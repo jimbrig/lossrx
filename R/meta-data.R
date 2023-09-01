@@ -1,4 +1,3 @@
-
 #' claims_transactional
 #'
 #' Transactional claims dataset. Convert to a static `lossrun` using the
@@ -75,4 +74,3 @@
 #'   \item{\code{miles}}{double. DESCRIPTION.}
 #' }
 "exposures"
-
