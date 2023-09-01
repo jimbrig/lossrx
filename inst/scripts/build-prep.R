@@ -11,7 +11,19 @@
 # dependencies ------------------------------------------------------------
 
 attachment::att_amend_desc(
-  extra.suggests = c("roxygen2", "devtools", "usethis", "desc", "attachment", "testthat", "pkgdown")
+  extra.suggests = c(
+    "roxygen2",
+    "devtools",
+    "usethis",
+    "desc",
+    "attachment",
+    "testthat",
+    "pkgdown",
+    "covr",
+    "spelling"
+  ),
+  use.config = TRUE,
+  path.c = "inst/config/attachment.config.yml"
 )
 
 attachment::create_dependencies_file(to = "inst/scripts/dependencies.R")
