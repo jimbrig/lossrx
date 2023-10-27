@@ -5,7 +5,7 @@ labels: [
   "bug"
 ]
 assignees:
-  - <%=$PLASTER_PARAM_GitHubUserName%>
+  - jimbrig
 body:
   - type: markdown
     attributes:
