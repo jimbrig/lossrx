@@ -1,0 +1,97 @@
+name: "Feature Request"
+description: Create a new issue for a new feature request (enhancement).
+title: "[FEATURE]: <title>"
+labels: [
+  "feature",
+  "enhancement"
+]
+assignees:
+  - jimbrig
+body:
+  - type: markdown
+    attributes:
+      value: |
+        > Thanks for submitting a new feature request issue for the repository!
+        >
+        > Follow the instructions below to fill out the form in a manner that helps us get to work on the feature
+        > as soon as possible.
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
+  - type: input
+    id: start_date
+    attributes:
+      label: "Start Date"
+      description: Start of development
+      placeholder: "YYYY-MM-DD"
+    validations:
+      required: false
+  - type: textarea
+    id: implementation_pr
+    attributes:
+      label: "Implementation Pull Request"
+      description: Pull Request Used
+      placeholder: "#Pull Request ID"
+    validations:
+      required: false
+  - type: textarea
+    id: reference_issues
+    attributes:
+      label: "Referenced Issues"
+      description: Common Issues
+      placeholder: "#Issues IDs"
+    validations:
+      required: false
+  - type: textarea
+    id: summary
+    attributes:
+      label: "Summary"
+      description: Provide a brief explanation of the feature being requested.
+      placeholder: Describe in a few lines the feature being requested and why it is needed.
+    validations:
+      required: true
+  - type: textarea
+    id: basic_example
+    attributes:
+      label: "Basic Example"
+      description: Indicate here some basic examples of your feature.
+      placeholder: A few specific words about your feature request.
+    validations:
+      required: true
+  - type: textarea
+    id: drawbacks
+    attributes:
+      label: "Drawbacks"
+      description: What are the drawbacks/impacts of your feature request ?
+      placeholder: Identify the drawbacks and impacts while being neutral on your feature request
+    validations:
+      required: false
+  - type: textarea
+    id: unresolved_question
+    attributes:
+      label: "Unresolved Questions"
+      description: What questions still remain unresolved ?
+      placeholder: Identify any unresolved issues.
+    validations:
+      required: false
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "Alternatives"
+      description: What are the alternative solutions ?
+      placeholder: Identify any alternative solutions.
+    validations:
+      required: false
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
