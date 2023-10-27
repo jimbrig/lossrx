@@ -1,29 +1,17 @@
 name: Bug Report
 description: File a bug report issue.
-title: "[Bug]: <title>"
+title: "[Bug]: <Title>"
 labels: [
-  "bug",
-  "triage"
+  "bug"
 ]
+assignees:
+  - <%=$PLASTER_PARAM_GitHubUserName%>
 body:
-  - type: textarea
-    id: description
+  - type: markdown
     attributes:
-      label: "Description"
-      description: Please enter an explicit description of your issue
-      placeholder: Short and explicit description of your incident...
-    validations:
-      required: true
-  - type: input
-    id: repro-url
-    attributes:
-      label: "Reproduction URL"
-      description: Please enter your GitHub URL to provide a reproduction of the issue
-      placeholder: ex. https://github.com/{USERNAME}/{REPO}
-    validations:
-      required: true
-      pattern: ^https://github.com/.*$
-      message: Please provide a valid GitHub URL.
+      value: |
+        > Thanks for submitting a new bug report issue for the repository. Follow the instructions below to fill out
+        > the form in a manner that helps us resolve the issue as soon as possible.
   - type: input
     id: contact
     attributes:
@@ -32,6 +20,14 @@ body:
       placeholder: ex. email@example.com
     validations:
       required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description"
+      description: Please enter an explicit description of your issue
+      placeholder: Short and explicit description of your incident...
+    validations:
+      required: true
   - type: textarea
     id: steps
     attributes:
@@ -46,6 +42,24 @@ body:
     validations:
       required: true
   - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Further Relevant Details
+      placeholder: Add any relevant details here (i.e. what did you expect to happen?).
+    validations:
+      required: false
+  - type: input
+    id: repro-url
+    attributes:
+      label: "Reproduction URL"
+      description: Please enter your GitHub URL to provide a reproduction of the issue
+      placeholder: ex. https://github.com/{USERNAME}/{REPO}
+    validations:
+      required: true
+      pattern: ^https://github.com/.*$
+      message: Please provide a valid GitHub URL.
+  - type: textarea
     id: screenshot
     attributes:
       label: "Screenshots"
@@ -59,28 +73,22 @@ body:
     id: logs
     attributes:
       label: "Logs"
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      description: |
+        Please copy and paste any relevant log output. This will be automatically formatted into code,
+        so no need for backticks.
       render: bash
     validations:
       required: false
   - type: dropdown
     id: os
     attributes:
-      label: "OS"
-      description: What is the impacted environment operating system?
+      label: "Operating System"
+      description: What is the impacted environment's operating system? (Select all that apply)
       multiple: true
       options:
         - Windows
         - Linux
         - MacOS (Darwin)
-    validations:
-      required: false
-  - type: textarea
-    id: details
-    attributes:
-      label: Details
-      description: Further Relevant Details
-      placeholder: Add any relevant details here (i.e. what did you expect to happen?).
     validations:
       required: false
   - type: checkboxes
@@ -91,7 +99,3 @@ body:
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true
-  - type: markdown
-    attributes:
-      value: |
-        Thanks for taking the time to fill out this bug report!
