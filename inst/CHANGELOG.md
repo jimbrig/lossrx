@@ -8,6 +8,8 @@ All notable changes to this project will be documented in this file.
 - Add experimental decay factors work in dev scripts
 - Create initial Dockerfile for plumber API
 - Scaffold API directory in inst/api
+- Create initial Dockerfile for plumber API
+- Scaffold API directory in inst/api
 - Add data.world feature
 - Add inst/config files
 - Fix build-prep
@@ -73,6 +75,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2023-10-27T01:08:20Z
 - Autopublish 2023-11-02T04:49:36Z
 - Autopublish 2023-11-21T02:41:35Z
+- Autopublish 2023-11-23T20:31:20Z
 
 ### Refactor
 
@@ -144,9 +147,8 @@ All notable changes to this project will be documented in this file.
 - Add some suggested package deps
 - Update WORDLIST for spelling
 - Add mockaroo mock datasets to data-raw
-- Create initial Dockerfile for plumber API
-- Scaffold API directory in inst/api
 - Simulate_function
+- Add new simulation function
 - Add gh-labels support
 - Re-structure and enhance data-raw prep files
 - Add spawn database
@@ -155,7 +157,6 @@ All notable changes to this project will be documented in this file.
 - Add working xl data files
 - Add workflow diagram
 - Add new vignette for getting started
-- Add new simulation function
 - Update database inst dir
 - Add SQL scripts for new db tables
 - Add Merged lossruns CSV for dataprep
