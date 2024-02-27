@@ -78,5 +78,3 @@ decayed_factors <- tibble::tibble(
 #     )
 #   )
 
-selected_cdfs_decayed <- decay_factor_logs |>
-
