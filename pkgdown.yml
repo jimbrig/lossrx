@@ -1,4 +1,4 @@
-pandoc: 2.19.2
+pandoc: 3.1.11
 pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
@@ -7,7 +7,7 @@ articles:
   Lossruns-and-Triangles: Lossruns-and-Triangles.html
   actuarial-statistical-distributions: actuarial-statistical-distributions.html
   lossrx: lossrx.html
-last_built: 2024-02-27T02:36Z
+last_built: 2024-03-05T21:53Z
 urls:
   reference: https://docs.jimbrig.com/lossrx/reference
   article: https://docs.jimbrig.com/lossrx/articles
