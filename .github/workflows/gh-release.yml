@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4.1.1
+    - uses: actions/checkout@v4.1.2
     - name: Create a Release
       uses: elgohr/Github-Release-Action@20231116201936
       env:
