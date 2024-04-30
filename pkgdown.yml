@@ -1,13 +1,13 @@
 pandoc: 3.1.11
-pkgdown: 2.0.7
+pkgdown: 2.0.9
 pkgdown_sha: ~
 articles:
   Actuarial-loss-reserving-overview: Actuarial-loss-reserving-overview.html
+  actuarial-statistical-distributions: actuarial-statistical-distributions.html
   Data-Overview: Data-Overview.html
   Lossruns-and-Triangles: Lossruns-and-Triangles.html
-  actuarial-statistical-distributions: actuarial-statistical-distributions.html
   lossrx: lossrx.html
-last_built: 2024-04-01T14:18Z
+last_built: 2024-04-30T01:54Z
 urls:
   reference: https://docs.jimbrig.com/lossrx/reference
   article: https://docs.jimbrig.com/lossrx/articles
