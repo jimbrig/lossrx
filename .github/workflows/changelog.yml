@@ -1,0 +1,42 @@
+name: Automate Changelog
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - CHANGELOG.md
+      - .github/**    
+  pull_request:
+    branches: [ $default-branch ]
+    types: [ opened, synchronize, closed ]
+jobs:
+  changelog:
+    name: Generate Changelog
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run Git Cliff
+        uses: tj-actions/git-cliff@v1.5.0
+        id: git-cliff
+        with:
+          args: "--verbose"
+          output: "CHANGELOG.md"
+          template-config: https://raw.githubusercontent.com/noclocks/.github/main/workflow-templates/cliff.template.toml
+      - name: Print Changelog
+        id: print-changelog
+        run: |
+          cat "CHANGELOG.md"
+      # Commit and push the updated changelog, IF not a pull request
+      - name: Commit and Push Changelog
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          set +e
+          git add CHANGELOG.md
+          git commit -m "[chore]: update changelog"
+          git push https://${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git "main"
