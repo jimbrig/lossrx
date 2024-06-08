@@ -88,12 +88,14 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2024-04-30T15:09:33Z
 - Autopublish 2024-05-27T19:47:45Z
 - Autopublish 2024-06-08T01:32:59Z
+- Autopublish 2024-06-08T01:33:41Z
 
 ### Refactor
 
 - Refactor data-raw data preparation scripts 
 - Update pkgdevt.R
 - Refactor R folder contents and file names
+- Fix dependabot-merge.yml
 
 ### Bug
 
