@@ -1,0 +1,13 @@
+name: Dependabot Auto-Merge
+on:
+  pull_request:
+    types: [opened, reopened]
+  workflow_dispatch:
+
+permissions:
+    contents: write
+    pull-requests: write
+
+jobs:
+  dependabot:
+    uses: jimbrig/ghactions/.github/workflows/dependabot-merge.yml@main
