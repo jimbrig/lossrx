@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.1.4
-      - uses: fabasoad/linguist-action@v1.0.5
+      - uses: fabasoad/linguist-action@v1.0.6
         id: linguist
         with:
           path: './'
