@@ -1,111 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/404.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/GITHUB.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/articles/Actuarial-loss-reserving-overview.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/articles/Data-Overview.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/articles/Lossruns-and-Triangles.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/articles/actuarial-statistical-distributions.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/articles/lossrx.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/index.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/reference/claims_transactional.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/reference/coalesce_join.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/reference/connect_db.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/reference/create_tbl.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/reference/data-utils.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/reference/dates.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/reference/doc_data.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/reference/exposures.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/reference/extract_num.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/reference/feedback.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/reference/indent.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/reference/inform.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/reference/interp.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/reference/loss_run.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/reference/losses.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/reference/lossrx-package.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/reference/open_pkgdown.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/reference/pipe.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/reference/simulate_claims.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/reference/tidyeval.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/reference/toproper.html</loc>
-  </url>
-  <url>
-    <loc>https://docs.jimbrig.com/lossrx/reference/view_claim_history.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://docs.jimbrig.com/lossrx/404.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/CHANGELOG.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/GITHUB.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/LICENSE-text.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/LICENSE.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/articles/Actuarial-loss-reserving-overview.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/articles/Data-Overview.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/articles/Lossruns-and-Triangles.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/articles/actuarial-statistical-distributions.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/articles/index.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/articles/lossrx.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/authors.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/index.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/news/index.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/reference/claims_transactional.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/reference/coalesce_join.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/reference/connect_db.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/reference/create_tbl.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/reference/data-utils.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/reference/dates.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/reference/doc_data.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/reference/exposures.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/reference/extract_num.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/reference/feedback.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/reference/indent.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/reference/index.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/reference/inform.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/reference/interp.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/reference/loss_run.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/reference/losses.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/reference/lossrx-package.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/reference/open_pkgdown.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/reference/pipe.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/reference/simulate_claims.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/reference/tidyeval.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/reference/toproper.html</loc></url>
+<url><loc>https://docs.jimbrig.com/lossrx/reference/view_claim_history.html</loc></url>
 </urlset>
+
